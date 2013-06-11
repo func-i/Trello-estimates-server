@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
+  include UsersHelper
 
-  def current_user
-    session[:user]
-  end
+  #TODO: ACTIVATE IT LATER!!!
+  #protect_from_forgery
+
 end

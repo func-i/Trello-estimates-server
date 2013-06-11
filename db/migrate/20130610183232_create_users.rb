@@ -2,7 +2,8 @@ class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
       t.string :email
-      t.string :auth_token
+      t.string :public_token
+      t.string :secret_token
 
       t.timestamps
     end

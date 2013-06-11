@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(:version => 20130610183249) do
   create_table "estimations", :force => true do |t|
     t.float    "developer_time"
     t.float    "manager_time"
-    t.string   "user_email"
+    t.string   "developer_id"
     t.string   "card_id"
     t.string   "board_id"
     t.string   "manager_id"
@@ -26,9 +26,10 @@ ActiveRecord::Schema.define(:version => 20130610183249) do
 
   create_table "users", :force => true do |t|
     t.string   "email"
-    t.string   "auth_token"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "public_token"
+    t.string   "secret_token"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
 end

@@ -3,7 +3,7 @@ class CreateEstimations < ActiveRecord::Migration
     create_table :estimations do |t|
       t.float :developer_time
       t.float :manager_time
-      t.string :user_email
+      t.string :developer_id
       t.string :card_id
       t.string :board_id
       t.string :manager_id

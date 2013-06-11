@@ -8,37 +8,41 @@ include Trello::Authorization
 
 class PagesController < ApplicationController
   before_filter :set_auth_config
-  before_filter :set_oauth_settings
   before_filter :user_authenticated
-  skip_before_filter :set_oauth_settings, :only => :login
+  skip_before_filter :user_authenticated, :only => :login
 
   def dashboard
-
-    #@client_bob = Trello::Client.new(
-    #    :consumer_key => "f8947184de87275b7d2d7d8a7cad978f",
-    #    :consumer_secret => "506c0d9127cf52eaa22f240533c4cc5894a5e227ecd08d888c13cb4a6fb9aad4"
-    #)
-    #debugger
-    #
-    #bob = @client_bob.find(:members,"bobtester")
-    #        puts bob
+    @organization = current_user.find(:organization, "functionalimperative")
   end
 
   def login
-    debugger
-# Then I can get access token/secret with verifier
-
-    rt = OAuth::RequestToken.new(@consumer, @request_token.token, @request_token.secret)
-
-    at = rt.get_access_token(:oauth_verifier => params["oauth_verifier"])
+    set_client_token
   end
 
-
   private
+  def set_client_token
+    @rt = OAuth::RequestToken.new(@consumer, @request_token.token, @request_token.secret)
+    @at = @rt.get_access_token(:oauth_verifier => params["oauth_verifier"])
+
+    set_current_user(@at)
+    redirect_to root_path
+  end
+
+  #def create_user
+  #  email = session[:user].find(:members, "me").email
+  #  user = User.new(:email => email, :public_token => @at.token, :secret_token => @at.secret)
+  #  if user.save
+  #    redirect_to root_path
+  #  else
+  #    session[:user] = nil
+  #    user_authenticated
+  #  end
+  #end
 
   def set_auth_config
     #TODO TALK TO KVIRANI TO SEE BETTER PLACE TO ATTACH THIS METHOD
-    @consumer = OAuth::Consumer.new "f8947184de87275b7d2d7d8a7cad978f", "506c0d9127cf52eaa22f240533c4cc5894a5e227ecd08d888c13cb4a6fb9aad4", {
+    #MAYBE MOVE THIS TO A HELPER - BEING DUPLICAtED ON USERS CONTROLLER
+    @consumer = OAuth::Consumer.new Figaro.env.trello_developer_key, Figaro.env.trello_developer_secret_key, {
         :site => "https://trello.com",
         :scheme => :header,
         :http_method => :post,
@@ -50,13 +54,8 @@ class PagesController < ApplicationController
     @request_token = @consumer.get_request_token(:oauth_callback => "http://localhost:3000/login")
   end
 
-  def set_oauth_settings
-
-    redirect_to @request_token.authorize_url+"&name=Github-Trello"
-  end
-
   def user_authenticated
-    #redirect_to "/login" unless current_user
-
+      redirect_to @request_token.authorize_url+"&name=Github-Trello&expiration=never&scope=read,write,account" unless current_user
   end
+
 end

@@ -1,3 +1,19 @@
 <h1>
-  Project
+  Projects
 </h1>
+
+<table border="1">
+  <thead>
+    <th>
+      Name
+    </th>
+
+  </thead>
+  <tbody>
+    <% @organization.boards.each do |board| %>
+      <%= render "board", :board => board %>
+    <% end %>
+
+  </tbody>
+</table>
+
