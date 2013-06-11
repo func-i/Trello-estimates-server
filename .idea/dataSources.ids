@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails Github-Trello-rails: development" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="aee6cd4b-fdfc-46ae-bad0-8f840880ac64">
+    <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+    <jdbc-url>jdbc:postgresql:github_trello_development</jdbc-url>
+    <user-name>postgres</user-name>
+    <user-password>dfc8dfd8dfdfdfc4dfc5df9bdf98df99df9e</user-password>
+    <libraries>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine40/config/jdbc-drivers/postgresql-driver-license.txt</url>
+      </library>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine40/config/jdbc-drivers/postgresql-9.1-901.jdbc3.jar</url>
+      </library>
+    </libraries>
+  </data-source>
+  <data-source source="LOCAL" name="Rails Github-Trello-rails: test" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="59b6880f-9d5d-4eb0-aa0e-a3b05b3a79a5">
+    <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+    <jdbc-url>jdbc:postgresql:realtors_hub_test</jdbc-url>
+    <user-name>postgres</user-name>
+    <user-password>dfc8dfd8dfdfdfc4dfc5df9bdf98df99df9e</user-password>
+    <libraries>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine40/config/jdbc-drivers/postgresql-driver-license.txt</url>
+      </library>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine40/config/jdbc-drivers/postgresql-9.1-901.jdbc3.jar</url>
+      </library>
+    </libraries>
+  </data-source>
+</component>

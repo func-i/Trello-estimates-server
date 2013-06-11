@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GithubTrelloRails</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= hidden_field_tag %>
+<div>
+  <%= current_user.auth_token if current_user %>
+</div>
+<%= yield %>
+
+<%= javascript_include_tag "application" %>
+<script src="https://api.trello.com/1/client.js?key=f8947184de87275b7d2d7d8a7cad978f"></script>
+<%= yield :end_of_body %>
+</body>
+</html>
