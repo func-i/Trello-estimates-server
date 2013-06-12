@@ -1,4 +1,3 @@
-
 module UsersHelper
   include Trello
   include Trello::Authorization

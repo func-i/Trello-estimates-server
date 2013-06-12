@@ -1,10 +1,16 @@
 GithubTrelloRails::Application.routes.draw do
+  resources :admins
+
+
+  resources :harvest_trellos
+
+
   root :to => "pages#dashboard"
 
-  get "login" =>  "pages#login"
+  get "login" => "pages#login"
   get "board/:id" => "boards#show", :as => :board
 
-  resources :users, :only => :create
+  resources :users, :only => :show
   resources :estimations, :only => [:index, :create]
 
   # The priority is based upon order of creation:

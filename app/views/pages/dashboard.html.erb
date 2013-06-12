@@ -1,8 +1,8 @@
 <h1>
-  Projects
+  My Projects
 </h1>
 
-<table border="1">
+<table class="table">
   <thead>
     <th>
       Name
@@ -10,7 +10,7 @@
 
   </thead>
   <tbody>
-    <% @organization.boards.each do |board| %>
+    <% @projects.each do |board| %>
       <%= render "board", :board => board %>
     <% end %>
 

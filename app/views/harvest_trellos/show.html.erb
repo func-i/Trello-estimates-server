@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Harvest name:</b>
+  <%= @harvest_trello.harvest_project %>
+</p>
+
+<p>
+  <b>Trello project:</b>
+  <%= @harvest_trello.trello_board_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_harvest_trello_path(@harvest_trello) %> |
+<%= link_to 'Back', harvest_trellos_path %>

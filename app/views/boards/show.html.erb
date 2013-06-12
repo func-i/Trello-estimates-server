@@ -3,7 +3,38 @@
 </h1>
 
 <% @lists.each do |list| %>
-  <table>
-
-  </table>
+  <h2>
+    <%= list.name %>
+  </h2>
+  <% if list.cards.count > 0 %>
+    <table class="table">
+      <thead>
+      <th>
+        Name
+      </th>
+      <th>
+        Developer Estimation
+      </th>
+      </thead>
+      <tbody>
+      <% list.cards.each do |card| %>
+        <tr>
+          <td>
+            <%= card.name %>
+          </td>
+          <td>
+            <% Estimation.developers_estimation(@board.id, card.short_id.to_s).each do |estimation| %>
+              <%= current_user.find(:member, estimation.developer_id).username %> - <%= estimation.developer_time %>
+              <br/>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <div>
+      No cards in this section
+    </div>
+  <% end %>
 <% end %>

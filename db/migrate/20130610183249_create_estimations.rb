@@ -1,12 +1,11 @@
 class CreateEstimations < ActiveRecord::Migration
   def change
     create_table :estimations do |t|
-      t.float :developer_time
-      t.float :manager_time
-      t.string :developer_id
+      t.float :user_time
+      t.string :user_id
       t.string :card_id
       t.string :board_id
-      t.string :manager_id
+      t.boolean :is_manager
 
       t.timestamps
     end

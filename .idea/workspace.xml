@@ -4,27 +4,27 @@
     <list default="true" id="fd677ffe-251a-4508-bcdf-4bd4e4837fed" name="Default" comment="" />
     <ignored path="Github-Trello-rails.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Gemfile" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370983913833" ignored="false" />
-    <file path="/application.html.erb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370902562579" ignored="false" />
+    <file path="/Gemfile" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371057001293" ignored="false" />
+    <file path="/application.html.erb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371070416874" ignored="false" />
     <file path="/pages.js.coffee" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370876707608" ignored="false" />
-    <file path="/Dummy.txt" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370875167044" ignored="false" />
+    <file path="/Dummy.txt" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371073462334" ignored="false" />
     <file path="/database.yml" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370875184832" ignored="false" />
-    <file path="/routes.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370975764445" ignored="false" />
-    <file path="/dashboard.html.erb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370963653532" ignored="false" />
+    <file path="/routes.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371048987064" ignored="false" />
+    <file path="/dashboard.html.erb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371057971638" ignored="false" />
     <file path="/card_estimative_btn.html" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370877828390" ignored="false" />
     <file path="$PROJECT_DIR$/../Github-Trello/src/html/card_estimative_btn.html" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370877599163" ignored="false" />
-    <file path="$PROJECT_DIR$/../Github-Trello/src/javascript/background.js" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370983318718" ignored="false" />
-    <file path="$PROJECT_DIR$/../Github-Trello/src/javascript/coffee/estimations.coffee" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370987808814" ignored="false" />
-    <file path="/estimations.coffee" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370986199043" ignored="false" />
+    <file path="$PROJECT_DIR$/../Github-Trello/src/javascript/background.js" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371052202343" ignored="false" />
+    <file path="$PROJECT_DIR$/../Github-Trello/src/javascript/coffee/estimations.coffee" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371074248781" ignored="false" />
+    <file path="/estimations.coffee" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371074235397" ignored="false" />
     <file path="$PROJECT_DIR$/../Github-Trello/manifest.json" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370985745106" ignored="false" />
-    <file path="$PROJECT_DIR$/../Github-Trello/src/javascript/estimations.js" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370987811340" ignored="false" />
-    <file path="$PROJECT_DIR$/../Github-Trello/src/html/estimation_modal.html" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370980099203" ignored="false" />
+    <file path="$PROJECT_DIR$/../Github-Trello/src/javascript/estimations.js" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371074223026" ignored="false" />
+    <file path="$PROJECT_DIR$/../Github-Trello/src/html/estimation_modal.html" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371073202093" ignored="false" />
     <file path="$PROJECT_DIR$/../Github-Trello/src/html/card_estimation_btn.html" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370877828390" ignored="false" />
     <file path="$PROJECT_DIR$/../Github-Trello/src/html/my_estimation_form.html" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370885137708" ignored="false" />
     <file path="/my_estimation_form.html" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370879247157" ignored="false" />
     <file path="$PROJECT_DIR$/../Github-Trello/src/javascript/coffee/popup.coffee" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370886291103" ignored="false" />
     <file path="/estimations.js" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370880788857" ignored="false" />
-    <file path="/estimation_modal.html" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370980099203" ignored="false" />
+    <file path="/estimation_modal.html" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371073202093" ignored="false" />
     <file path="/estimation_btn.html" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370885259325" ignored="false" />
     <file path="$PROJECT_DIR$/../Github-Trello/src/html/estimation_btn.html" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370885259325" ignored="false" />
     <file path="/popup.coffee" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370886174173" ignored="false" />
@@ -35,31 +35,45 @@
     <file path="$PROJECT_DIR$/../Github-Trello/src/javascript/trello.js" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370969203035" ignored="false" />
     <file path="$PROJECT_DIR$/../Github-Trello/src/javascript/vendors/client.js" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370888576558" ignored="false" />
     <file path="/authorization.js.coffee" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370895474526" ignored="false" />
-    <file path="/users_controller.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370959197592" ignored="false" />
+    <file path="/users_controller.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371053058002" ignored="false" />
     <file path="/user.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370960236451" ignored="false" />
-    <file path="/pages_controller.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370963421662" ignored="false" />
+    <file path="/pages_controller.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371059154162" ignored="false" />
     <file path="/login.html.erb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370895842253" ignored="false" />
     <file path="/dashboard.js.coffee" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370896506726" ignored="false" />
-    <file path="/estimations_controller.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370989108427" ignored="false" />
-    <file path="/estimation.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370988754271" ignored="false" />
-    <file path="/*.regexp" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370961747845" ignored="false" />
-    <file path="/20130610183249_create_estimations.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370975107788" ignored="false" />
-    <file path="/users_helper.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370961192031" ignored="false" />
-    <file path="/application_controller.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370982521030" ignored="false" />
+    <file path="/estimations_controller.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371073858830" ignored="false" />
+    <file path="/estimation.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371072926938" ignored="false" />
+    <file path="/*.regexp" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371073632313" ignored="false" />
+    <file path="/20130610183249_create_estimations.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371072515013" ignored="false" />
+    <file path="/users_helper.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371052724178" ignored="false" />
+    <file path="/application_controller.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371050986008" ignored="false" />
     <file path="/trello.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370920430212" ignored="false" />
-    <file path="/application.yml" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370958366379" ignored="false" />
+    <file path="/application.yml" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371061082142" ignored="false" />
     <file path="/20130610183232_create_users.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370960937378" ignored="false" />
     <file path="/_board.html.erb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370963998964" ignored="false" />
     <file path="/boards_controller.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370964462223" ignored="false" />
-    <file path="/show.html.erb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370964552647" ignored="false" />
+    <file path="/show.html.erb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371063616488" ignored="false" />
     <file path="$PROJECT_DIR$/../Github-Trello/src/javascript/coffee/helper.coffee" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370969823778" ignored="false" />
     <file path="/helper.coffee" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370969159286" ignored="false" />
     <file path="$PROJECT_DIR$/../Github-Trello/src/javascript/helper.js" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370969458983" ignored="false" />
     <file path="/manifest.json" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370977198617" ignored="false" />
-    <file path="$PROJECT_DIR$/../Github-Trello/src/html/estimations.html" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370986067879" ignored="false" />
+    <file path="$PROJECT_DIR$/../Github-Trello/src/html/estimations.html" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371052637942" ignored="false" />
     <file path="/estimations.html" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370986064232" ignored="false" />
     <file path="/index.json.jbuilder" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370987806330" ignored="false" />
-    <file path="/_estimation.json.jbuilder" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370988104527" ignored="false" />
+    <file path="/_estimation.json.jbuilder" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371073128979" ignored="false" />
+    <file path="/estimations_helper.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371048125465" ignored="false" />
+    <file path="/board.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371047643107" ignored="false" />
+    <file path="/application.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371052970424" ignored="false" />
+    <file path="/index.html.erb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371070525823" ignored="false" />
+    <file path="/harvest.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371059400979" ignored="false" />
+    <file path="/harvest_trellos_helper.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371062320224" ignored="false" />
+    <file path="$PROJECT_DIR$/log/development.log" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371063713372" ignored="false" />
+    <file path="/harvest_log.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371070118328" ignored="false" />
+    <file path="/20130612180817_create_harvest_logs.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371063413758" ignored="false" />
+    <file path="/harvest_trello.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371069189643" ignored="false" />
+    <file path="/20130612171930_create_harvest_trellos.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371063418533" ignored="false" />
+    <file path="/_form.html.erb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371063545053" ignored="false" />
+    <file path="/harvest_log.rake" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371073597760" ignored="false" />
+    <file path="/admin.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371073885855" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,10 +90,28 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pages_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/pages_controller.rb">
+      <file leaf-file-name="harvest_log.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/harvest_log.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="15" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0">
+            <state line="28" column="16" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="64" column="44" selection-start="2918" selection-end="2918" vertical-scroll-proportion="-10.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/admins/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="19" selection-start="44" selection-end="44" vertical-scroll-proportion="-1.25">
               <folding />
             </state>
           </provider>
@@ -88,16 +120,25 @@
       <file leaf-file-name="estimations_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/estimations_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="12" selection-start="1288" selection-end="1288" vertical-scroll-proportion="0.0">
+            <state line="21" column="55" selection-start="842" selection-end="842" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.json.jbuilder" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/estimations/index.json.jbuilder">
+      <file leaf-file-name="harvest_log.rake" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/tasks/harvest_log.rake">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="38" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0">
+            <state line="12" column="15" selection-start="444" selection-end="444" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="4" selection-start="61" selection-end="61" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -106,61 +147,34 @@
       <file leaf-file-name="_estimation.json.jbuilder" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/estimations/_estimation.json.jbuilder">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="33" selection-start="24" selection-end="24" vertical-scroll-proportion="0.0">
+            <state line="0" column="48" selection-start="48" selection-end="48" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Gemfile">
+      <file leaf-file-name="admin.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/admin.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="13" selection-start="546" selection-end="546" vertical-scroll-proportion="0.0">
+            <state line="3" column="21" selection-start="80" selection-end="80" vertical-scroll-proportion="0.12195122">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/boards/show.html.erb">
+      <file leaf-file-name="20130610183249_create_estimations.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20130610183249_create_estimations.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="9" selection-start="92" selection-end="92" vertical-scroll-proportion="-5.0">
+            <state line="7" column="27" selection-start="215" selection-end="225" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="estimation.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="estimation.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/estimation.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="0" selection-start="227" selection-end="227" vertical-scroll-proportion="0.3">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="users_helper.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/helpers/users_helper.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="26" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="trello.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p194/gems/ruby-trello-1.0.1/lib/trello.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="15" selection-start="2520" selection-end="2520" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="member.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p194/gems/ruby-trello-1.0.1/lib/trello/member.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="8" selection-start="68" selection-end="68" vertical-scroll-proportion="0.0">
+            <state line="23" column="104" selection-start="821" selection-end="821" vertical-scroll-proportion="-6.548387">
               <folding />
             </state>
           </provider>
@@ -176,27 +190,27 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/db/migrate/20130610183232_create_users.rb" />
-        <option value="$USER_HOME$/.rvm/gems/ruby-1.9.3-p194/gems/ruby-trello-1.0.1/lib/trello.rb" />
-        <option value="$PROJECT_DIR$/app/helpers/users_helper.rb" />
+        <option value="$PROJECT_DIR$/app/views/harvest_trellos/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/harvest_trellos/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/pages_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/pages/dashboard.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/pages/_board.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/boards_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/boards/show.html.erb" />
+        <option value="$PROJECT_DIR$/lib/tasks/harvest_log.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20130612180817_create_harvest_logs.rb" />
+        <option value="$PROJECT_DIR$/app/models/harvest_trello.rb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/admins/index.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20130610183249_create_estimations.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/app/views/estimations/index.json.jbuilder" />
-        <option value="$PROJECT_DIR$/app/views/estimations/_estimation.json.jbuilder" />
-        <option value="$PROJECT_DIR$/app/controllers/estimations_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/estimation.rb" />
+        <option value="$PROJECT_DIR$/app/views/estimations/_estimation.json.jbuilder" />
+        <option value="$PROJECT_DIR$/lib/tasks/harvest_log.rake" />
+        <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/harvest_log.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/estimations_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/admin.rb" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
+    <option name="x" value="1984" />
     <option name="y" value="-4" />
     <option name="width" value="1303" />
     <option name="height" value="772" />
@@ -227,6 +241,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="RailsProjectView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -234,15 +250,9 @@
               <option name="myItemId" value="Github-Trello-rails" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Github-Trello-rails" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Github-Trello-rails" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -252,28 +262,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Github-Trello-rails" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Github-Trello-rails" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Github-Trello-rails" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrate" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -287,7 +275,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tasks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Github-Trello-rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Github-Trello-rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -344,24 +350,6 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Github-Trello-rails" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Github-Trello-rails" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -377,32 +365,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="helpers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Github-Trello-rails" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Github-Trello-rails" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="RailsProjectView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -413,6 +381,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/models" />
+      <recent name="$PROJECT_DIR$/config/initializers" />
       <recent name="$PROJECT_DIR$/app/views/pages" />
       <recent name="$PROJECT_DIR$/app/assets/javascripts" />
     </key>
@@ -498,6 +468,26 @@
       <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
       <method />
     </configuration>
+    <configuration default="true" type="RubyRunConfigurationType" factoryName="Ruby">
+      <module name="" />
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest">
       <predefined_log_file id="RUBY_TESTUNIT" enabled="true" />
       <module name="" />
@@ -522,6 +512,13 @@
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" />
+        <option name="fileUrl" />
+      </JSRemoteDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="CucumberRunConfigurationType" factoryName="Cucumber">
@@ -678,15 +675,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-4" width="1303" height="772" extended-state="6" />
+    <frame x="1984" y="-4" width="1303" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32988167" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3402367" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26378897" sideWeight="0.67011833" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2613909" sideWeight="0.65976334" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933652" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -758,114 +755,114 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p194/gems/ruby-trello-1.0.1/lib/trello/card.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="55" selection-start="850" selection-end="850" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/boards_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="10" selection-start="63" selection-end="69" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20130610183249_create_estimations.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="28" selection-start="186" selection-end="186" vertical-scroll-proportion="0.19946809">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="51" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/estimations_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/users_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="26" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p194/gems/ruby-trello-1.0.1/lib/trello.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="15" selection-start="2520" selection-end="2520" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p194/gems/ruby-trello-1.0.1/lib/trello/member.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="8" selection-start="68" selection-end="68" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="26" selection-start="102" selection-end="102" vertical-scroll-proportion="0.11968085">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="13" selection-start="546" selection-end="546" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/boards/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="9" selection-start="92" selection-end="92" vertical-scroll-proportion="-5.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/estimations/index.json.jbuilder">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="38" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0">
+        <state line="4" column="6" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/pages_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="15" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0">
+        <state line="6" column="5" selection-start="237" selection-end="237" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/estimations/_estimation.json.jbuilder">
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="33" selection-start="24" selection-end="24" vertical-scroll-proportion="0.0">
+        <state line="20" column="17" selection-start="389" selection-end="389" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/estimations_controller.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20130612180817_create_harvest_logs.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="12" selection-start="1288" selection-end="1288" vertical-scroll-proportion="0.0">
+        <state line="6" column="31" selection-start="208" selection-end="208" vertical-scroll-proportion="0.26086956">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/harvest_trello.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="11" selection-start="106" selection-end="106" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20130612171930_create_harvest_trellos.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="31" selection-start="155" selection-end="170" vertical-scroll-proportion="0.16260162">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="44" selection-start="2918" selection-end="2918" vertical-scroll-proportion="-10.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admins/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="19" selection-start="44" selection-end="44" vertical-scroll-proportion="-1.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20130610183249_create_estimations.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="27" selection-start="215" selection-end="225" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/estimation.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="227" selection-end="227" vertical-scroll-proportion="0.3">
+        <state line="23" column="104" selection-start="821" selection-end="821" vertical-scroll-proportion="-6.548387">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/estimations/_estimation.json.jbuilder">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="48" selection-start="48" selection-end="48" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/tasks/harvest_log.rake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="15" selection-start="444" selection-end="444" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="4" selection-start="61" selection-end="61" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/harvest_log.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="16" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/estimations_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="55" selection-start="842" selection-end="842" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/admin.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="21" selection-start="80" selection-end="80" vertical-scroll-proportion="0.12195122">
           <folding />
         </state>
       </provider>

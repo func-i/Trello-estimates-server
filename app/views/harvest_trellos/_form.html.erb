@@ -1,0 +1,25 @@
+<%= form_for(@harvest_trello) do |f| %>
+  <% if @harvest_trello.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@harvest_trello.errors.count, "error") %> prohibited this harvest_trello from being saved:</h2>
+
+      <ul>
+      <% @harvest_trello.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :harvest_project %><br />
+    <%= f.text_field :harvest_project %>
+  </div>
+  <div class="field">
+    <%= f.label :trello_board_id %><br />
+    <%= f.text_field :trello_board_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
