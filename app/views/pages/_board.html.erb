@@ -4,24 +4,19 @@
   </td>
   <td>
     <% developers_estimation = Estimation.developers_estimation(board.id) %>
-    <% if developers_estimation.count > 0 %>
-      <%= developers_estimation.sum(&:user_time)/ developers_estimation.count.to_f %>
-    <% else %>
-      0
-    <% end %>
+    <%= developers_estimation.sum(&:user_time) %>
   </td>
   <td>
     <% managers_estimation = Estimation.managers_estimation(board.id) %>
-    <% if managers_estimation.count > 0 %>
-      <%= managers_estimation.sum(&:user_time)/ managers_estimation.count.to_f %>
-    <% else %>
-      0
-    <% end %>
+    <%= managers_estimation.sum(&:user_time) %>
   </td>
   <td>
     <%= HarvestLog.total_time_tracked(board.id).sum(&:total_time) %>
   </td>
   <td>
     <%= hours_left(board) %>
+  </td>
+  <td>
+    <%= performance(board) %>
   </td>
 </tr>

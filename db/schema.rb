@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20130612205116) do
     t.integer  "card_id"
     t.float    "total_time"
     t.string   "developer_email"
+    t.date     "day"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end

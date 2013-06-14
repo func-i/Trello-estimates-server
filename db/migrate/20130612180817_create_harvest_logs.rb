@@ -5,6 +5,7 @@ class CreateHarvestLogs < ActiveRecord::Migration
       t.integer :card_id
       t.float :total_time
       t.string :developer_email
+      t.date :day
 
       t.timestamps
     end

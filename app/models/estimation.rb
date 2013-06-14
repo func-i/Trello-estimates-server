@@ -12,7 +12,8 @@ class Estimation < ActiveRecord::Base
             :presence => true
 
   validates :user_id,
-            :presence => true
+            :presence => true,
+            :unless => Proc.new { |estimation| estimation.is_manager? }
 
   validates :user_time,
             :presence => true

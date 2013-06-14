@@ -1,18 +1,39 @@
 module BoardsHelper
+  #TODO THOSE METHODS CAN BE REFACTORED
   def hours_left(board)
-    finished_card = Array.new
-    #
-    #board.cards.each do |card|
-    #  associated_list = card.list.name
-    #  finished_card << card.id if associated_list == "Staged" || associated_list == "Live"
-    #end
-    #
-    #total_time_tracked = HarvestLog.total_time_tracked(board.id).where("harvest_logs.card_id NOT IN (?)", finished_card)
-    #if total_time_tracked.count > 0
-    #  total_time_tracked.sum(&:total_time) / total_time_tracked.count.to_f
-    #else
-    #  0
-    #end
-     0
+    unfinished_cards = list_cards(board)
+    time_tracked = list_time_tracked(board, unfinished_cards)
+
+    total_time_tracked = time_tracked.inject(0) { |sum, n| sum + n.total_time }
+    result = "#{"%.2f" % (Estimation.developers_estimation(board.id).sum(&:user_time) - total_time_tracked)} / "
+    result+= "#{"%.2f" % (Estimation.managers_estimation(board.id).sum(&:user_time) - total_time_tracked)}"
+  end
+
+  def performance(board)
+    finished_cards = list_cards(board, true)
+    time_tracked = list_time_tracked(board, finished_cards)
+    total_time_tracked = time_tracked.inject(0) { |sum, n| sum + n.total_time }
+
+    result = "#{"%.2f" % (Estimation.developers_estimation(board.id).sum(&:user_time) - total_time_tracked) } / "
+    result+= "#{"%.2f" % (Estimation.managers_estimation(board.id).sum(&:user_time) - total_time_tracked) }"
+  end
+
+  private
+
+  def list_time_tracked(board, card_ids)
+    HarvestLog.total_time_tracked(board.id).where("harvest_logs.card_id IN (?)", card_ids)
+  end
+
+  def list_cards(board, only_staged_and_live = false)
+    cards = Array.new
+    board.lists.each do |list|
+      list_name = list.name
+      if only_staged_and_live
+        cards+= list.cards.map(&:short_id) if list_name == "Staged" || list_name == "Live"
+      else
+        cards+= list.cards.map(&:short_id) if list_name != "Staged" && list_name != "Live"
+      end
+    end
+    cards
   end
 end

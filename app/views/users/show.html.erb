@@ -1,7 +1,7 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div id="estimation_management_time" style="width:100%; height:400px;"></div>
 
 
 <% content_for :end_of_body do %>
-  <% javascript_include_tag "jscharts" %>
+  <%= javascript_include_tag "highchart/highcharts" %>
+  <%= javascript_include_tag "users" %>
 <% end %>
