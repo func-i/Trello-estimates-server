@@ -1,3 +1,4 @@
+<% lists = board.lists %>
 <tr>
   <td>
     <%= link_to board.name, board_path(board.id) %>
@@ -14,9 +15,9 @@
     <%= HarvestLog.total_time_tracked(board.id).sum(&:total_time) %>
   </td>
   <td>
-    <%= hours_left(board) %>
+    <%= time_track_less_estimation(board, lists) %>
   </td>
   <td>
-    <%= performance(board) %>
+    <%= time_track_less_estimation(board, lists, true) %>
   </td>
 </tr>

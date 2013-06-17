@@ -22,7 +22,11 @@
         Time Tracked
       </th>
       <th>
-        Remaining hours
+        <% if list.finished? %>
+          Performance
+        <% else %>
+          Remaining hours
+        <% end %>
       </th>
       </thead>
       <tbody>
@@ -37,7 +41,7 @@
             <% if developers_estimation.count > 0 %>
               <% average_developer_estimation = developers_estimation.sum(&:user_time)/ developers_estimation.count.to_f %>
             <% end %>
-            <%= average_developer_estimation %>
+            <%= "%.2f" % average_developer_estimation %>
           </td>
           <td>
             <% managers_estimation = Estimation.managers_estimation(@board.id, card.short_id.to_s) %>
@@ -45,14 +49,14 @@
             <% if managers_estimation.count > 0 %>
               <% average_manager_estimation = managers_estimation.sum(&:user_time)/ managers_estimation.count.to_f %>
             <% end %>
-            <%= average_manager_estimation %>
+            <%= "%.2f" % average_manager_estimation %>
           </td>
           <td>
             <% total_tracked_time = HarvestLog.total_time_tracked(@board.id, card.short_id.to_s).sum(&:total_time) %>
             <%= total_tracked_time %>
           </td>
           <td>
-            <%= average_developer_estimation - total_tracked_time %> / <%= average_manager_estimation - total_tracked_time %>
+            <%= "%.2f" % (average_developer_estimation - total_tracked_time) %> / <%= "%.2f" % (average_manager_estimation - total_tracked_time) %>
           </td>
         </tr>
       <% end %>
