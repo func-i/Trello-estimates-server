@@ -28,6 +28,10 @@ class HarvestLog < ActiveRecord::Base
     end
   }
 
+  scope :total_time_tracked_by_developer, lambda { |developer_email|
+    where("developer_email = ?", developer_email)
+  }
+
   def self.create_or_update_log(total_time, harvest_project, harvest_note, developer_email, day)
     card_id = assigned_card(harvest_note)
     board_id = HarvestTrello.board_by_harvest_project(harvest_project).trello_board_id

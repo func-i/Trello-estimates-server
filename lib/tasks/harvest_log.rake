@@ -5,7 +5,7 @@ namespace :harvest do
       daily_tasks.each do |daily_task|
         begin
           developer_email = HARVEST.users.find(daily_task.user_id).email
-          HarvestLog.create_or_update_log(daily_task.hours, daily_task.project, daily_task.notes, developer_email, daily_task.timer_started_at)
+          HarvestLog.create_or_update_log(daily_task.hours, daily_task.project, daily_task.notes, developer_email, daily_task.spent_at)
         rescue Exception => e
           puts e
         end

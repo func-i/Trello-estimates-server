@@ -34,8 +34,8 @@ class Estimation < ActiveRecord::Base
     end
   }
 
-  scope :estimations_by_developer, lambda { |user_id| where("user_id =? AND is_manager IS NULL", user_id) }
+  scope :estimations_by_developer, lambda { |user_id| where("user_id =? AND is_manager = false", user_id) }
 
-  scope :total_estimation_by_developer, lambda { self.estimations_by_developer }
+  scope :estimations_by_manager, lambda { |boards_id| where("user_id =? AND is_manager = false", user_id) }
 
 end

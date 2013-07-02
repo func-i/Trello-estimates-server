@@ -10,8 +10,8 @@ module BoardsHelper
       developers_estimation = Estimation.developers_estimation(board_id).where("estimations.card_id IN (?)", cards)
       managers_estimation = Estimation.managers_estimation(board_id).where("estimations.card_id IN (?)", cards)
 
-      result = "#{"%.2f" % (developers_estimation.sum(&:user_time) - total_time_tracked)} / "
-      result+= "#{"%.2f" % (managers_estimation.sum(&:user_time) - total_time_tracked)}"
+      result = "#{"%.2f" % (total_time_tracked - developers_estimation.sum(&:user_time))} / "
+      result+= "#{"%.2f" % (total_time_tracked - managers_estimation.sum(&:user_time))}"
     else
       result = "0.00 / 0.00"
     end

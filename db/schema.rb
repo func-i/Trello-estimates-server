@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20130612205116) do
   create_table "estimations", :force => true do |t|
     t.float    "user_time"
     t.string   "user_id"
-    t.string   "card_id"
+    t.integer  "card_id"
     t.string   "board_id"
     t.boolean  "is_manager"
     t.datetime "created_at", :null => false
