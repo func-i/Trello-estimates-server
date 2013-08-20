@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd677ffe-251a-4508-bcdf-4bd4e4837fed" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Github-Trello-rails.iml" afterPath="$PROJECT_DIR$/.idea/Github-Trello-rails.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/estimations_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/estimations_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -13,7 +10,7 @@
     <file path="/Gemfile" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1376975450847" ignored="false" />
     <file path="/application.html.erb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371070416874" ignored="false" />
     <file path="/pages.js.coffee" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370876707608" ignored="false" />
-    <file path="/Dummy.txt" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1376975271243" ignored="false" />
+    <file path="/Dummy.txt" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1376977085316" ignored="false" />
     <file path="/database.yml" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370875184832" ignored="false" />
     <file path="/routes.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371048987064" ignored="false" />
     <file path="/dashboard.html.erb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1376960742418" ignored="false" />
@@ -134,7 +131,7 @@
       <file leaf-file-name="estimations_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/estimations_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="41" selection-start="238" selection-end="238" vertical-scroll-proportion="0.17213115">
+            <state line="2" column="63" selection-start="127" selection-end="127" vertical-scroll-proportion="0.04918033">
               <folding />
             </state>
           </provider>
@@ -406,19 +403,19 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="RailsProjectView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../elephant-thoughts" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="GoToClass.includeJavaFiles" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -580,13 +577,6 @@
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
-      <JSRemoteDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSRemoteDebuggerConfigurationSettings>
-      <method />
-    </configuration>
     <configuration default="true" type="CucumberRunConfigurationType" factoryName="Cucumber">
       <predefined_log_file id="RUBY_CUCUMBER" enabled="true" />
       <module name="" />
@@ -620,6 +610,13 @@
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="CUCUMBER_RUNNER_PATH" VALUE="" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_RUNNER" VALUE="false" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="SETTINGS_VERSION" VALUE="2" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSRemoteDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="false" name="test" type="RakeRunConfigurationType" factoryName="Rake">
@@ -774,7 +771,11 @@
       <created>1375801134326</created>
       <updated>1375801134326</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="-Fix code due changes on trello URL">
+      <created>1376976868220</created>
+      <updated>1376976868220</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -785,7 +786,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34932053" sideWeight="0.71005917" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35571542" sideWeight="0.71005917" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39940828" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933652" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -839,7 +840,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="-eyAdd domain k to redirects to right place" />
+    <option name="LAST_COMMIT_MESSAGE" value="-Fix code due changes on trello URL" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -855,6 +856,7 @@
     <MESSAGE value="-Fix harvest tracker&#10;-Start Estimation graph&#10;" />
     <MESSAGE value="-Add calculator" />
     <MESSAGE value="-eyAdd domain k to redirects to right place" />
+    <MESSAGE value="-Fix code due changes on trello URL" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -869,30 +871,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/estimations/_estimation.json.jbuilder">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="6" selection-start="179" selection-end="179" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="7" column="6" selection-start="179" selection-end="179" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/harvest_trellos/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="42" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="14" column="42" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/harvest_log.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/harvest_trello.rb">
@@ -967,7 +961,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/estimations_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="41" selection-start="238" selection-end="238" vertical-scroll-proportion="0.17213115">
+        <state line="2" column="63" selection-start="127" selection-end="127" vertical-scroll-proportion="0.04918033">
           <folding />
         </state>
       </provider>

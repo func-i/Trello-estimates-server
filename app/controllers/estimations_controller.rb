@@ -1,6 +1,6 @@
 class EstimationsController < ApplicationController
   def index
-    @estimations = Estimation.where(:card_id => params[:cardId], :board_id => params[:boardId])
+    @estimations = Estimation.where(:card_id => params[:cardId])
     @estimations
   end
 
