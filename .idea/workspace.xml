@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd677ffe-251a-4508-bcdf-4bd4e4837fed" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/estimations_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/estimations_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Github-Trello-rails.iws" />
@@ -10,7 +10,7 @@
     <file path="/Gemfile" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1376975450847" ignored="false" />
     <file path="/application.html.erb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371070416874" ignored="false" />
     <file path="/pages.js.coffee" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370876707608" ignored="false" />
-    <file path="/Dummy.txt" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1376977085316" ignored="false" />
+    <file path="/Dummy.txt" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1376977106508" ignored="false" />
     <file path="/database.yml" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370875184832" ignored="false" />
     <file path="/routes.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371048987064" ignored="false" />
     <file path="/dashboard.html.erb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1376960742418" ignored="false" />
@@ -128,19 +128,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="estimations_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="estimations_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/estimations_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="63" selection-start="127" selection-end="127" vertical-scroll-proportion="0.04918033">
+            <state line="2" column="63" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="0" selection-start="944" selection-end="944" vertical-scroll-proportion="0.0">
+            <state line="47" column="0" selection-start="960" selection-end="960" vertical-scroll-proportion="0.83146065">
               <folding />
             </state>
           </provider>
@@ -212,10 +212,10 @@
         <option value="$PROJECT_DIR$/app/views/harvest_trellos/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/pages/_board.html.erb" />
         <option value="$PROJECT_DIR$/app/views/pages/dashboard.html.erb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$USER_HOME$/.rvm/gems/ruby-1.9.3-p194/gems/ruby-trello-1.0.1/lib/trello/client.rb" />
         <option value="$PROJECT_DIR$/app/controllers/pages_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/estimations_controller.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -775,13 +775,18 @@
       <created>1376976868220</created>
       <updated>1376976868220</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="-Fix code due changes on trello URL">
+      <created>1376977109594</created>
+      <updated>1376977109594</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-4" width="1303" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -796,7 +801,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28994083" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -917,13 +921,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="0" selection-start="944" selection-end="944" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p194/gems/ruby-trello-1.0.1/lib/trello/organization.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="8" selection-start="970" selection-end="970" vertical-scroll-proportion="0.7512521">
@@ -961,7 +958,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/estimations_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="63" selection-start="127" selection-end="127" vertical-scroll-proportion="0.04918033">
+        <state line="2" column="63" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="0" selection-start="960" selection-end="960" vertical-scroll-proportion="0.83146065">
           <folding />
         </state>
       </provider>
