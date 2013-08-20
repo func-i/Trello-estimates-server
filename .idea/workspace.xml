@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd677ffe-251a-4508-bcdf-4bd4e4837fed" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Github-Trello-rails.iml" afterPath="$PROJECT_DIR$/.idea/Github-Trello-rails.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Github-Trello-rails.iws" />
@@ -10,7 +11,7 @@
     <file path="/Gemfile" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1376975450847" ignored="false" />
     <file path="/application.html.erb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371070416874" ignored="false" />
     <file path="/pages.js.coffee" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370876707608" ignored="false" />
-    <file path="/Dummy.txt" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1376977106508" ignored="false" />
+    <file path="/Dummy.txt" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1376977255558" ignored="false" />
     <file path="/database.yml" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1370875184832" ignored="false" />
     <file path="/routes.rb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1371048987064" ignored="false" />
     <file path="/dashboard.html.erb" changelist="fd677ffe-251a-4508-bcdf-4bd4e4837fed" time="1376960742418" ignored="false" />
@@ -140,7 +141,7 @@
       <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="0" selection-start="960" selection-end="960" vertical-scroll-proportion="0.83146065">
+            <state line="28" column="22" selection-start="590" selection-end="590" vertical-scroll-proportion="0.3739968">
               <folding />
             </state>
           </provider>
@@ -779,7 +780,11 @@
       <created>1376977109594</created>
       <updated>1376977109594</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="-remove useless gem&#10;">
+      <created>1376977256676</created>
+      <updated>1376977256676</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -844,7 +849,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="-Fix code due changes on trello URL" />
+    <option name="LAST_COMMIT_MESSAGE" value="-remove useless gem&#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -861,6 +866,7 @@
     <MESSAGE value="-Add calculator" />
     <MESSAGE value="-eyAdd domain k to redirects to right place" />
     <MESSAGE value="-Fix code due changes on trello URL" />
+    <MESSAGE value="-remove useless gem&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -965,7 +971,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="0" selection-start="960" selection-end="960" vertical-scroll-proportion="0.83146065">
+        <state line="28" column="22" selection-start="590" selection-end="590" vertical-scroll-proportion="0.3739968">
           <folding />
         </state>
       </provider>
