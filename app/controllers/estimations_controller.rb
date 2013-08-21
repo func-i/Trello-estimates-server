@@ -1,17 +1,19 @@
 class EstimationsController < ApplicationController
   def index
-    @estimations = Estimation.where(:card_id => params[:cardId])
+    card = current_user.find(:cards, ""+params[:cardId])
+    @estimations = Estimation.where(:card_id => card.id)
     @estimations
   end
 
   def create
-    card_id = params[:estimation][:card_id]
+    card_temp = params[:estimation][:card_id]
     user_username = params[:estimation].delete :user_username
     is_manager = params[:estimation][:is_manager].to_bool
 
     user = current_user.find(:member, user_username)
-    card = current_user.find(:cards, ""+card_id)
-
+    card = current_user.find(:cards, ""+card_temp)
+    board_id = card.board.id
+    card_id = card.id
     if is_manager
       estimation_db = Estimation.where(:board_id => card.board_id, :card_id => card.id, :is_manager => is_manager).first
     else
@@ -22,7 +24,10 @@ class EstimationsController < ApplicationController
                    estimation_db.user_time = params[:estimation][:user_time]
                    estimation_db
                  else
-                   Estimation.new(params[:estimation])
+                   est_aux = Estimation.new(params[:estimation])
+                   est_aux.board_id = board_id
+                   est_aux.card_id = card_id
+                   est_aux
                  end
 
     estimation.user_id = user.id if !is_manager
