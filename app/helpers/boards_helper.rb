@@ -26,7 +26,7 @@ module BoardsHelper
   def list_cards(lists, only_staged_and_live)
     cards = Array.new
     lists.each do |list|
-      cards+= list.cards.map(&:short_id) if only_staged_and_live == list.finished?
+      cards+= list.cards.map(&:id) if only_staged_and_live == list.finished?
     end
     cards
   end

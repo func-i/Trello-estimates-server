@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130821023734) do
+ActiveRecord::Schema.define(:version => 20130821023735) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20130821023734) do
 
   create_table "harvest_logs", :force => true do |t|
     t.string   "board_id"
-    t.integer  "card_id"
+    t.string   "card_id"
     t.float    "total_time"
     t.string   "developer_email"
     t.date     "day"
