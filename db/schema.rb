@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130612205116) do
+ActiveRecord::Schema.define(:version => 20130821023734) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20130612205116) do
   create_table "estimations", :force => true do |t|
     t.float    "user_time"
     t.string   "user_id"
-    t.integer  "card_id"
+    t.string   "card_id"
     t.string   "board_id"
     t.boolean  "is_manager"
     t.datetime "created_at", :null => false
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20130612205116) do
     t.string   "trello_board_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "project_name"
   end
 
   create_table "users", :force => true do |t|
