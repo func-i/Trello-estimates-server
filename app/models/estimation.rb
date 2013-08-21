@@ -20,7 +20,7 @@ class Estimation < ActiveRecord::Base
 
   scope :developers_estimation, lambda { |board_id, card_id = nil|
     if card_id
-      where("board_id = ? AND card_id = ? AND is_manager = false", board_id, card_id)
+      where("board_id = ? AND card_id LIKE ? AND is_manager = false", board_id, card_id)
     else
       where("board_id = ? AND is_manager = false", board_id)
     end
@@ -28,7 +28,7 @@ class Estimation < ActiveRecord::Base
 
   scope :managers_estimation, lambda { |board_id, card_id = nil|
     if card_id
-      where("board_id = ? AND card_id = ? AND is_manager = true", board_id, card_id)
+      where("board_id = ? AND card_id LIKE ? AND is_manager = true", board_id, card_id)
     else
       where("board_id = ? AND is_manager = true", board_id)
     end

@@ -36,7 +36,7 @@
             <%= card.name %>
           </td>
           <td>
-            <% developers_estimation = Estimation.developers_estimation(@board.id, card.short_id.to_s ) %>
+            <% developers_estimation = Estimation.developers_estimation(@board.id, card.id.to_s ) %>
             <% average_developer_estimation = 0 %>
             <% if developers_estimation.count > 0 %>
               <% average_developer_estimation = developers_estimation.sum(&:user_time)/ developers_estimation.count.to_f %>
@@ -44,7 +44,7 @@
             <%= "%.2f" % average_developer_estimation %>
           </td>
           <td>
-            <% managers_estimation = Estimation.managers_estimation(@board.id, card.short_id.to_s) %>
+            <% managers_estimation = Estimation.managers_estimation(@board.id, card.id) %>
             <% average_manager_estimation = 0 %>
             <% if managers_estimation.count > 0 %>
               <% average_manager_estimation = managers_estimation.sum(&:user_time)/ managers_estimation.count.to_f %>
@@ -52,7 +52,7 @@
             <%= "%.2f" % average_manager_estimation %>
           </td>
           <td>
-            <% total_tracked_time = HarvestLog.total_time_tracked(@board.id, card.short_id.to_s).sum(&:total_time) %>
+            <% total_tracked_time = HarvestLog.total_time_tracked(@board.id, card.id).sum(&:total_time) %>
             <%= total_tracked_time %>
           </td>
           <td>
