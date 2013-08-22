@@ -1,43 +1,37 @@
 class EstimationsController < ApplicationController
   def index
-    card = current_user.find(:cards, ""+params[:cardId])
-    @estimations = Estimation.where(:card_id => card.id)
-    @estimations
+    #card = current_user.find(:cards, ""+params[:cardId])
+    #raise card.inspect
+    member = current_user.find(:member, params[:member_name])    
+    @estimations = Estimation.where(card_id: params[:cardId], user_id: member.id)
   end
 
   def create
-    card_temp = params[:estimation][:card_id]
-    user_username = params[:estimation].delete :user_username
-    is_manager = params[:estimation][:is_manager].to_bool
+    estimation_params = params[:estimation]
 
+    user_username = estimation_params.delete :user_username
+    is_manager = estimation_params[:is_manager].to_bool
     user = current_user.find(:member, user_username)
-    card = current_user.find(:cards, ""+card_temp)
-    board_id = card.board.id
-    card_id = card.id
+    
     if is_manager
-      estimation_db = Estimation.where(:board_id => card.board_id, :card_id => card.id, :is_manager => is_manager).first
+      estimation = Estimation.manager.where(:card_id => estimation_params[:card_id]).first
     else
-      estimation_db = Estimation.where(:board_id => card.board_id, :card_id => card.id, :user_id => user.id, :is_manager => is_manager).first
+      estimation = Estimation.not_manager.where(:card_id => estimation_params[:card_id], :user_id => user.id).first
     end
 
-    estimation = if estimation_db
-                   estimation_db.user_time = params[:estimation][:user_time]
-                   estimation_db
-                 else
-                   est_aux = Estimation.new(params[:estimation])
-                   est_aux.board_id = board_id
-                   est_aux.card_id = card_id
-                   est_aux
-                 end
+    if estimation
+      estimation.user_time = estimation_params[:user_time]
+    else
+      estimation = Estimation.new params[:estimation]
+    end
 
-    estimation.user_id = user.id if !is_manager
+    estimation.user_id = user.id unless is_manager
     estimation.is_manager = Admin.is_manager(user.email) if is_manager
 
     if estimation.save
       render :json => estimation
     else
-      render :json => estimation.errors.full_messages,
-             :status => 500
+      render :json => estimation.errors.full_messages, :status => 500
     end
   end
 end
