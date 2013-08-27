@@ -4,8 +4,6 @@ else
   json.total_tracked_time 0
 end
 
-json.estimations do
-  json.array! @estimations do |estimation|
-    json.partial! estimation
-  end
+json.estimations @estimations do |estimation|
+  json.partial! estimation
 end

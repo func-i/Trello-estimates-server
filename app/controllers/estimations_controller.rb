@@ -1,7 +1,5 @@
 class EstimationsController < ApplicationController
   def index
-    #card = current_user.find(:cards, ""+params[:cardId])
-    #raise card.inspect
     member = current_user.find(:member, params[:member_name])    
     @estimations = Estimation.where(card_id: params[:cardId], user_id: member.id)
   end
@@ -27,6 +25,10 @@ class EstimationsController < ApplicationController
 
     estimation.user_id = user.id unless is_manager
     estimation.is_manager = Admin.is_manager(user.email) if is_manager
+
+    if trello_card = current_user.find(:cards, estimation.card_id)
+      estimation.board_id = trello_card.board_id
+    end
 
     if estimation.save
       render :json => estimation

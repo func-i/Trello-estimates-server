@@ -11,8 +11,6 @@ class ApplicationController < ActionController::Base
   before_filter :user_authenticated
   before_filter :load_all_users
 
-
-
   #TODO: ACTIVATE IT LATER!!!
   #protect_from_forgery
 
@@ -33,7 +31,7 @@ class ApplicationController < ActionController::Base
         :authorize_url => "https://trello.com/1/OAuthAuthorizeToken"
     }
 
-    @request_token = @consumer.get_request_token(:oauth_callback =>  Figaro.env.domain+"/login")
+    @request_token = @consumer.get_request_token(:oauth_callback =>  Figaro.env.domain+"/login")    
   end
 
   def user_authenticated
