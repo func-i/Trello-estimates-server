@@ -31,9 +31,10 @@
       </thead>
       <tbody>
       <% list.cards.each do |card| %>
+        <%#= card.inspect %>
         <tr>
           <td>
-            <%= card.name %>
+            <%= display_card_number_and_name(card) %>
           </td>
           <td>
             <% developers_estimation = Estimation.developers_estimation(@board.id, card.id.to_s ) %>

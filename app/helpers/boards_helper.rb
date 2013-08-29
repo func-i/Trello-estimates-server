@@ -17,7 +17,21 @@ module BoardsHelper
     end
   end
 
+  # <%= link_to "Card #{card.short_id}", card.url %> - <%= truncate card.name, length: 50, seperator: " " %>
+
+  def display_card_number_and_name(card)
+    display_card_number_with_link(card) + " - " + truncate_card_name(card)
+  end
+
   private
+
+  def display_card_number_with_link(card)
+    link_to "Card #{card.short_id}", card.url
+  end
+
+  def truncate_card_name(card)
+    truncate card.name, length: 50, seperator: " "
+  end
 
   def list_time_tracked(board, cards_id)
     HarvestLog.total_time_tracked(board.id).where("harvest_logs.card_id IN (?)", cards_id)

@@ -83,6 +83,11 @@
         <p>&copy; FunctionalImperative 2013</p>
       </footer>
 
+
+      <div class="debug">
+        <%= debug(params) if Rails.env.development? %>
+      </div>
+
     </div> <!-- /container -->
 
     <!-- Javascripts
