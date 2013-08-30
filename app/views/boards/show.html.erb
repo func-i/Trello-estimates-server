@@ -33,31 +33,20 @@
       <% list.cards.each do |card| %>
         <tr>
           <td>
-            <%= linked_card_name(card) %> - <%= truncate_card_title(card) %>
+            <%= linked_card_name(card) %>
           </td>
           <td>
-            <%= get_developer_estimate(@board, card) %>
-            <%# <% developers_estimation = Estimation.developers_estimation(@board.id, get_card_id(card)) %>
-            <%# <% average_developer_estimation = 0 %>
-            <%# <% if developers_estimation.count > 0 %>
-            <%#   <% average_developer_estimation = developers_estimation.sum(&:user_time)/ developers_estimation.count.to_f %>
-            <%# <% end %>
-            <%# <%= "%.2f" % average_developer_estimation %>
+            <%= "%.2f" % get_developer_estimate(@board, card) %>
           </td>
           <td>
-            <% managers_estimation = Estimation.managers_estimation(@board.id, get_card_id(card)) %>
-            <% average_manager_estimation = 0 %>
-            <% if managers_estimation.count > 0 %>
-              <% average_manager_estimation = managers_estimation.sum(&:user_time)/ managers_estimation.count.to_f %>
-            <% end %>
-            <%= "%.2f" % average_manager_estimation %>
+            <%= "%.2f" % get_manager_estimate(@board, card) %>
           </td>
           <td>
-            <% total_tracked_time = HarvestLog.total_time_tracked(@board.id, card.id).sum(&:total_time) %>
-            <%= total_tracked_time %>
+            <%= total_harvest_time(@board, card) %>
           </td>
           <td>
-            <%#= "%.2f" % (average_developer_estimation - total_tracked_time) %> / <%= "%.2f" % (average_manager_estimation - total_tracked_time) %>
+            <%= "%.2f" % developer_time_ratio(@board, card) %> /
+            <%= "%.2f" % manager_time_ratio(@board, card) %>
           </td>
         </tr>
       <% end %>
