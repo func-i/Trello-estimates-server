@@ -24,9 +24,11 @@ module BoardsHelper
       card.url.split('/')[4]
     end
 
-    def get_developer_estimate(board, card)
+    def get_developer_estimate(board, card = nil)
       avg = 0
-      card_id, board_id = get_card_id(card), board.id
+      if card
+        card_id, board_id = get_card_id(card), board.id
+      end
       estimate = Estimation.developers_estimation(board_id, card_id)
       avg = if estimate.count > 0
         estimate.sum(&:user_time) / estimate.count.to_f
@@ -48,12 +50,26 @@ module BoardsHelper
 
     def developer_time_ratio(board, card)
       total_time = total_harvest_time(board, card)
-      get_developer_estimate(board, card) - total_time
+      result = get_developer_estimate(board, card) - total_time
+      if result > 0
+        sprintf("%.2f", result)
+      else
+        "0.00"
+      end
     end
 
     def manager_time_ratio(board, card)
       total_time = total_harvest_time(board, card)
-      get_manager_estimate(board, card) - total_time
+      result = get_manager_estimate(board, card) - total_time
+      if result > 0
+        sprintf("%.2f", result)
+      else
+        "0.00"
+      end
+    end
+
+    def developer_and_manager_ratios(board, card)
+      developer_time_ratio(board, card) + " / " + manager_time_ratio(board, card)
     end
 
     def linked_card_name(card)

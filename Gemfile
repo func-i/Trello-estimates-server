@@ -47,5 +47,6 @@ gem "harvested"
 group :development do
   gem 'debugger'
   gem 'pry'
+  gem 'pry-rails'
 end
 

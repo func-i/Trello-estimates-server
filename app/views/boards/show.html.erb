@@ -45,8 +45,7 @@
             <%= total_harvest_time(@board, card) %>
           </td>
           <td>
-            <%= "%.2f" % developer_time_ratio(@board, card) %> /
-            <%= "%.2f" % manager_time_ratio(@board, card) %>
+            <%= developer_and_manager_ratios(@board, card) %>
           </td>
         </tr>
       <% end %>

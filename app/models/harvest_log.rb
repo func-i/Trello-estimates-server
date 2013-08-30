@@ -13,10 +13,15 @@ class HarvestLog < ActiveRecord::Base
   validates :total_time, :presence => true
 
   scope :total_time_tracked, lambda { |board_id, card_id = nil|
+    # if card_id
+    #   where(:board_id => board_id, :card_id => card_id)
+    # else
+    #   where(:board_id => board_id)
+    # end
     if card_id
-      where(:board_id => board_id, :card_id => card_id)
+      where("board_id = ? AND card_id = ?", board_id, card_id)
     else
-      where(:board_id => board_id)
+      where("board_id = ?", board_id)
     end
   }
 
@@ -30,7 +35,7 @@ class HarvestLog < ActiveRecord::Base
 
     harvest_log = where(:card_id => card_id, :developer_email => developer_email, :day => day).first
 
-    if harvest_log      
+    if harvest_log
       harvest_log.update_attribute("total_time", total_time) if harvest_log.total_time != total_time
     else
       HarvestLog.create!(
