@@ -17,20 +17,37 @@ module BoardsHelper
     end
   end
 
-  # <%= link_to "Card #{card.short_id}", card.url %> - <%= truncate card.name, length: 50, seperator: " " %>
-
-  def display_card_number_and_name(card)
-    display_card_number_with_link(card) + " - " + truncate_card_name(card)
+  def get_developer_estimate(board, card)
+    avg = 0
+    card_id, board_id = get_card_id(card), board.id
+    estimate = Estimation.developers_estimation(@board.id, card_id)
+    if estimate.count > 0
+      avg = estimate.sum(&:user_time) / estimate.count.to_f
+    end
+    sprintf("%.2f", avg)
   end
 
   private
 
-  def display_card_number_with_link(card)
+  def get_card_id(card)
+    card.url.split('/')[4]
+  end
+
+  # <% developers_estimation = Estimation.developers_estimation(@board.id, get_card_id(card)) %>
+
+
+  # <% average_developer_estimation = 0 %>
+  # <% if developers_estimation.count > 0 %>
+  #   <% average_developer_estimation = developers_estimation.sum(&:user_time)/ developers_estimation.count.to_f %>
+  # <% end %>
+  # <%= "%.2f" % average_developer_estimation %>
+
+  def linked_card_name(card)
     link_to "Card #{card.short_id}", card.url
   end
 
-  def truncate_card_name(card)
-    truncate card.name, length: 50, seperator: " "
+  def truncate_card_title(card)
+    truncate card.name, length: 25, seperator: " "
   end
 
   def list_time_tracked(board, cards_id)

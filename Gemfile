@@ -8,7 +8,6 @@ gem 'rails', '3.2.11'
 gem 'pg'
 gem 'foreman'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -47,5 +46,6 @@ gem "harvested"
 # To use debugger
 group :development do
   gem 'debugger'
+  gem 'pry'
 end
 

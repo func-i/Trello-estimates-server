@@ -29,11 +29,12 @@ class Estimation < ActiveRecord::Base
     end
   }
 
-  scope :estimations_by_developer, lambda { |user_id| where("user_id =? AND is_manager = false", user_id) }
-  scope :estimations_by_manager, lambda { |boards_id| where("user_id =? AND is_manager = false", user_id) }
+  scope :estimations_by_developer, lambda { |user_id|
+    where("user_id =? AND is_manager = false", user_id)
+  }
+
+  scope :estimations_by_manager, lambda { |boards_id|
+    where("user_id =? AND is_manager = false", user_id)
+  }
+
 end
-
-
-
-# <% developers_estimation = Estimation.developers_estimation(board.id) %>
-# <%= developers_estimation.sum(&:user_time) %>
