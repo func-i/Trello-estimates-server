@@ -9,7 +9,9 @@ class HarvestTrello < ActiveRecord::Base
             :presence => true
 
   def self.board_by_harvest_project(harvest_project)
-    where(:harvest_project => harvest_project).first
+    result = where(:harvest_project => harvest_project).first
+    # binding.pry
+    # result
   end
 
 end
