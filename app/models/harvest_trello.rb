@@ -1,6 +1,10 @@
 class HarvestTrello < ActiveRecord::Base
+  include Trello
+  include Trello::Authorization
+
   attr_accessible :harvest_project,
-                  :trello_board_id
+                  :trello_board_id,
+                  :project_name
 
   validates :harvest_project,
             :presence => true
@@ -8,19 +12,11 @@ class HarvestTrello < ActiveRecord::Base
   validates :trello_board_id,
             :presence => true
 
-  # def self.board_by_harvest_project(harvest_project)
-  #   puts "\n"
-  #   puts "Inside HarvestTrello.board_by_harvest_project: #{harvest_project}"
-  #   puts "\n"
-  #   where(:harvest_project => harvest_project).first
-  # end
+  def self.board_from_project_id(project_id)
+    result = self.where(:harvest_project => project_id).first.try :trello_board_id
 
-  def self.board_by_card_id(card_id)
-    puts "\n"
-    puts "Inside HarvestTrello.board_by_card_id: #{card_id}"
-    puts "\n"
-    result = where(:card_id => trello_card_id).first
-    puts "Finding trello card id: #{result}"
+    # board = @consumer.find(:cards, card_id)
+    # puts "Testing variables: #{@consumer.inspect}"
+    puts "board: #{result.inspect}"
   end
-
 end

@@ -26,11 +26,9 @@ module BoardsHelper
 
     def get_developer_estimate(board, card = nil)
       avg = 0
-      if card
-        card_id, board_id = get_card_id(card), board.id
-      end
+      card_id, board_id = get_card_id(card), board.id if card
       estimate = Estimation.developers_estimation(board_id, card_id)
-      avg = if estimate.count > 0
+      if estimate.count > 0
         estimate.sum(&:user_time) / estimate.count.to_f
       else
         0
@@ -41,7 +39,7 @@ module BoardsHelper
       avg = 0
       card_id, board_id = get_card_id(card), board.id
       estimate = Estimation.managers_estimation(board_id, card_id)
-      avg = if estimate.count > 0
+      if estimate.count > 0
         estimate.sum(&:user_time) / estimate.count.to_f
       else
         0
@@ -51,21 +49,13 @@ module BoardsHelper
     def developer_time_ratio(board, card)
       total_time = total_harvest_time(board, card)
       result = get_developer_estimate(board, card) - total_time
-      if result > 0
-        sprintf("%.2f", result)
-      else
-        "0.00"
-      end
+      result > 0 ? sprintf("%.2f", result) : "0.00"
     end
 
     def manager_time_ratio(board, card)
       total_time = total_harvest_time(board, card)
       result = get_manager_estimate(board, card) - total_time
-      if result > 0
-        sprintf("%.2f", result)
-      else
-        "0.00"
-      end
+      result > 0 ? sprintf("%.2f", result) : "0.00"
     end
 
     def developer_and_manager_ratios(board, card)
@@ -81,6 +71,8 @@ module BoardsHelper
     end
 
     def total_harvest_time(board, card)
+      puts "Inside 'total_harvest_time' method in boards_helper.rb"
+      puts "Card: #{card.inspect}"
       card_id, board_id = get_card_id(card), board.id
       HarvestLog.total_time_tracked(board_id, card_id).sum(&:total_time)
     end

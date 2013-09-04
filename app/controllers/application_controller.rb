@@ -2,9 +2,6 @@ require 'trello'
 require 'oauth'
 require 'json'
 require 'pp'
-
-include Trello
-include Trello::Authorization
 class ApplicationController < ActionController::Base
   include UsersHelper
   before_filter :set_auth_config

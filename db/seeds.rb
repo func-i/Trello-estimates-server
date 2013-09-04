@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+HarvestTrello.create!(
+  harvest_project: "abcd",
+  trello_board_id: "asdf",
+  project_name: "test"
+)

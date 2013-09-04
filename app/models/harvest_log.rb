@@ -27,22 +27,39 @@ class HarvestLog < ActiveRecord::Base
   def self.create_or_update_log(card_id, total_time, developer_email, day)
     # card_id = assigned_card(harvest_note)
     # board_id = HarvestTrello.board_by_harvest_project(project_id)
-    puts "\n"
-    puts "Inside HarvestLog.create_or_update_log, trello card: #{card_id}\n"
-    puts "\n"
 
     harvest_log = where(:card_id => card_id, :developer_email => developer_email, :day => day).first
 
-    if harvest_log
-      harvest_log.update_attribute("total_time", total_time) if harvest_log.total_time != total_time
+    puts "\n"
+    puts "Inside HarvestLog.create_or_update_log, trello card: #{card_id}\n"
+    puts "harvest_log: #{harvest_log.inspect}"
+    puts "\n"
+
+    if harvest_log && harvest_log.board_id.nil?
+      puts "ugh"
+      # HarvestTrello.board_from_project_id(harvest_log.card_id)
     else
       HarvestLog.create!(
         card_id: card_id,
         day: day,
         developer_email: developer_email,
-        total_time:  total_time
+        total_time:  total_time,
+        board_id: board_id
       )
     end
+
+  #   if harvest_log
+  #     harvest_log.update_attribute("total_time", total_time) if harvest_log.total_time != total_time
+  #   else
+  #     HarvestLog.create!(
+  #       card_id: card_id,
+  #       day: day,
+  #       developer_email: developer_email,
+  #       total_time:  total_time,
+  #       board_id: board_id
+  #     )
+  #   end
+  # end
   end
 
   private

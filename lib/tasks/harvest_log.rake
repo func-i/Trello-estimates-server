@@ -3,7 +3,7 @@ namespace :harvest do
     while true
       daily_tasks = HARVEST.time.all(Date.today)
       daily_tasks.select{|dt| dt.external_ref}.group_by{|dt| [dt.user_id, dt.external_ref.id]}.each do |daily_task_group|
-        puts "Daily tasks group: #{daily_task_group}\n\n"
+        puts daily_task_group.inspect
         begin
           daily_tasks = daily_task_group.last
           user_id = daily_task_group.first[0]
@@ -19,13 +19,14 @@ namespace :harvest do
 
           if daily_task.external_ref
             HarvestLog.create_or_update_log(trello_card_id, daily_tasks.sum(&:hours), developer_email, daily_task.spent_at)
+            # HarvestTrello.create_or_update()
           end
         rescue Exception => e
           puts e
           puts e.backtrace
         end
       end
-      sleep(15.seconds)
+      sleep(30.seconds)
     end
   end
 end
