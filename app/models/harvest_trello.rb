@@ -8,10 +8,19 @@ class HarvestTrello < ActiveRecord::Base
   validates :trello_board_id,
             :presence => true
 
-  def self.board_by_harvest_project(harvest_project)
-    result = where(:harvest_project => harvest_project).first
-    # binding.pry
-    # result
+  # def self.board_by_harvest_project(harvest_project)
+  #   puts "\n"
+  #   puts "Inside HarvestTrello.board_by_harvest_project: #{harvest_project}"
+  #   puts "\n"
+  #   where(:harvest_project => harvest_project).first
+  # end
+
+  def self.board_by_card_id(card_id)
+    puts "\n"
+    puts "Inside HarvestTrello.board_by_card_id: #{card_id}"
+    puts "\n"
+    result = where(:card_id => trello_card_id).first
+    puts "Finding trello card id: #{result}"
   end
 
 end

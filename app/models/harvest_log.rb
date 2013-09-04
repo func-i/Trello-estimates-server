@@ -24,11 +24,12 @@ class HarvestLog < ActiveRecord::Base
     where("developer_email = ?", developer_email)
   }
 
-  def self.create_or_update_log(card_id, total_time, developer_email, day, project_id)
-    #card_id = assigned_card(harvest_note)
-    board_id = HarvestTrello.board_by_harvest_project(project_id)
-    puts "Inside HarvestLog.create_or_update_log, project_id: #{project_id}\n"
-    puts "Inside HarvestLog.create_or_update_log, board_id: #{board_id}\n"
+  def self.create_or_update_log(card_id, total_time, developer_email, day)
+    # card_id = assigned_card(harvest_note)
+    # board_id = HarvestTrello.board_by_harvest_project(project_id)
+    puts "\n"
+    puts "Inside HarvestLog.create_or_update_log, trello card: #{card_id}\n"
+    puts "\n"
 
     harvest_log = where(:card_id => card_id, :developer_email => developer_email, :day => day).first
 
@@ -39,8 +40,7 @@ class HarvestLog < ActiveRecord::Base
         card_id: card_id,
         day: day,
         developer_email: developer_email,
-        total_time:  total_time,
-        board_id: board_id
+        total_time:  total_time
       )
     end
   end
