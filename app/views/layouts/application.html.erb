@@ -7,6 +7,7 @@
   <title><%= content_for?(:title) ? yield(:title) : "GithubTrelloRails" %></title>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
   <%= render "shared/shims" %>
   <%= render "shared/favicons" %>
 </head>
@@ -31,10 +32,6 @@
       </div>
   </div>
 
-  <!-- Javascripts
-  ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <%= javascript_include_tag "application" %>
   <script src="https://api.trello.com/1/client.js?key=f8947184de87275b7d2d7d8a7cad978f"></script>
   <%= yield :end_of_body %>
 </body>
