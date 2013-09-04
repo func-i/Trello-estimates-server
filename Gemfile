@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
 
 gem 'rails', '3.2.11'
 gem 'pg'
@@ -18,11 +17,16 @@ gem "harvested"
 gem 'jbuilder'
 gem "therubyracer"
 gem "less-rails"
-gem "twitter-bootstrap-rails"
+gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
 
 group :development do
   gem 'debugger'
   gem 'pry'
   gem 'pry-rails'
+  gem "meta_request"
+  gem 'better_errors'
+  gem 'guard-rspec'
+  gem "guard-livereload"
+  gem 'binding_of_caller'
 end
 
