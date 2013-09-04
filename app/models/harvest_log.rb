@@ -13,11 +13,6 @@ class HarvestLog < ActiveRecord::Base
   validates :total_time, :presence => true
 
   scope :total_time_tracked, lambda { |board_id, card_id = nil|
-    # if card_id
-    #   where(:board_id => board_id, :card_id => card_id)
-    # else
-    #   where(:board_id => board_id)
-    # end
     if card_id
       where("board_id = ? AND card_id = ?", board_id, card_id)
     else
@@ -29,9 +24,11 @@ class HarvestLog < ActiveRecord::Base
     where("developer_email = ?", developer_email)
   }
 
-  def self.create_or_update_log(card_id, total_time, developer_email, day)
+  def self.create_or_update_log(card_id, total_time, developer_email, day, project_id)
     #card_id = assigned_card(harvest_note)
-    #board_id = HarvestTrello.board_by_harvest_project(harvest_project).trello_board_id
+    board_id = HarvestTrello.board_by_harvest_project(project_id)
+    puts "Inside HarvestLog.create_or_update_log, project_id: #{project_id}\n"
+    puts "Inside HarvestLog.create_or_update_log, board_id: #{board_id}\n"
 
     harvest_log = where(:card_id => card_id, :developer_email => developer_email, :day => day).first
 
@@ -39,10 +36,11 @@ class HarvestLog < ActiveRecord::Base
       harvest_log.update_attribute("total_time", total_time) if harvest_log.total_time != total_time
     else
       HarvestLog.create!(
-        :card_id => card_id,
-        :day => day,
-        :developer_email => developer_email,
-        :total_time => total_time
+        card_id: card_id,
+        day: day,
+        developer_email: developer_email,
+        total_time:  total_time,
+        board_id: board_id
       )
     end
   end
