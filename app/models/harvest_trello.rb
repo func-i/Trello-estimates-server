@@ -12,10 +12,17 @@ class HarvestTrello < ActiveRecord::Base
   validates :trello_board_id,
             :presence => true
 
-  # def self.board_from_project_id(project_id)
-  #   result = self.where(:harvest_project => project_id).first.try :trello_board_id
-  #   # board = @consumer.find(:cards, card_id)
-  #   # puts "Testing variables: #{@consumer.inspect}"
-  #   puts "board: #{result.inspect}"
-  # end
+  def self.find_or_create(card_id, project_name, board_id)
+    if HarvestTrello.find_by_harvest_project(card_id)
+      puts "<--- Database record already exists --->"
+    else
+      HarvestTrello.create!(
+        harvest_project: card_id,
+        trello_board_id: board_id,
+        project_name: project_name
+      )
+    end
+  end
+
 end
+

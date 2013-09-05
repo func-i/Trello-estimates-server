@@ -24,29 +24,15 @@ class HarvestLog < ActiveRecord::Base
     where("developer_email = ?", developer_email)
   }
 
-  def self.create_or_update_log(card_id, total_time, developer_email, day)
+  def self.create_or_update_log(card_id, harvest_project_id, project_name, total_time, developer_email, day)
     # card_id = assigned_card(harvest_note)
-    # board_id = HarvestTrello.board_by_harvest_project(project_id)
-
     harvest_log = where(:card_id => card_id, :developer_email => developer_email, :day => day).first
 
-    # puts "\n"
-    # puts "Inside HarvestLog.create_or_update_log, trello card: #{card_id}\n"
-    # puts "harvest_log: #{harvest_log.inspect}"
-    # puts "\n"
-
-    # if harvest_log && harvest_log.board_id.nil?
-    #   puts "ugh"
-      # HarvestTrello.board_from_project_id(harvest_log.card_id)
-    # else
-    #   HarvestLog.create!(
-    #     card_id: card_id,
-    #     day: day,
-    #     developer_email: developer_email,
-    #     total_time:  total_time,
-    #     board_id: board_id
-    #   )
-    # end
+    harvest_trello = HarvestTrello.find_or_create_by_harvest_project_and_project_name harvest_project_id, project_name
+    if harvest_trello.trello_board_id.nil?
+      board_id = fetch_board_id_from_trello_api(card_id)
+      harvest_trello.update_attribute :trello_board_id, board_id
+    end
 
     if harvest_log
       harvest_log.update_attribute("total_time", total_time) if harvest_log.total_time != total_time
@@ -56,16 +42,24 @@ class HarvestLog < ActiveRecord::Base
         day: day,
         developer_email: developer_email,
         total_time:  total_time,
-        board_id: board_id
+        board_id: harvest_trello.board_id
       )
     end
   end
 
   private
 
-  CARD_REGEX = /[C|c]ard ([0-9]+)/
+    CARD_REGEX = /[C|c]ard ([0-9]+)/
 
-  def self.assigned_card(text)
-    CARD_REGEX.match(text)[1]
-  end
+    def self.assigned_card(text)
+      CARD_REGEX.match(text)[1]
+    end
+
+    def self.fetch_board_id_from_trello_api(card_id)
+      Trello.configure do |config|
+        config.developer_public_key = Figaro.env.trello_member_key
+        config.member_token = Figaro.env.trello_token
+      end
+      Trello::Card.find(card_id).board_id
+    end
 end

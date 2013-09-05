@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130821023735) do
+ActiveRecord::Schema.define(:version => 20130821023734) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -30,13 +30,19 @@ ActiveRecord::Schema.define(:version => 20130821023735) do
   end
 
   create_table "harvest_logs", :force => true do |t|
-    t.string   "board_id"
-    t.string   "card_id"
-    t.float    "total_time"
+    t.string   "harvest_project_name"
+    t.string   "harvest_project_id"
+    t.string   "harvest_task_name"
+    t.string   "harvest_task_id"
+    t.string   "trello_board_name"
+    t.string   "trello_board_id"
+    t.string   "trello_card_name"
+    t.string   "trello_card_id"
+    t.float    "time_spent"
     t.string   "developer_email"
     t.date     "day"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "harvest_trellos", :force => true do |t|

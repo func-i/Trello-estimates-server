@@ -4,7 +4,7 @@ class BoardsController < ApplicationController
   def show
     @board = current_user.find(:board, params[:id])
     @lists = @board.lists
-    save_lists_to_db(@board)
+    check_board_against_join_database(@board)
   end
 
 end

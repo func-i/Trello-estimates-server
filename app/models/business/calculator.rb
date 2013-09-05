@@ -6,11 +6,6 @@ class Calculator
             e.board_id = ht.board_id AND e.card_id = ht.card_id
             group by e.created_at,ht.day"
 
-    # query1 = <<-END_SQL.gsub(/\s+/, " ").strip
-    #   SELECT ((SUM(e.user_time) - SUM(ht.total_time)) / (COUNT(e.id) + COUNT(ht.id))) as difference,
-    #   ht.day FROM estimations e, harvest_logs ht WHERE e.board_id = ht.board_id AND e.card_id = ht.card_id
-    #   GROUP BY e.created_at, ht.day
-    # END_SQL
 
     ActiveRecord::Base.connection.execute(query)
   end
