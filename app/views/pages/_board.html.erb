@@ -3,24 +3,29 @@
   <td>
     <%= board.id %>
   </td>
-  <td>
+  <td class="board-name">
     <%= link_to board.name, board_path(board.id) %>
   </td>
   <td>
-    <% developers_estimation = Estimation.developers_estimation(board.id) %>
-    <%= developers_estimation.sum(&:user_time) %>
+    <!-- TODO FIX THIS -->
+    <%# <% developers_estimation = Estimation.developers_estimation(board.id) %>
+    <%# <%= developers_estimation.sum(&:user_time) %>
   </td>
   <td>
-    <% managers_estimation = Estimation.managers_estimation(board.id) %>
-    <%= managers_estimation.sum(&:user_time) %>
+    <!-- TODO FIX THIS -->
+    <%# <% managers_estimation = Estimation.managers_estimation(board.id) %>
+    <%# <%= managers_estimation.sum(&:user_time) %>
   </td>
   <td>
-    <%= HarvestLog.total_time_tracked(board.id).sum(&:total_time) %>
+    <!-- TODO FIX THIS -->
+    <%# <%= HarvestLog.total_time_tracked(board.id).sum(&:total_time) %>
   </td>
   <td>
-    <%= time_track_less_estimation(board, lists) %>
+    <!-- TODO FIX THIS -->
+    <%# <%= time_track_less_estimation(board, lists) %>
   </td>
   <td>
-    <%= time_track_less_estimation(board, lists, true) %>
+    <!-- TODO FIX THIS -->
+    <%# <%= time_track_less_estimation(board, lists, true) %>
   </td>
 </tr>

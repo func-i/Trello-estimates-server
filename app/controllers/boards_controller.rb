@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  include TimeTrackingHelper
+  include HarvestTrelloHelper
 
   def show
     @board = current_user.find(:board, params[:id])

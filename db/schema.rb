@@ -46,11 +46,13 @@ ActiveRecord::Schema.define(:version => 20130821023734) do
   end
 
   create_table "harvest_trellos", :force => true do |t|
-    t.string   "harvest_project"
+    t.string   "trello_board_name"
     t.string   "trello_board_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-    t.string   "project_name"
+    t.string   "trello_card_name"
+    t.string   "trello_card_short_id"
+    t.string   "trello_card_long_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "users", :force => true do |t|
