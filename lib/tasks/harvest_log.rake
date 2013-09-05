@@ -19,7 +19,6 @@ namespace :harvest do
 
           if daily_task.external_ref
             HarvestLog.create_or_update_log(trello_card_id, daily_tasks.sum(&:hours), developer_email, daily_task.spent_at)
-            # HarvestTrello.create_or_update()
           end
         rescue Exception => e
           puts e

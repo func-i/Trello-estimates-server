@@ -1,4 +1,5 @@
 module BoardsHelper
+  include TimeTrackingHelper
 
   #TODO Remove SQL calls from helpers
   def time_track_less_estimation(board, lists, only_staged_and_live = false)
@@ -19,10 +20,6 @@ module BoardsHelper
   end
 
   private
-
-    def get_card_id(card)
-      card.url.split('/')[4]
-    end
 
     def get_developer_estimate(board, card = nil)
       avg = 0
@@ -71,8 +68,6 @@ module BoardsHelper
     end
 
     def total_harvest_time(board, card)
-      puts "Inside 'total_harvest_time' method in boards_helper.rb"
-      puts "Card: #{card.inspect}"
       card_id, board_id = get_card_id(card), board.id
       HarvestLog.total_time_tracked(board_id, card_id).sum(&:total_time)
     end

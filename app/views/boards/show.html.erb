@@ -7,7 +7,7 @@
     <%= list.name %>
   </h2>
   <% if list.cards.count > 0 %>
-    <table class="table">
+    <table class="table table-striped table-bordered">
       <thead>
       <th>
         Name
@@ -32,7 +32,7 @@
       <tbody>
       <% list.cards.each do |card| %>
         <tr>
-          <td>
+          <td class="card-name">
             <%= linked_card_name(card) %>
           </td>
           <td>

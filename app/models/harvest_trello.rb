@@ -12,11 +12,10 @@ class HarvestTrello < ActiveRecord::Base
   validates :trello_board_id,
             :presence => true
 
-  def self.board_from_project_id(project_id)
-    result = self.where(:harvest_project => project_id).first.try :trello_board_id
-
-    # board = @consumer.find(:cards, card_id)
-    # puts "Testing variables: #{@consumer.inspect}"
-    puts "board: #{result.inspect}"
-  end
+  # def self.board_from_project_id(project_id)
+  #   result = self.where(:harvest_project => project_id).first.try :trello_board_id
+  #   # board = @consumer.find(:cards, card_id)
+  #   # puts "Testing variables: #{@consumer.inspect}"
+  #   puts "board: #{result.inspect}"
+  # end
 end
