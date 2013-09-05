@@ -1,4 +1,5 @@
 class HarvestLog < ActiveRecord::Base
+
   attr_accessible :day,
     :time_spent,
     :harvest_project_name,
@@ -37,49 +38,27 @@ class HarvestLog < ActiveRecord::Base
       time_spent:         args[:time_spent],
       harvest_project_id: args[:harvest_project_id],
       harvest_task_id:    args[:harvest_task_id],
-      trello_card_id:     args[:trello_card_id]
-    )
+      trello_card_id:     args[:trello_card_id] )
 
-    # harvest_trello = HarvestTrell.find_by(args[:trello_card_id])
-
-    # fetch_trello_info_from_card(args[:trello_card_id])
-
-    # trello_board_name: nil, trello_board_id: nil, trello_card_name: nil, trello_card_id: "QGkHLw7w"
+    harvest_trello = HarvestTrello.where(trello_card_short_id: args[:trello_card_id]).first
 
     HarvestLog.create!(
       harvest_project_name: args[:harvest_project_name],
       harvest_project_id:   args[:harvest_project_id],
       harvest_task_name:    args[:harvest_task_name],
       harvest_task_id:      args[:harvest_task_id],
+
+      trello_board_name:    harvest_trello.trello_board_name,
+      trello_board_id:      harvest_trello.trello_board_id,
+      trello_card_name:     harvest_trello.trello_card_name,
+      trello_card_id:      harvest_trello.trello_card_short_id,
+
       trello_card_id:       args[:trello_card_id],
       time_spent:           args[:time_spent],
       developer_email:      args[:dev_email],
       day:                  args[:day]
     )
   end
-
-  # def self.create_or_update_log(card_id, harvest_project_id, project_name, total_time, developer_email, day)
-  #   card_id = assigned_card(harvest_note)
-  #   harvest_log = where(:card_id => card_id, :developer_email => developer_email, :day => day).first
-
-  #   harvest_trello = HarvestTrello.find_or_create_by_harvest_project_and_project_name harvest_project_id, project_name
-  #   if harvest_trello.trello_board_id.nil?
-  #     board_id = fetch_board_id_from_trello_api(card_id)
-  #     harvest_trello.update_attribute :trello_board_id, board_id
-  #   end
-
-  #   if harvest_log
-  #     harvest_log.update_attribute("total_time", total_time) if harvest_log.total_time != total_time
-  #   else
-  #     HarvestLog.create!(
-  #       card_id: card_id,
-  #       day: day,
-  #       developer_email: developer_email,
-  #       total_time:  total_time,
-  #       board_id: harvest_trello.board_id
-  #     )
-  #   end
-  # end
 
   private
 
@@ -90,7 +69,6 @@ class HarvestLog < ActiveRecord::Base
     end
 
     def self.fetch_trello_board_from_join_table(trello_card_id)
-
     end
 
     def self.fetch_trello_board_from_api(trello_card_id)
@@ -101,3 +79,27 @@ class HarvestLog < ActiveRecord::Base
       Trello::Card.find(trello_card_id).board_id
     end
 end
+
+# def self.create_or_update_log(card_id, harvest_project_id, project_name, total_time, developer_email, day)
+#   card_id = assigned_card(harvest_note)
+#   harvest_log = where(:card_id => card_id, :developer_email => developer_email, :day => day).first
+
+#   harvest_trello = HarvestTrello.find_or_create_by_harvest_project_and_project_name harvest_project_id, project_name
+#   if harvest_trello.trello_board_id.nil?
+#     board_id = fetch_board_id_from_trello_api(card_id)
+#     harvest_trello.update_attribute :trello_board_id, board_id
+#   end
+
+#   if harvest_log
+#     harvest_log.update_attribute("total_time", total_time) if harvest_log.total_time != total_time
+#   else
+#     HarvestLog.create!(
+#       card_id: card_id,
+#       day: day,
+#       developer_email: developer_email,
+#       total_time:  total_time,
+#       board_id: harvest_trello.board_id
+#     )
+#   end
+# end
+

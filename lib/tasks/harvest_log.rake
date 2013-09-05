@@ -1,5 +1,5 @@
 namespace :harvest do
-  task :start_log_tracker => :environment do
+  task :track_time => :environment do
     while true
       daily_tasks = HARVEST.time.all(Date.today).each do |daily_task_log|
         begin
