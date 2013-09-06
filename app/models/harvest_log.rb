@@ -33,19 +33,9 @@ class HarvestLog < ActiveRecord::Base
 
   def self.create_or_update_harvest_log(args)
 
-    harvest_log = where(
-      day:                args[:day],
-      time_spent:         args[:time_spent],
-      harvest_project_id: args[:harvest_project_id],
-      harvest_task_id:    args[:harvest_task_id],
-      trello_card_id:     args[:trello_card_id])
+   
 
-    harvest_trello = HarvestTrello.where(trello_card_short_id: args[:trello_card_id]).first
-
-    if harvest_trello.board_id.nil?
-      harvest_trello = fetch_trello_board_from_api(args[:trello_card_id])
-    end
-
+    
     HarvestLog.create!(
       harvest_project_name: args[:harvest_project_name],
       harvest_project_id:   args[:harvest_project_id],
@@ -72,11 +62,7 @@ class HarvestLog < ActiveRecord::Base
     end
 
     def self.fetch_trello_board_from_api(trello_card_id)
-      Trello.configure do |config|
-        config.developer_public_key = Figaro.env.trello_member_key
-        config.member_token = Figaro.env.trello_token
-      end
-      Trello::Card.find(trello_card_id)#.board_id
+      
     end
 end
 
