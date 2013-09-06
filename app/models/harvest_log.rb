@@ -14,6 +14,8 @@ class HarvestLog < ActiveRecord::Base
 
   attr_accessor :harvest_project, :harvest_note
 
+  belongs_to :harvest_trello
+
   # validates :board_id, :presence => true
   # validates :card_id, :presence => true
   # validates :developer_email, :presence => true
