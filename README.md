@@ -29,8 +29,7 @@ Finally:
     - Click 'track-time'
     - Domain: `sailias.harvestapp.com`
     - Email: `jon@func-i.com`
-    - Password: `funci!@#$`
-
+    - Password: `??????`
 
 ---
 

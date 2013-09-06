@@ -9,45 +9,34 @@
   <% if list.cards.count > 0 %>
     <table class="table table-striped table-bordered">
       <thead>
-      <th>
-        Name
-      </th>
-      <th>
-        Developers Estimation
-      </th>
-      <th>
-        Managers Estimation
-      </th>
-      <th>
-        Time Tracked
-      </th>
-      <th>
-        <% if list.finished? %>
-          Performance
-        <% else %>
-          Remaining hours
-        <% end %>
-      </th>
+        <th class="card-name">Name</th>
+        <th>Developers Estimation</th>
+        <th>Managers Estimation</th>
+        <th>Time Tracked</th>
+        <th>Remaining Hours</th>
+        <th>Performance</th>
       </thead>
       <tbody>
       <% list.cards.each do |card| %>
         <tr>
           <td class="card-name">
+            <!-- ALL methods below are located within `boards_helper.rb` -->
             <%= linked_card_name(card) %>
           </td>
           <td>
-            <%= "%.2f" % get_developer_estimate(@board, card) %>
+            <%= dev_estimate = fetch_time_estimates(@board, card) %>
           </td>
           <td>
-            <%= "%.2f" % get_manager_estimate(@board, card) %>
+            <%= manager_estimate = fetch_time_estimates(@board, card, manager = true) %>
           </td>
           <td>
-            <!-- TODO fix this -->
-            <%#= total_harvest_time(@board, card) %>
+            <%= tracked_time = total_card_tracked_time(card) %>
           </td>
           <td>
-            <!-- TODO fix this -->
-            <%# <%= developer_and_manager_ratios(@board, card) %>
+            <%= calculate_time_remaining(dev_estimate, manager_estimate, tracked_time) %>
+          </td>
+          <td>
+            <%= calculate_card_performance(dev_estimate, manager_estimate, tracked_time) %>
           </td>
         </tr>
       <% end %>

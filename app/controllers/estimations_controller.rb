@@ -1,4 +1,5 @@
 class EstimationsController < ApplicationController
+
   def index
     member = current_user.find(:member, params[:member_name])
     @estimations = Estimation.where(card_id: params[:cardId], user_id: member.id)
@@ -36,4 +37,5 @@ class EstimationsController < ApplicationController
       render :json => estimation.errors.full_messages, :status => 500
     end
   end
+
 end

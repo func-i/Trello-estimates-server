@@ -5,6 +5,9 @@ class Tasks::HarvestLogImporter
   end
 
   def perform
+    puts "\n|-------------------------------------|"
+    puts "Processing HarvestLog: \n#{@task.to_yaml}"
+    puts "|-------------------------------------|\n"
     begin
       # => Find out if this Harvest Time entry was from an external source
       # => If it was, that means it came from Trello
@@ -13,22 +16,22 @@ class Tasks::HarvestLogImporter
           # => Populate the arguments for this HarvestLog to see if it's been created already
           # => TODO: Store the trello card name
           attrs = {
-            time_spent: @task.hours, 
-            day: @task.spent_at,       
+            time_spent: @task.hours,
+            day: @task.spent_at,
             harvest_task_id: @task.task_id,
             harvest_task_name: @task.task,
-            trello_card_id: @task.external_ref.id,            
+            trello_card_id: @task.external_ref.id,
             developer_email: HARVEST.users.find(@task.user_id).email
-          }         
+          }
 
           # => Find the existing HarvestLog
-          harvest_trello.harvest_logs.create!(attrs) unless HarvestLog.where(attrs).first          
+          harvest_trello.harvest_logs.create!(attrs) unless HarvestLog.where(attrs).first
         end
-      end   
+      end
     rescue Exception => e
       # => Capture all exceptions while processing
       raise e.inspect
-    end 
+    end
   end
 
   def get_harvest_trello
@@ -53,7 +56,7 @@ class Tasks::HarvestLogImporter
           harvest_project_name: @task.project,
           trello_board_id: trello_board.id,
           trello_board_name: trello_board.name
-          ) if trello_board          
+          ) if trello_board
       end
     end
 
@@ -64,6 +67,6 @@ class Tasks::HarvestLogImporter
     Trello.configure do |config|
       config.developer_public_key = Figaro.env.trello_member_key
       config.member_token = Figaro.env.trello_token
-    end      
-  end 
+    end
+  end
 end

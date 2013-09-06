@@ -1,11 +1,22 @@
 module EstimationsHelper
 
-  # <td>
-  #   <% developers_estimation = Estimation.developers_estimation(board.id) %>
-  #   <%= developers_estimation.sum(&:user_time) %>
-  # </td>
+  private
 
-  def total_developer_estimation(board)
-  end
+    def get_max_time(dev_estimate, manager_estimate)
+      [dev_estimate, manager_estimate].max
+    end
+
+    def get_remaining_hours(dev_estimate, manager_estimate, tracked_time)
+      (get_max_time(dev_estimate, manager_estimate) - tracked_time).round(2)
+    end
+
+    def calculate_board_performance(dev_estimate, manager_estimate, tracked_time)
+      result = (get_max_time(dev_estimate, manager_estimate) / tracked_time.round(2)) * 100
+      if result.nan?
+        "-"
+      else
+        sprintf("%.2f%", result)
+      end
+    end
 
 end
