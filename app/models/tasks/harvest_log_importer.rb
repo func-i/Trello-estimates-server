@@ -33,7 +33,7 @@ class Tasks::HarvestLogImporter
 
         # => The harvest trello association doesn't exist, we need to map the project to a board
         unless harvest_trello
-
+          
         end 
 
       
