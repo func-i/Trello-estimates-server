@@ -38,26 +38,26 @@ class HarvestLog < ActiveRecord::Base
       time_spent:         args[:time_spent],
       harvest_project_id: args[:harvest_project_id],
       harvest_task_id:    args[:harvest_task_id],
-      trello_card_id:     args[:trello_card_id] )
+      trello_card_id:     args[:trello_card_id])
 
     harvest_trello = HarvestTrello.where(trello_card_short_id: args[:trello_card_id]).first
+
+    if harvest_trello.board_id.nil?
+      harvest_trello = fetch_trello_board_from_api(args[:trello_card_id])
+    end
 
     HarvestLog.create!(
       harvest_project_name: args[:harvest_project_name],
       harvest_project_id:   args[:harvest_project_id],
       harvest_task_name:    args[:harvest_task_name],
       harvest_task_id:      args[:harvest_task_id],
-
+      developer_email:      args[:dev_email],
+      time_spent:           args[:time_spent],
+      day:                  args[:day],
+      trello_card_id:       args[:trello_card_id],
       trello_board_name:    harvest_trello.trello_board_name,
       trello_board_id:      harvest_trello.trello_board_id,
-      trello_card_name:     harvest_trello.trello_card_name,
-      trello_card_id:      harvest_trello.trello_card_short_id,
-
-      trello_card_id:       args[:trello_card_id],
-      time_spent:           args[:time_spent],
-      developer_email:      args[:dev_email],
-      day:                  args[:day]
-    )
+      trello_card_name:     harvest_trello.trello_card_name)
   end
 
   private
@@ -76,7 +76,7 @@ class HarvestLog < ActiveRecord::Base
         config.developer_public_key = Figaro.env.trello_member_key
         config.member_token = Figaro.env.trello_token
       end
-      Trello::Card.find(trello_card_id).board_id
+      Trello::Card.find(trello_card_id)#.board_id
     end
 end
 

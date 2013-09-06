@@ -6,17 +6,14 @@ module HarvestTrelloHelper
     lists.each do |list|
       if list.cards
         list.cards.each do |card|
-          short_id = get_card_id(card)
-          HarvestTrello.find_or_create(card.id, short_id, card.name, board_name, board_id)
+          long_id = card.id
+          short_id = Tasks::ParseCardUrl.get_id(card.url)
+          HarvestTrello.find_or_create(long_id, short_id, card.name, board_name, board_id)
         end
       else
         puts "<----- #{board} does not have any lists ---->"
       end
     end
-  end
-
-  def get_card_id(card)
-    card.url.split('/')[4]
   end
 
 end

@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
 
   #TODO: ACTIVATE IT LATER!!!
   #protect_from_forgery
-
   private
   def load_all_users
     @users = current_user.find(:organization, "functionalimperative").members

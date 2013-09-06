@@ -1,5 +1,4 @@
 module BoardsHelper
-  include HarvestTrelloHelper
 
   #TODO Remove SQL calls from helpers
   #TODO broken method since time_tracked has changed
@@ -22,13 +21,22 @@ module BoardsHelper
 
   private
 
+    def list_cards(lists, only_staged_and_live)
+      cards = Array.new
+      lists.each do |list|
+        cards << list.cards.map(&:id) if only_staged_and_live == list.finished?
+      end
+      cards
+    end
+
     def linked_card_name(card)
       link_to "Card #{card.short_id} - #{truncate card.name, length: 40}", card.url
     end
 
     def get_developer_estimate(board, card = nil)
       avg = 0
-      card_id, board_id = get_card_id(card), board.id if card
+      card_id = Tasks::ParseCardUrl.get_id(card.url) if card
+      board_id = board.id
       estimate = Estimation.developers_estimation(board_id, card_id)
       if estimate.count > 0
         estimate.sum(&:user_time) / estimate.count.to_f
@@ -39,7 +47,8 @@ module BoardsHelper
 
     def get_manager_estimate(board, card)
       avg = 0
-      card_id, board_id = get_card_id(card), board.id
+      card_id = Tasks::ParseCardUrl.get_id(card.url) if card
+      board_id = board.id
       estimate = Estimation.managers_estimation(board_id, card_id)
       if estimate.count > 0
         estimate.sum(&:user_time) / estimate.count.to_f
@@ -77,13 +86,5 @@ module BoardsHelper
     #   card_id, board_id = get_card_id(card), board.id
     #   HarvestLog.total_time_tracked(board_id, card_id).sum(&:total_time)
     # end
-
-    def list_cards(lists, only_staged_and_live)
-      cards = Array.new
-      lists.each do |list|
-        cards << list.cards.map(&:id) if only_staged_and_live == list.finished?
-      end
-      cards
-    end
 
 end

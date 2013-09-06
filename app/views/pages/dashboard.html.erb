@@ -28,7 +28,9 @@
   </thead>
   <tbody>
   <% @projects.each do |board| %>
-    <%= render "board", :board => board %>
+    <% unless board.closed? %>
+      <%= render "board", :board => board %>
+    <% end %>
   <% end %>
   </tbody>
 </table>

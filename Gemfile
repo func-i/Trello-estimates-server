@@ -1,15 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
+gem 'thin'
 gem 'pg'
 gem 'foreman'
-
-group :assets do
-  gem 'sass-rails', '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
-end
-
 gem 'jquery-rails'
 gem 'figaro'
 gem 'ruby-trello'
@@ -18,6 +12,12 @@ gem 'jbuilder'
 gem "therubyracer"
 gem "less-rails"
 gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
+
+group :assets do
+  gem 'sass-rails', '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'uglifier', '>= 1.0.3'
+end
 
 group :development do
   gem 'debugger'
@@ -29,4 +29,3 @@ group :development do
   gem "guard-livereload"
   gem 'binding_of_caller'
 end
-
