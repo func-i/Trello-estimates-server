@@ -5,7 +5,10 @@ class PagesController < ApplicationController
   # TODO need to only display boards where `closed = false`
   # or the board matches the organization id
   def dashboard
-    @projects = current_user.find(:members, "me").boards
+    @boards = current_user.find(:members, "me").boards  
+    board_ids = @boards.reject{|b| b.closed?}.collect(&:id)
+
+    #@harvest_trellos = HarvestTrello.includes(:estimations, :harvest_logs)#.where(board_id: board_ids)
   end
 
   def login

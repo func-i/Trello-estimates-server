@@ -4,33 +4,17 @@
 
 <table class="table table-striped table-bordered">
   <thead>
-  <th>
-    Board Id
-  </th>
-  <th>
-    Name
-  </th>
-  <th>
-    Developers Estimation
-  </th>
-  <th>
-    Managers Estimation
-  </th>
-  <th>
-    Total Tracked Time
-  </th>
-  <th>
-    Hours Left
-  </th>
-  <th>
-    Performance
-  </th>
+  <th>Board Id</th>
+  <th>Name</th>
+  <th>Developers Estimation</th>
+  <th>Managers Estimation</th>
+  <th>Total Tracked Time</th>
+  <th>Hours Left</th>
+  <th>Performance</th>
   </thead>
   <tbody>
-  <% @projects.each do |board| %>
-    <% unless board.closed? %>
-      <%= render "board", :board => board %>
-    <% end %>
+  <% @boards.each do |board| %>
+    <%= render "board", :board => board %>
   <% end %>
   </tbody>
 </table>

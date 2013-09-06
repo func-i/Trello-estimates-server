@@ -6,26 +6,23 @@
   <td class="board-name">
     <%= link_to board.name, board_path(board.id) %>
   </td>
-  <td>
+  <td>    
     <!-- TODO FIX THIS -->
-    <%# <% developers_estimation = Estimation.developers_estimation(board.id) %>
-    <%# <%= developers_estimation.sum(&:user_time) %>
+    <%= developers_estimation = Estimation.developers_estimation(board.id).sum(&:user_time) %>    
   </td>
   <td>
     <!-- TODO FIX THIS -->
-    <%# <% managers_estimation = Estimation.managers_estimation(board.id) %>
-    <%# <%= managers_estimation.sum(&:user_time) %>
+    <%= managers_estimation = Estimation.managers_estimation(board.id).sum(&:user_time) %>
   </td>
   <td>
     <!-- TODO FIX THIS -->
-    <%# <%= HarvestLog.total_time_tracked(board.id).sum(&:total_time) %>
+    <%= tracked_time = HarvestLog.joins(:harvest_trello).where(harvest_trellos: {trello_board_id: board.id}).sum(&:time_spent) %>
   </td>
   <td>
     <!-- TODO FIX THIS -->
-    <%# <%= time_track_less_estimation(board, lists) %>
+    <%= [developers_estimation, managers_estimation].max - tracked_time %>
   </td>
-  <td>
-    <!-- TODO FIX THIS -->
-    <%# <%= time_track_less_estimation(board, lists, true) %>
+  <td>   
+    <%= "#{([developers_estimation, managers_estimation].max / tracked_time).round(2) * 100} %" if tracked_time.to_f > 0 %>
   </td>
 </tr>
