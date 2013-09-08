@@ -7,6 +7,7 @@ class Calculator
             group by e.created_at,ht.day"
 
 
-    ActiveRecord::Base.connection.execute(query)
+    # this isn't working
+    # ActiveRecord::Base.connection.execute(query)
   end
 end

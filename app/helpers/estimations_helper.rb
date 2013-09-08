@@ -11,12 +11,11 @@ module EstimationsHelper
     end
 
     def calculate_board_performance(dev_estimate, manager_estimate, tracked_time)
-      result = (get_max_time(dev_estimate, manager_estimate) / tracked_time.round(2)) * 100
-      if result.nan?
-        "-"
+      result = unless tracked_time.zero?
+        (get_max_time(dev_estimate, manager_estimate) / tracked_time.round(2)) * 100
       else
-        sprintf("%.2f%", result)
+        0
       end
+      sprintf("%0.2f%", result)
     end
-
 end

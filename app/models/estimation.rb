@@ -29,12 +29,8 @@ class Estimation < ActiveRecord::Base
     end
   }
 
-  scope :estimations_by_developer, lambda { |user_id|
-    where("user_id =? AND is_manager = false", user_id)
-  }
-
-  scope :estimations_by_manager, lambda { |boards_id|
-    where("user_id =? AND is_manager = false", user_id)
+  scope :batch_estimates, lambda { |board_id, card_id|
+    where("board_id = ? AND card_id = ?", board_id, card_id)
   }
 
 end

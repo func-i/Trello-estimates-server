@@ -32,5 +32,9 @@ class HarvestLog < ActiveRecord::Base
   scope :total_time_tracked_by_developer, lambda { |developer_email|
     where("developer_email = ?", developer_email)
   }
-  
+
+  scope :time_tracked_by_card, lambda { |card_id|
+    where("trello_card_id = ?", card_id).select("time_spent")
+  }
+
 end

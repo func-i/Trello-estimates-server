@@ -13,30 +13,31 @@
         <th>Developers Estimation</th>
         <th>Managers Estimation</th>
         <th>Time Tracked</th>
-        <th>Remaining Hours</th>
+        <th>Remaining Time</th>
         <th>Performance</th>
       </thead>
       <tbody>
       <% list.cards.each do |card| %>
+        <% card_hash = fetch_card_estimates(@board, card) %>
         <tr>
           <td class="card-name">
             <!-- ALL methods below are located within `boards_helper.rb` -->
             <%= linked_card_name(card) %>
           </td>
           <td>
-            <%= dev_estimate = fetch_time_estimates(@board, card) %>
+            <%= dev_estimate = time_estimation(card_hash) %>
           </td>
           <td>
-            <%= manager_estimate = fetch_time_estimates(@board, card, manager = true) %>
+            <%= manager_estimate = time_estimation(card_hash, manager = true) %>
           </td>
           <td>
-            <%= tracked_time = total_card_tracked_time(card) %>
+            <%= harvest_time = card_tracked_time(card) %>
           </td>
           <td>
-            <%= calculate_time_remaining(dev_estimate, manager_estimate, tracked_time) %>
+            <%= remaining_time(dev_estimate, manager_estimate, harvest_time) %>
           </td>
           <td>
-            <%= calculate_card_performance(dev_estimate, manager_estimate, tracked_time) %>
+            <%= card_performance(dev_estimate, manager_estimate, harvest_time) %>
           </td>
         </tr>
       <% end %>

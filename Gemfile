@@ -21,10 +21,9 @@ end
 
 group :development do
   gem 'debugger'
-  gem 'pry'
-  gem 'pry-rails'
-  gem "meta_request"
+  gem 'jazz_hands'
   gem 'better_errors'
+  gem 'quiet_assets'
   gem 'guard-rspec'
   gem "guard-livereload"
   gem 'binding_of_caller'
