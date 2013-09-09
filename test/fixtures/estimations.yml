@@ -1,13 +1,1 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  time: 1.5
-  user_id: 1
-  card_id: MyString
-  board_id: MyString
-
-two:
-  time: 1.5
-  user_id: 1
-  card_id: MyString
-  board_id: MyString

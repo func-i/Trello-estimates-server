@@ -5,10 +5,10 @@ class Tasks::HarvestLogImporter
   end
 
   def perform
-    puts "Processing HarvestLog: \n#{@task.to_yaml}"
-    puts "-------------------------------------"
-    puts "#####################################"
-    puts "-------------------------------------"
+    # puts "Processing HarvestLog: \n#{@task.to_yaml}"
+    # puts "-------------------------------------"
+    # puts "#####################################"
+    # puts "-------------------------------------"
     begin
       # => Find out if this Harvest Time entry was from an external source
       # => If it was, that means it came from Trello

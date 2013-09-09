@@ -9,7 +9,7 @@ namespace :harvest do
           puts e.backtrace
         end
       end
-      sleep(10.seconds)
+      sleep(20.seconds)
     end
   end
 end

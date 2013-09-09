@@ -37,5 +37,3 @@ TODO:
 
 - Estimation is not saving `user_id`
 - HarvestLog is not saving `trello_card_name`
-- What is jbuilder used for?
-

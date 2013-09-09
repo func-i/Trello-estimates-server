@@ -23,7 +23,6 @@ group :development do
   gem 'debugger'
   gem 'jazz_hands'
   gem 'better_errors'
-  gem 'guard-rspec'
   gem "guard-livereload"
   gem 'binding_of_caller'
 end
