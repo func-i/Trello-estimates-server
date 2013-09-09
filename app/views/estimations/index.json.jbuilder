@@ -1,5 +1,5 @@
 if @estimations.count > 0
-  json.total_tracked_time HarvestLog.total_time_tracked(@estimations.first.board_id, @estimations.first.card_id).sum(&:total_time)
+  json.total_tracked_time HarvestLog.time_tracked_by_card(@estimations.first.card_id).sum(&:time_spent)
 else
   json.total_tracked_time 0
 end

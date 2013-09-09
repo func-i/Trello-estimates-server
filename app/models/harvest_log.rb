@@ -16,25 +16,22 @@ class HarvestLog < ActiveRecord::Base
 
   belongs_to :harvest_trello
 
-  # validates :board_id, :presence => true
-  # validates :card_id, :presence => true
-  # validates :developer_email, :presence => true
-  # validates :total_time, :presence => true
-
-  scope :total_time_tracked, lambda { |board_id, card_id = nil|
-    if card_id
-      where("board_id = ? AND card_id = ?", board_id, card_id)
-    else
-      where("board_id = ?", board_id)
-    end
-  }
+  validates :harvest_task_name, :presence => true
+  validates :harvest_task_id,   :presence => true
+  validates :trello_card_id,    :presence => true
+  # validates :trello_card_name, :presence => true
+  validates :time_spent,        :presence => true
+  validates :day,               :presence => true
+  validates :developer_email,   :presence => true
 
   scope :total_time_tracked_by_developer, lambda { |developer_email|
     where("developer_email = ?", developer_email)
   }
 
   scope :time_tracked_by_card, lambda { |card_id|
-    where("trello_card_id = ?", card_id).select("time_spent")
+    where("trello_card_id = ?", card_id)#.select("time_spent")
   }
 
 end
+
+

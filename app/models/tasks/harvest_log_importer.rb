@@ -5,22 +5,24 @@ class Tasks::HarvestLogImporter
   end
 
   def perform
-    puts "\n|-------------------------------------|"
     puts "Processing HarvestLog: \n#{@task.to_yaml}"
-    puts "|-------------------------------------|\n"
+    puts "-------------------------------------"
+    puts "#####################################"
+    puts "-------------------------------------"
     begin
       # => Find out if this Harvest Time entry was from an external source
       # => If it was, that means it came from Trello
       if @task.external_ref
         unless (harvest_trello = get_harvest_trello).blank?
           # => Populate the arguments for this HarvestLog to see if it's been created already
-          # => TODO: Store the trello card name
+
           attrs = {
             time_spent: @task.hours,
             day: @task.spent_at,
             harvest_task_id: @task.task_id,
             harvest_task_name: @task.task,
             trello_card_id: @task.external_ref.id,
+            trello_card_name: @task.notes,
             developer_email: HARVEST.users.find(@task.user_id).email
           }
 

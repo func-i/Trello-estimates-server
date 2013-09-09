@@ -35,6 +35,7 @@ Finally:
 
 TODO:
 
-- When user first loads server, prompted to authorize GithubTrello through OAuth, this is the ideal time to load the boards for that user.
-- We are currently loading all cards for a board on Board#show, extract this out into an association table?
+- Estimation is not saving `user_id`
+- HarvestLog is not saving `trello_card_name`
+- What is jbuilder used for?
 
