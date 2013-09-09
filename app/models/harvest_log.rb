@@ -12,24 +12,18 @@ class HarvestLog < ActiveRecord::Base
     :trello_card_id,
     :developer_email
 
-  attr_accessor :harvest_project, :harvest_note
-
   belongs_to :harvest_trello
 
   validates :harvest_task_name, :presence => true
   validates :harvest_task_id,   :presence => true
   validates :trello_card_id,    :presence => true
-  # validates :trello_card_name, :presence => true
   validates :time_spent,        :presence => true
   validates :day,               :presence => true
   validates :developer_email,   :presence => true
-
-  scope :total_time_tracked_by_developer, lambda { |developer_email|
-    where("developer_email = ?", developer_email)
-  }
+  validates :trello_card_name, :presence => true
 
   scope :time_tracked_by_card, lambda { |card_id|
-    where("trello_card_id = ?", card_id)#.select("time_spent")
+    where("trello_card_id = ?", card_id)
   }
 
 end
