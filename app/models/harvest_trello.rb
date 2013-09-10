@@ -1,15 +1,14 @@
 class HarvestTrello < ActiveRecord::Base
-  attr_accessible :harvest_project,
-                  :trello_board_id
 
-  validates :harvest_project,
-            :presence => true
+  attr_accessible :harvest_project_id,
+    :harvest_project_name,
+    :trello_board_name,
+    :trello_board_id
 
-  validates :trello_board_id,
-            :presence => true
+  validates :trello_board_id,      :presence => true
+  validates :trello_board_name,    :presence => true
+  validates :harvest_project_id,   :presence => true
+  validates :harvest_project_name, :presence => true
 
-  def self.board_by_harvest_project(harvest_project)
-    where(:harvest_project => harvest_project).first
-  end
-
+  has_many :harvest_logs
 end

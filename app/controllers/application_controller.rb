@@ -2,9 +2,6 @@ require 'trello'
 require 'oauth'
 require 'json'
 require 'pp'
-
-include Trello
-include Trello::Authorization
 class ApplicationController < ActionController::Base
   include UsersHelper
   before_filter :set_auth_config
@@ -13,7 +10,6 @@ class ApplicationController < ActionController::Base
 
   #TODO: ACTIVATE IT LATER!!!
   #protect_from_forgery
-
   private
   def load_all_users
     @users = current_user.find(:organization, "functionalimperative").members
@@ -31,7 +27,7 @@ class ApplicationController < ActionController::Base
         :authorize_url => "https://trello.com/1/OAuthAuthorizeToken"
     }
 
-    @request_token = @consumer.get_request_token(:oauth_callback =>  Figaro.env.domain+"/login")    
+    @request_token = @consumer.get_request_token(:oauth_callback =>  Figaro.env.domain+"/login")
   end
 
   def user_authenticated
