@@ -9,12 +9,11 @@ gem 'figaro'
 gem 'ruby-trello'
 gem "harvested"
 gem 'jbuilder'
-gem "therubyracer"
-gem "less-rails"
-gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
 
 group :assets do
+  gem "therubyracer"
   gem 'sass-rails', '~> 3.2.3'
+  gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 end
