@@ -1,13 +1,15 @@
 class Estimation < ActiveRecord::Base
+  extend UsersHelper
+
   attr_accessible :board_id,
     :card_id,
     :user_id,
     :user_time,
     :is_manager
 
-  validates :card_id, :presence => true
-  validates :board_id, :presence => true
-  validates :user_id, :presence => true, :unless => Proc.new { |estimation| estimation.is_manager? }
+  validates :card_id,   :presence => true
+  validates :board_id,  :presence => true
+  validates :user_id,   :presence => true, :unless => Proc.new { |estimation| estimation.is_manager? }
   validates :user_time, :presence => true
 
   scope :manager, lambda { where(is_manager: true) }

@@ -1,6 +1,17 @@
-<%= @estimation_time_tracked_dif.first %>
-<div id="estimation_management_time" style="width:100%; height:400px;" data-user-estimations="<%= @developer_estimations %>" data-user-time-tracked="<%= @developer_tracked_time %>"></div>
-<div id="estimation_time_track_time" style="width:100%; height:400px;" data-user-estimations="<%= @developer_estimations %>" data-user-time-tracked="<%= @developer_tracked_time %>"></div>
+<%= @estimation_time_tracked_dif %>
+<%= @user_email %>
+
+<div id="estimation_management_time"
+  style="width:100%; height:400px;"
+  data-user-estimations="<%= @developer_estimations %>"
+  data-user-time-tracked="<%= @developer_tracked_time %>">
+</div>
+
+<div id="estimation_time_track_time"
+  style="width:100%; height:400px;"
+  data-user-estimations="<%= @developer_estimations %>"
+  data-user-time-tracked="<%= @developer_tracked_time %>">
+</div>
 
 
 <% content_for :end_of_body do %>
