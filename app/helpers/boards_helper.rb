@@ -1,33 +1,52 @@
 module BoardsHelper
-  #TODO Remove SQL calls from helpers
-  def time_track_less_estimation(board, lists, only_staged_and_live = false)
-    cards = list_cards(lists, only_staged_and_live)
-    if cards.length > 0
-      board_id = board.id
-      time_tracked = list_time_tracked(board, cards)
-      total_time_tracked = time_tracked.inject(0) { |sum, n| sum + n.total_time }
-
-      developers_estimation = Estimation.developers_estimation(board_id).where("estimations.card_id IN (?)", cards)
-      managers_estimation = Estimation.managers_estimation(board_id).where("estimations.card_id IN (?)", cards)
-
-      result = "#{"%.2f" % (total_time_tracked - developers_estimation.sum(&:user_time))} / "
-      result+= "#{"%.2f" % (total_time_tracked - managers_estimation.sum(&:user_time))}"
-    else
-      result = "0.00 / 0.00"
-    end
-  end
 
   private
 
-  def list_time_tracked(board, cards_id)
-    HarvestLog.total_time_tracked(board.id).where("harvest_logs.card_id IN (?)", cards_id)
-  end
-
-  def list_cards(lists, only_staged_and_live)
-    cards = Array.new
-    lists.each do |list|
-      cards+= list.cards.map(&:id) if only_staged_and_live == list.finished?
+    def parse_card_id(url)
+      url.split('/')[4]
     end
-    cards
-  end
+
+    def linked_card_name(card)
+      link_to "Card #{card.short_id} - #{truncate card.name, length: 40}", card.url
+    end
+
+    def fetch_card_estimates(board, card)
+      result = Hash.new(0)
+      board_id, card_id = board.id, parse_card_id(card.url)
+      Estimation.batch_estimates(board_id, card_id).each do |card|
+        if card.is_manager
+          result[:manager] = card.user_time
+        else
+          result[:dev] = card.user_time
+        end
+      end
+      result
+    end
+
+    def time_estimation(card, manager = false)
+      if manager
+        card[:manager]
+      else
+        card[:dev]
+      end
+    end
+
+    def card_tracked_time(card)
+      card_id = parse_card_id(card.url)
+      HarvestLog.where(trello_card_id: card_id).sum(&:time_spent)
+    end
+
+    def remaining_time(dev_estimate, manager_estimate, harvest_time)
+      ([dev_estimate, manager_estimate].max - harvest_time).round(2)
+    end
+
+    def card_performance(dev_estimate, manager_estimate, harvest_time)
+      result = unless harvest_time.zero?
+        (([dev_estimate, manager_estimate].max / harvest_time) * 100).round(2)
+      else
+        0
+      end
+      sprintf("%0.2f%", result)
+    end
+
 end

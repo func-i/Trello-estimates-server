@@ -11,8 +11,8 @@
 
 <% @harvest_trellos.each do |harvest_trello| %>
   <tr>
-    <td><%= harvest_trello.harvest_project %></td>
-    <td><%= harvest_trello.trello_board_id %></td>
+    <td><%= harvest_trello.harvest_project_name %></td>
+    <td><%= harvest_trello.trello_board_name %></td>
     <td><%= link_to 'Show', harvest_trello %></td>
     <td><%= link_to 'Edit', edit_harvest_trello_path(harvest_trello) %></td>
     <td><%= link_to 'Destroy', harvest_trello, method: :delete, data: { confirm: 'Are you sure?' } %></td>

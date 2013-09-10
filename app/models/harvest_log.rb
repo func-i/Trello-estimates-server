@@ -1,52 +1,29 @@
 class HarvestLog < ActiveRecord::Base
-  attr_accessible :board_id,
-    :card_id,
-    :day,
-    :developer_email,
-    :total_time
 
-  attr_accessor :harvest_project, :harvest_note
+  attr_accessible :day,
+    :time_spent,
+    :harvest_project_name,
+    :harvest_project_id,
+    :harvest_task_name,
+    :harvest_task_id,
+    :trello_board_name,
+    :trello_board_id,
+    :trello_card_name,
+    :trello_card_id,
+    :developer_email
 
-  #validates :board_id, :presence => true
-  validates :card_id, :presence => true
-  validates :developer_email, :presence => true
-  validates :total_time, :presence => true
+  belongs_to :harvest_trello
 
-  scope :total_time_tracked, lambda { |board_id, card_id = nil|
-    if card_id
-      where(:board_id => board_id, :card_id => card_id)
-    else
-      where(:board_id => board_id)
-    end
+  validates :harvest_task_name, :presence => true
+  validates :harvest_task_id,   :presence => true
+  validates :trello_card_id,    :presence => true
+  validates :time_spent,        :presence => true
+  validates :day,               :presence => true
+  validates :developer_email,   :presence => true
+  validates :trello_card_name,  :presence => true
+
+  scope :time_tracked_by_card, lambda { |card_id|
+    where("trello_card_id = ?", card_id)
   }
 
-  scope :total_time_tracked_by_developer, lambda { |developer_email|
-    where("developer_email = ?", developer_email)
-  }
-
-  def self.create_or_update_log(card_id, total_time, developer_email, day)
-    #card_id = assigned_card(harvest_note)
-    #board_id = HarvestTrello.board_by_harvest_project(harvest_project).trello_board_id
-
-    harvest_log = where(:card_id => card_id, :developer_email => developer_email, :day => day).first
-
-    if harvest_log      
-      harvest_log.update_attribute("total_time", total_time) if harvest_log.total_time != total_time
-    else
-      HarvestLog.create!(
-        :card_id => card_id,
-        :day => day,
-        :developer_email => developer_email,
-        :total_time => total_time
-      )
-    end
-  end
-
-  private
-
-  CARD_REGEX = /[C|c]ard ([0-9]+)/
-
-  def self.assigned_card(text)
-    CARD_REGEX.match(text)[1]
-  end
 end

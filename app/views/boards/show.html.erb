@@ -7,56 +7,37 @@
     <%= list.name %>
   </h2>
   <% if list.cards.count > 0 %>
-    <table class="table">
+    <table class="table table-striped table-bordered">
       <thead>
-      <th>
-        Name
-      </th>
-      <th>
-        Developers Estimation
-      </th>
-      <th>
-        Managers Estimation
-      </th>
-      <th>
-        Time Tracked
-      </th>
-      <th>
-        <% if list.finished? %>
-          Performance
-        <% else %>
-          Remaining hours
-        <% end %>
-      </th>
+        <th class="card-name">Name</th>
+        <th>Developers Estimate</th>
+        <th>Managers Estimate</th>
+        <th>Tracked Time</th>
+        <th>Remaining Time</th>
+        <th>Performance</th>
       </thead>
       <tbody>
       <% list.cards.each do |card| %>
+        <% card_hash = fetch_card_estimates(@board, card) %>
         <tr>
-          <td>
-            <%= card.name %>
+          <td class="card-name">
+            <!-- ALL methods below are located within `boards_helper.rb` -->
+            <%= linked_card_name(card) %>
           </td>
           <td>
-            <% developers_estimation = Estimation.developers_estimation(@board.id, card.id.to_s ) %>
-            <% average_developer_estimation = 0 %>
-            <% if developers_estimation.count > 0 %>
-              <% average_developer_estimation = developers_estimation.sum(&:user_time)/ developers_estimation.count.to_f %>
-            <% end %>
-            <%= "%.2f" % average_developer_estimation %>
+            <%= dev_estimate = time_estimation(card_hash) %>
           </td>
           <td>
-            <% managers_estimation = Estimation.managers_estimation(@board.id, card.id) %>
-            <% average_manager_estimation = 0 %>
-            <% if managers_estimation.count > 0 %>
-              <% average_manager_estimation = managers_estimation.sum(&:user_time)/ managers_estimation.count.to_f %>
-            <% end %>
-            <%= "%.2f" % average_manager_estimation %>
+            <%= manager_estimate = time_estimation(card_hash, manager = true) %>
           </td>
           <td>
-            <% total_tracked_time = HarvestLog.total_time_tracked(@board.id, card.id).sum(&:total_time) %>
-            <%= total_tracked_time %>
+            <%= harvest_time = card_tracked_time(card) %>
           </td>
           <td>
-            <%= "%.2f" % (average_developer_estimation - total_tracked_time) %> / <%= "%.2f" % (average_manager_estimation - total_tracked_time) %>
+            <%= remaining_time(dev_estimate, manager_estimate, harvest_time) %>
+          </td>
+          <td>
+            <%= card_performance(dev_estimate, manager_estimate, harvest_time) %>
           </td>
         </tr>
       <% end %>
