@@ -9,9 +9,11 @@ namespace :harvest do
             puts e
             puts e.backtrace
           end
-        end
-        sleep(30.seconds)
+        end        
       end
+
+      # => Sleep after all users are processed
+      sleep(30.seconds)
     end
   end
 end
