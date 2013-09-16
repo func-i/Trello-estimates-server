@@ -1,5 +1,4 @@
 class Estimation < ActiveRecord::Base
-  extend UsersHelper
 
   attr_accessible :board_id,
     :card_id,
