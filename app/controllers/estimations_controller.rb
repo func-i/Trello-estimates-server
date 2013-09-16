@@ -1,8 +1,12 @@
 class EstimationsController < ApplicationController
 
   def index
-    member = current_user.find(:member, params[:member_name])
-    @estimations = Estimation.where(card_id: params[:cardId], user_id: member.id)
+    member = current_user.find(:member, params[:member_name])  
+    if Admin.is_manager(member.email)
+      @estimations = Estimation.where(card_id: params[:cardId])
+    else
+      @estimations = Estimation.where(card_id: params[:cardId], user_id: member.id)
+    end
   end
 
   def create
