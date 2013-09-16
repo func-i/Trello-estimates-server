@@ -3,13 +3,11 @@
 </h1>
 
 <% @lists.each do |list| %>
-  <h2>
-    <%= list.name %>
-  </h2>
+  <em><h3><%= list.name %></h3></em>
   <% if list.cards.count > 0 %>
     <table class="table table-striped table-bordered">
       <thead>
-        <th class="card-name">Name</th>
+        <th class="card-name">Card Name</th>
         <th>Developers Estimate</th>
         <th>Managers Estimate</th>
         <th>Tracked Time</th>
@@ -17,26 +15,31 @@
         <th>Performance</th>
       </thead>
       <tbody>
+      <!-- ALL methods below are located within `boards_helper.rb` -->
       <% list.cards.each do |card| %>
         <% card_hash = fetch_card_estimates(@board, card) %>
         <tr>
-          <td class="card-name">
-            <!-- ALL methods below are located within `boards_helper.rb` -->
+          <td class="col-md-5 card-link">
             <%= linked_card_name(card) %>
           </td>
-          <td>
+
+          <td class="col-md-1">
             <%= dev_estimate = time_estimation(card_hash) %>
           </td>
-          <td>
+
+          <td class="col-md-1">
             <%= manager_estimate = time_estimation(card_hash, manager = true) %>
           </td>
-          <td>
+
+          <td class="col-md-1">
             <%= harvest_time = card_tracked_time(card) %>
           </td>
-          <td>
+
+          <td class="col-md-1">
             <%= remaining_time(dev_estimate, manager_estimate, harvest_time) %>
           </td>
-          <td>
+
+          <td class="col-md-1">
             <%= card_performance(dev_estimate, manager_estimate, harvest_time) %>
           </td>
         </tr>
