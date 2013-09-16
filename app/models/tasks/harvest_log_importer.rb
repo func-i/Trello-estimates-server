@@ -26,10 +26,8 @@ class Tasks::HarvestLogImporter
             developer_email: HARVEST.users.find(@task.user_id).email
           }
 
-
-          raise HarvestLog.where(attrs).first.inspect
           # => Find the existing HarvestLog
-          #harvest_trello.harvest_logs.create!(attrs) unless HarvestLog.where(attrs).first
+          harvest_trello.harvest_logs.create!(attrs) unless HarvestLog.where(attrs).first
         end
       end
     rescue Exception => e
