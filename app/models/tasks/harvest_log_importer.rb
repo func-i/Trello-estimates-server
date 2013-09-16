@@ -14,8 +14,8 @@ class Tasks::HarvestLogImporter
       # => If it was, that means it came from Trello
       if @task.external_ref
         unless (harvest_trello = get_harvest_trello).blank?
-          # => Populate the arguments for this HarvestLog to see if it's been created already
 
+          # => Populate the arguments for this HarvestLog to see if it's been created already
           attrs = {
             time_spent: @task.hours,
             day: @task.spent_at,
