@@ -7,7 +7,7 @@ module BoardsHelper
     end
 
     def linked_card_name(card)
-      link_to "Card #{card.short_id} - #{truncate card.name, length: 40}", card.url
+      link_to "Card #{card.short_id} - #{truncate card.name, length: 65}", card.url, target: "_blank"
     end
 
     def fetch_card_estimates(board, card)

@@ -4,7 +4,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= content_for?(:title) ? yield(:title) : "GithubTrelloRails" %></title>
+  <title>
+    <%= content_for?(:title) ? yield(:title) : "Trello Time Tracker" %>
+  </title>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
@@ -12,15 +14,11 @@
   <%= render "shared/favicons" %>
 </head>
 <body>
-
-  <div class="container">
-    <%= render "layouts/header" %>
-      <div class="row">
-
-        <div class="col-md-12">
-          <%= bootstrap_flash %>
-          <%= yield %>
-        </div>
+  <%= render "layouts/header" %>
+    <div class="container">
+      <div class="col-md-12">
+        <%= bootstrap_flash %>
+        <%= yield %>
       </div>
 
       <footer>
@@ -30,7 +28,7 @@
       <div class="debug">
         <%= debug(params) if Rails.env.development? %>
       </div>
-  </div>
+    </div>
 
   <script src="https://api.trello.com/1/client.js?key=f8947184de87275b7d2d7d8a7cad978f"></script>
   <%= yield :end_of_body %>
