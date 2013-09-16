@@ -2,6 +2,7 @@ class EstimationsController < ApplicationController
 
   def index
     member = current_user.find(:member, params[:member_name])  
+    puts member.email
     if Admin.is_manager(member.email)
       @estimations = Estimation.where(card_id: params[:cardId])
     else
