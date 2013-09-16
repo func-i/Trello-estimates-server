@@ -4,7 +4,7 @@ namespace :harvest do
       HARVEST.users.all.collect(&:id).each do |user_id|
         daily_tasks = HARVEST.time.all(Date.today, user_id).each do |daily_task_log|
           begin
-            Tasks::HarvestLogImporter.new(daily_task_log).perform unless daily_task_log.timer_started_at?
+            Tasks::HarvestLogImporter.new(daily_task_log).perform if daily_task_log.timer_started_at.blank?
           rescue Exception => e
             puts e
             puts e.backtrace
