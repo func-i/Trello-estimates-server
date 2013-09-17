@@ -24,34 +24,28 @@ module BoardsHelper
     end
 
     def time_estimation(card, manager = false)
-      if manager
-        card[:manager]
-      else
-        card[:dev]
-      end
+      time = (manager ? card[:manager] : card[:dev])
+      time unless time.zero?
     end
 
     def card_tracked_time(card)
       card_id = parse_card_id(card.url)
-      HarvestLog.where(trello_card_id: card_id).sum(&:time_spent)
+      tracked_time = HarvestLog.where(trello_card_id: card_id).sum(&:time_spent)
+      tracked_time unless tracked_time.zero?
     end
 
     def remaining_time(dev_estimate, manager_estimate, harvest_time)
       time = ([dev_estimate, manager_estimate].max - harvest_time).round(2)
-      klass = (time < 0 ? 'text-error' : 'text-success')
+      klass = (time < 0 ? 'text-danger' : 'text-success')
 
-      content_tag :span, time, class: klass
+      content_tag :span, time, class: klass unless time.zero?
     end
 
     def card_performance(dev_estimate, manager_estimate, harvest_time)
-      result = unless harvest_time.zero?
-        (([dev_estimate, manager_estimate].max / harvest_time) * 100).round(2)
-      else
-        0
-      end
+      result = (harvest_time.zero? ? (([dev_estimate, manager_estimate].max / harvest_time) * 100).round(2) : 0)
 
-      klass = (result < 100 ? 'text-error' : 'text-success')
-      content_tag :span, sprintf("%0.2f%", result), class: klass
+      klass = (result < 100 ? 'text-danger' : 'text-success')
+      content_tag :span, sprintf("%0.2f%", result), class: klass unless result.zero?
     end
 
 end
