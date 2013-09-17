@@ -30,7 +30,7 @@ class Tasks::HarvestLogImporter
           if harvest_log = harvest_trello.harvest_logs.where(harvest_entry_id: @task.id).first
             harvest_log.update_attribute(:time_spent, @task.hours)
           else
-            harvest_trello.harvest_logs.create!(attrs.merge(harvest_entry_id: @task.id)) 
+            harvest_trello.harvest_logs.create!(attrs.merge!(harvest_entry_id: @task.id)) 
           end
         end
       end

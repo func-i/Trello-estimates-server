@@ -10,7 +10,8 @@ class HarvestLog < ActiveRecord::Base
     :trello_board_id,
     :trello_card_name,
     :trello_card_id,
-    :developer_email
+    :developer_email,
+    :harvest_entry_id
 
   belongs_to :harvest_trello
 
