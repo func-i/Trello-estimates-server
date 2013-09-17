@@ -43,6 +43,7 @@ module BoardsHelper
     end
 
     def card_performance(dev_estimate, manager_estimate, harvest_time)
+      return unless harvest_time && (dev_estimate || manager_estimate)
       result = (harvest_time.zero? ? (([dev_estimate, manager_estimate].max / harvest_time) * 100).round(2) : 0)
 
       klass = (result < 100 ? 'text-danger' : 'text-success')
