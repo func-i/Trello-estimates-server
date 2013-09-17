@@ -27,8 +27,8 @@ class Tasks::HarvestLogImporter
           }
 
           # => Find the existing HarvestLog
-          if harvest_trello = harvest_trello.harvest_logs.where(harvest_entry_id: @task.external_ref.day_entry_id).first
-            harvest_trello.update_attribute(:time_spent, @task.hours)
+          if harvest_log = harvest_trello.harvest_logs.where(harvest_entry_id: @task.external_ref.day_entry_id).first
+            harvest_log.update_attribute(:time_spent, @task.hours)
           else
             harvest_trello.harvest_logs.create!(attrs.merge(harvest_entry_id: @task.external_ref.day_entry_id)) 
           end
