@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130908175512) do
+ActiveRecord::Schema.define(:version => 20130917203244) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -40,8 +40,10 @@ ActiveRecord::Schema.define(:version => 20130908175512) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.integer  "harvest_trello_id"
+    t.integer  "harvest_entry_id"
   end
 
+  add_index "harvest_logs", ["harvest_entry_id"], :name => "index_harvest_logs_on_harvest_entry_id"
   add_index "harvest_logs", ["harvest_trello_id"], :name => "index_harvest_logs_on_harvest_trello_id"
 
   create_table "harvest_trellos", :force => true do |t|
