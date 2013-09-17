@@ -36,7 +36,7 @@ module BoardsHelper
 
     def remaining_time(dev_estimate, manager_estimate, harvest_time)
       return unless (dev_estimate || manager_estimate) && harvest_time
-      time = ([dev_estimate, manager_estimate].max - harvest_time).round(2)
+      time = ([dev_estimate.to_f, manager_estimate.to_f].max - harvest_time).round(2)
       klass = (time < 0 ? 'text-danger' : 'text-success')
 
       content_tag :span, time, class: klass unless time.zero?
@@ -44,7 +44,7 @@ module BoardsHelper
 
     def card_performance(dev_estimate, manager_estimate, harvest_time)
       return unless harvest_time && (dev_estimate || manager_estimate)
-      result = (harvest_time.zero? ? (([dev_estimate, manager_estimate].max / harvest_time) * 100).round(2) : 0)
+      result = (harvest_time.zero? ? (([dev_estimate.to_f, manager_estimate.to_f].max / harvest_time) * 100).round(2) : 0)
 
       klass = (result < 100 ? 'text-danger' : 'text-success')
       content_tag :span, sprintf("%0.2f%", result), class: klass unless result.zero?
