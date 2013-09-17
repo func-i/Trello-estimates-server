@@ -37,7 +37,10 @@ module BoardsHelper
     end
 
     def remaining_time(dev_estimate, manager_estimate, harvest_time)
-      ([dev_estimate, manager_estimate].max - harvest_time).round(2)
+      time = ([dev_estimate, manager_estimate].max - harvest_time).round(2)
+      klass = (time < 0 ? 'text-error' : 'text-success')
+
+      content_tag :span, time, class: klass
     end
 
     def card_performance(dev_estimate, manager_estimate, harvest_time)
@@ -46,7 +49,9 @@ module BoardsHelper
       else
         0
       end
-      sprintf("%0.2f%", result)
+
+      klass = (result < 100 ? 'text-error' : 'text-success')
+      content_tag :span, sprintf("%0.2f%", result), class: klass
     end
 
 end
