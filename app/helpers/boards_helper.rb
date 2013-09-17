@@ -35,6 +35,7 @@ module BoardsHelper
     end
 
     def remaining_time(dev_estimate, manager_estimate, harvest_time)
+      return unless (dev_estimate || manager_estimate) && harvest_time
       time = ([dev_estimate, manager_estimate].max - harvest_time).round(2)
       klass = (time < 0 ? 'text-danger' : 'text-success')
 
