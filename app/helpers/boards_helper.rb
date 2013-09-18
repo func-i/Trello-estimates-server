@@ -47,7 +47,7 @@ module BoardsHelper
       result = (harvest_time.zero? ? (([dev_estimate.to_f, manager_estimate.to_f].max / harvest_time) * 100).round(2) : 0)
 
       klass = (result < 100 ? 'text-danger' : 'text-success')
-      content_tag :span, sprintf("%0.2f%", result), class: klass unless result.zero?
+      content_tag :span, sprintf("%0.2f%", result), class: klass
     end
 
 end
