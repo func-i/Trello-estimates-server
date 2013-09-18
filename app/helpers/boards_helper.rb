@@ -39,7 +39,7 @@ module BoardsHelper
       time = ([dev_estimate.to_f, manager_estimate.to_f].max - harvest_time).round(2)
       klass = (time < 0 ? 'text-danger' : 'text-success')
 
-      content_tag :span, time, class: klass unless time.zero?
+      content_tag :span, time, class: klass
     end
 
     def card_performance(dev_estimate, manager_estimate, harvest_time)
