@@ -44,7 +44,7 @@ module BoardsHelper
 
     def card_performance(dev_estimate, manager_estimate, harvest_time)
       return unless harvest_time && (dev_estimate || manager_estimate)
-      result = (harvest_time.zero? ? (([dev_estimate.to_f, manager_estimate.to_f].max / harvest_time) * 100).round(2) : 0)
+      result = (harvest_time.zero? ? 0 : (([dev_estimate.to_f, manager_estimate.to_f].max / harvest_time) * 100).round(2))
 
       klass = (result < 100 ? 'text-danger' : 'text-success')
       content_tag :span, sprintf("%0.2f%", result), class: klass
