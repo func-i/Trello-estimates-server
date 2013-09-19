@@ -33,7 +33,7 @@
 
           <td class="col-md-1">
             <% harvest_time = card_tracked_time(card) %>
-            <%= sprintf("%0.2f%", harvest_time) %>
+            <%= sprintf("%0.2f%", harvest_time) if harvest_time %>
           </td>
 
           <td class="col-md-1">
