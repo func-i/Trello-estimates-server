@@ -31,7 +31,7 @@ module BoardsHelper
     def card_tracked_time(card)
       card_id = parse_card_id(card.url)
       tracked_time = HarvestLog.where(trello_card_id: card_id).sum(&:time_spent)
-      sprintf("%0.2f%", tracked_time) unless tracked_time.zero?
+      tracked_time unless tracked_time.zero?
     end
 
     def remaining_time(dev_estimate, manager_estimate, harvest_time)
