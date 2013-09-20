@@ -1,24 +1,25 @@
 <% lists = board.lists %>
+<% tracked_time = get_total_tracked_time(board) %>
 <tr>
   <td class="board-name">
     <%= link_to board.name, board_path(board.id) %>
   </td>
   <td>
-    <%= dev_estimate = Estimation.developers_estimation(board.id).sum(&:user_time) %>
+    <!-- All methods below are located within `estimations_helper.rb` -->
+    <% dev_estimate = Estimation.developers_estimation(board.id).sum(&:user_time) %>
+    <%= dev_estimate unless dev_estimate.zero? %>
   </td>
   <td>
-    <%= manager_estimate = Estimation.managers_estimation(board.id).sum(&:user_time) %>
+    <% manager_estimate = Estimation.managers_estimation(board.id).sum(&:user_time) %>
+    <%= manager_estimate unless manager_estimate.zero? %>
   </td>
   <td>
-    <% tracked_time = HarvestLog.joins(:harvest_trello).where(harvest_trellos: {trello_board_id: board.id}).sum(&:time_spent) %>
-    <%= sprintf('%0.2f', tracked_time) %>
+    <%= sprintf('%0.2f', tracked_time) unless tracked_time.zero? %>
   </td>
   <td>
-    <!-- estimations_helper.rb -->
     <%= get_remaining_hours(dev_estimate, manager_estimate, tracked_time) %>
   </td>
   <td>
-    <!-- estimations_helper.rb -->
-    <%= calculate_board_performance(dev_estimate, manager_estimate, tracked_time) %>
+    <%= total_board_performance(dev_estimate, manager_estimate, tracked_time) %>
   </td>
 </tr>
