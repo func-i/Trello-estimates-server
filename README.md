@@ -19,7 +19,7 @@ Next:
 
 - `bundle exec bundle install`
 - Start the server and rake task using `bundle exec foreman start`
-- when you visit `localhost:3000` you will be prompted for _Github-Trello_ authorization
+- when you visit `localhost` you will be prompted for _Github-Trello_ authorization
     - allow OAuth token
     - TODO: ideally we want all the boards loaded when the user authorizes Github-Trello
 - Visit [the test_board page on Trello](https://trello.com/b/s1Zd0RPy/test-board)
