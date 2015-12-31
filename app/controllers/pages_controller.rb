@@ -13,12 +13,12 @@ class PagesController < ApplicationController
 
   private
 
-    def set_client_token
-      @rt = OAuth::RequestToken.new(@consumer, @request_token.token, @request_token.secret)
-      @at = @rt.get_access_token(:oauth_verifier => params["oauth_verifier"])
+  def set_client_token
+    @rt = OAuth::RequestToken.new(@consumer, @request_token.token, @request_token.secret)
+    @at = @rt.get_access_token(:oauth_verifier => params["oauth_verifier"])
 
-      set_current_user(@at)
-      redirect_to root_path
-    end
+    set_current_user(@at)
+    redirect_to root_path
+  end
 
 end
