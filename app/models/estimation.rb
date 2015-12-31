@@ -1,10 +1,10 @@
 class Estimation < ActiveRecord::Base
 
-  attr_accessible :board_id,
-    :card_id,
-    :user_id,
-    :user_time,
-    :is_manager
+  # attr_accessible :board_id,
+  #   :card_id,
+  #   :user_id,
+  #   :user_time,
+  #   :is_manager
 
   validates :card_id,   :presence => true
   validates :board_id,  :presence => true

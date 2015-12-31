@@ -13,13 +13,13 @@ gem 'jbuilder'
 gem 'json', '>= 1.8.2'
 gem 'sprockets-rails', '>= 2.1.3', :require => 'sprockets/railtie'
 
-group :assets do
-  gem "therubyracer"
-  gem 'sass-rails', '~> 5.0.0'
-  gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
-  gem 'coffee-rails', '~> 4.1.0'
-  gem 'uglifier', '>= 1.0.3'
-end
+# group :assets do
+gem "therubyracer"
+gem 'sass-rails', '~> 5.0.0'
+gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
+gem 'coffee-rails', '~> 4.1.0'
+gem 'uglifier', '>= 1.3.0'
+# end
 
 group :development do
   gem 'pry-byebug'
