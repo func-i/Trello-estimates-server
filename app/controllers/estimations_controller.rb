@@ -1,7 +1,8 @@
 class EstimationsController < ApplicationController
 
   def index
-    member = current_user.find(:member, params[:member_name])  
+    member = current_user.find(:member, params[:member_name])
+
     if Admin.is_manager(member.email)
       @estimations = Estimation.where(card_id: params[:cardId])
     else
@@ -10,22 +11,21 @@ class EstimationsController < ApplicationController
   end
 
   def create
-    est_params = estimation_params
-
+    est_params    = estimation_params
     user_username = est_params.delete :user_username
-    is_manager = est_params[:is_manager].to_bool
-    user = current_user.find(:member, user_username)
+    is_manager    = est_params[:is_manager].to_bool
+    user          = current_user.find(:member, user_username)
 
     if is_manager
-      estimation = Estimation.manager.where(:card_id => est_params[:card_id]).first
+      estimation = Estimation.manager.where(card_id: est_params[:card_id]).first
     else
-      estimation = Estimation.not_manager.where(:card_id => est_params[:card_id], :user_id => user.id).first
+      estimation = Estimation.not_manager.where(card_id: est_params[:card_id], user_id: user.id).first
     end
 
     if estimation
       estimation.user_time = est_params[:user_time]
     else
-      estimation = Estimation.new params[:estimation]
+      estimation = Estimation.new est_params
     end
 
     estimation.user_id = user.id unless is_manager
@@ -46,9 +46,10 @@ class EstimationsController < ApplicationController
 
   def estimation_params
     params.require(:estimation).permit(
-      :board_id, 
+      # :board_id, 
       :card_id, 
-      :user_id, 
+      # :user_id,
+      :user_username, 
       :user_time, 
       :is_manager
     )
