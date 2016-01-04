@@ -45,6 +45,9 @@ class ApplicationController < ActionController::Base
   end
 
   def load_all_users
-    @users = current_user.find(:organization, "functionalimperative").members
+    # organization endpoints refer to Trello teams
+    # @users = current_user.find(:organization, "functionalimperative").members
+    team = current_user.find(:organization, Figaro.env.trello_team)
+    @users = team.members
   end
 end

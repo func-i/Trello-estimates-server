@@ -6,6 +6,9 @@ TRELLO_DEVELOPER_SECRET_KEY: ''
 TRELLO_MEMBER_KEY: ''
 TRELLO_TOKEN: ''
 
+# team page => Edit Profile => Short Name (not Display name)
+TRELLO_TEAM: ''
+
 HARVEST_SUBDOMAIN: ''
 HARVEST_USERNAME: ''
 HARVEST_PASSWORD: ''
