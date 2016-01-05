@@ -4,6 +4,7 @@
 
 <% @lists.each do |list| %>
   <em><h3><%= list.name %></h3></em>
+
   <% if list.cards.count > 0 %>
     <table class="table table-striped table-bordered">
       <thead>
@@ -15,24 +16,25 @@
         <th>Performance</th>
       </thead>
       <tbody>
+
       <!-- ALL methods below are located within `boards_helper.rb` -->
       <% list.cards.each do |card| %>
-        <% card_hash = fetch_card_estimates(@board, card) %>
+        <% card_id = parse_card_id(card.url) %>
         <tr>
           <td class="col-md-5 card-link">
             <%= linked_card_name(card) %>
           </td>
 
           <td class="col-md-1">
-            <%= dev_estimate = time_estimation(card_hash) %>
+            <%= dev_estimate = card_estimated_time(card_id) %>
           </td>
 
           <td class="col-md-1">
-            <%= manager_estimate = time_estimation(card_hash, manager = true) %>
+            <%= manager_estimate = card_estimated_time(card_id, true) %>
           </td>
 
           <td class="col-md-1">
-            <% harvest_time = card_tracked_time(card) %>
+            <% harvest_time = card_tracked_time(card_id) %>
             <%= sprintf("%0.2f", harvest_time) if harvest_time %>
           </td>
 

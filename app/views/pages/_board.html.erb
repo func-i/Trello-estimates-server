@@ -5,11 +5,11 @@
     <%= link_to board.name, board_path(board.id) %>
   </td>
   <td>
-    <% dev_estimate = Estimation.developers_estimation(board.id).sum(:user_time) %>
+    <% dev_estimate = Estimation.developers_board(board.id).sum(:user_time) %>
     <%= dev_estimate unless dev_estimate.zero? %>
   </td>
   <td>
-    <% manager_estimate = Estimation.managers_estimation(board.id).sum(:user_time) %>
+    <% manager_estimate = Estimation.manager_board(board.id).sum(:user_time) %>
     <%= manager_estimate unless manager_estimate.zero? %>
   </td>
   <td>

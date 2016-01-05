@@ -10,26 +10,17 @@ module BoardsHelper
       link_to "Card #{card.short_id} - #{truncate card.name, length: 65}", card.url, target: "_blank"
     end
 
-    def fetch_card_estimates(board, card)
-      result = Hash.new(0)
-      board_id, card_id = board.id, parse_card_id(card.url)
-      Estimation.batch_estimates(board_id, card_id).each do |card|
-        if card.is_manager
-          result[:manager] = card.user_time
+    def card_estimated_time(card_id, by_manager = false)
+      estimated_time = 
+        if by_manager
+          Estimation.manager_card(card_id).sum(:user_time)
         else
-          result[:dev] = card.user_time
+          Estimation.developers_card(card_id).sum(:user_time)
         end
-      end
-      result
+      estimated_time unless estimated_time.zero?
     end
 
-    def time_estimation(card, manager = false)
-      time = (manager ? card[:manager] : card[:dev])
-      time unless time.zero?
-    end
-
-    def card_tracked_time(card)
-      card_id = parse_card_id(card.url)
+    def card_tracked_time(card_id)
       tracked_time = HarvestLog.where(trello_card_id: card_id).sum(:time_spent)
       tracked_time unless tracked_time.zero?
     end

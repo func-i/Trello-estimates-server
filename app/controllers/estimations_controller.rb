@@ -17,9 +17,9 @@ class EstimationsController < ApplicationController
     user          = current_user.find(:member, user_username)
 
     if is_manager
-      estimation = Estimation.manager.where(card_id: est_params[:card_id]).first
+      estimation = Estimation.manager_card(est_params[:card_id]).first
     else
-      estimation = Estimation.not_manager.where(card_id: est_params[:card_id], user_id: user.id).first
+      estimation = Estimation.developer_card(user.id, est_params[:card_id]).first
     end
 
     if estimation
@@ -46,9 +46,7 @@ class EstimationsController < ApplicationController
 
   def estimation_params
     params.require(:estimation).permit(
-      # :board_id, 
       :card_id, 
-      # :user_id,
       :user_username, 
       :user_time, 
       :is_manager
