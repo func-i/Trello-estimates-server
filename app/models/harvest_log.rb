@@ -10,7 +10,7 @@ class HarvestLog < ActiveRecord::Base
   validates :developer_email,   presence: true
   validates :trello_card_name,  presence: true
 
-  scope :time_tracked_by_card, lambda { |card_id|
+  scope :time_tracked_by_card, ->(card_id) {
     where("trello_card_id = ?", card_id)
   }
 

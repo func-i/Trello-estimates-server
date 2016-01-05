@@ -6,10 +6,10 @@ class Estimation < ActiveRecord::Base
     unless: Proc.new { |estimation| estimation.is_manager? }
   validates :user_time, presence: true
 
-  scope :manager, lambda { where(is_manager: true) }
-  scope :not_manager, lambda { where(is_manager: false) }
+  scope :manager, -> { where(is_manager: true) }
+  scope :not_manager, -> { where(is_manager: false) }
 
-  scope :developers_estimation, lambda { |board_id, card_id = nil|
+  scope :developers_estimation, ->(board_id, card_id = nil) {
     if card_id
       where("board_id = ? AND card_id LIKE ? AND is_manager = false", board_id, card_id)
     else
@@ -17,7 +17,7 @@ class Estimation < ActiveRecord::Base
     end
   }
 
-  scope :managers_estimation, lambda { |board_id, card_id = nil|
+  scope :managers_estimation, ->(board_id, card_id = nil) {
     if card_id
       where("board_id = ? AND card_id LIKE ? AND is_manager = true", board_id, card_id)
     else
@@ -25,7 +25,7 @@ class Estimation < ActiveRecord::Base
     end
   }
 
-  scope :batch_estimates, lambda { |board_id, card_id|
+  scope :batch_estimates, ->(board_id, card_id) {
     where("board_id = ? AND card_id = ?", board_id, card_id)
   }
 
