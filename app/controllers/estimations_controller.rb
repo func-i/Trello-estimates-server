@@ -13,30 +13,25 @@ class EstimationsController < ApplicationController
   end
 
   def create
-    est_params    = estimation_params
-    user_username = est_params.delete :user_username
-    is_manager    = est_params[:is_manager].to_bool
+    est_params  = estimation_params
+    is_manager  = est_params[:is_manager].to_bool
+    user_name   = est_params.delete :user_username
+    user        = current_user.find(:member, user_name)
 
-    user        = current_user.find(:member, user_username)
-    estimation  = find_estimation(user, is_manager, est_params[:card_id])
-
-    if estimation
-      estimation.user_time = est_params[:user_time]
-    else
-      estimation = Estimation.new est_params
+    # render error if a non-manager wants to create a manager estimation
+    if is_manager && !Admin.is_manager(user.email)
+      render json: "user is not a manager!", status: 500
+      return
     end
 
-    estimation.user_id = user.id unless is_manager
-    estimation.is_manager = Admin.is_manager(user.email) if is_manager
+    find_estimation(user, is_manager, est_params[:card_id])
+    edit_or_build_estimation(user, is_manager, est_params)
+    link_estimation_to_board
 
-    if trello_card = current_user.find(:cards, estimation.card_id)
-      estimation.board_id = trello_card.board_id
-    end
-
-    if estimation.save
-      render json: estimation
+    if @estimation.save
+      render json: @estimation
     else
-      render json: estimation.errors.full_messages, status: 500
+      render json: @estimation.errors.full_messages, status: 500
     end
   end
 
@@ -51,11 +46,37 @@ class EstimationsController < ApplicationController
     )
   end
 
+  # true if a non-manager wants to create a manager estimation
+  def error_not_manager(is_manager, user)
+    is_manager && Admin.is_manager(user.email)
+  end
+
   def find_estimation(user, is_manager, card_id)
-    if is_manager
-      Estimation.manager_card(card_id).first
+    @estimation = 
+      if is_manager
+        Estimation.manager_card(card_id).first
+      else
+        Estimation.developer_card(user.id, card_id).first
+      end
+  end
+
+  def edit_or_build_estimation(user, is_manager, est_params)
+    if @estimation
+      @estimation.user_time = est_params[:user_time]
     else
-      Estimation.developer_card(user.id, card_id).first
+      @estimation = Estimation.new est_params
+    end
+
+    if is_manager
+      @estimation.is_manager = true
+    else
+      @estimation.user_id = user.id
+    end
+  end
+
+  def link_estimation_to_board
+    if trello_card = current_user.find(:cards, @estimation.card_id)
+      @estimation.board_id = trello_card.board_id
     end
   end
 
