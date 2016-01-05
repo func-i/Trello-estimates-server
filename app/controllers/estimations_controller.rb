@@ -1,26 +1,24 @@
 class EstimationsController < ApplicationController
 
   def index
-    member = current_user.find(:member, params[:member_name])
+    member  = current_user.find(:member, params[:member_name])
+    card_id = params[:cardId]
 
-    if Admin.is_manager(member.email)
-      @estimations = Estimation.where(card_id: params[:cardId])
-    else
-      @estimations = Estimation.where(card_id: params[:cardId], user_id: member.id)
-    end
+    @estimations = 
+      if Admin.is_manager(member.email)
+        Estimation.for_card(card_id)
+      else
+        Estimation.developer_card(member.id, card_id)
+      end
   end
 
   def create
     est_params    = estimation_params
     user_username = est_params.delete :user_username
     is_manager    = est_params[:is_manager].to_bool
-    user          = current_user.find(:member, user_username)
 
-    if is_manager
-      estimation = Estimation.manager_card(est_params[:card_id]).first
-    else
-      estimation = Estimation.developer_card(user.id, est_params[:card_id]).first
-    end
+    user        = current_user.find(:member, user_username)
+    estimation  = find_estimation(user, is_manager, est_params[:card_id])
 
     if estimation
       estimation.user_time = est_params[:user_time]
@@ -36,9 +34,9 @@ class EstimationsController < ApplicationController
     end
 
     if estimation.save
-      render :json => estimation
+      render json: estimation
     else
-      render :json => estimation.errors.full_messages, :status => 500
+      render json: estimation.errors.full_messages, status: 500
     end
   end
 
@@ -52,4 +50,13 @@ class EstimationsController < ApplicationController
       :is_manager
     )
   end
+
+  def find_estimation(user, is_manager, card_id)
+    if is_manager
+      Estimation.manager_card(card_id).first
+    else
+      Estimation.developer_card(user.id, card_id).first
+    end
+  end
+
 end

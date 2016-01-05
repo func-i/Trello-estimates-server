@@ -5,7 +5,7 @@ module EstimationsHelper
     def get_total_tracked_time(board)
       HarvestLog.joins( :harvest_trello )
         .where( harvest_trellos: { trello_board_id: board.id } )
-        .sum( :time_spent )
+        .total_hours
     end
 
     def get_max_time(dev_estimate, manager_estimate)
