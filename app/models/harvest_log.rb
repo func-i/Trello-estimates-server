@@ -14,4 +14,7 @@ class HarvestLog < ActiveRecord::Base
     where(trello_card_id: card_id)
   }
 
+  # sum of tracked times in hours
+  scope :total_hours, -> { sum(:time_spent) }
+
 end
