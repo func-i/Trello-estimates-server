@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 
-  scope :already_on_db, lambda { |email| count(:conditions => ["email = ?", email]) > 0 }
+  def self.already_on_db(email)
+    where(email: email]).count > 0
+  end
 
   def self.authenticate_user(email, auth_token)
     user = where("email = ?", email).first
@@ -14,4 +16,5 @@ class User < ActiveRecord::Base
       user
     end
   end
+
 end
