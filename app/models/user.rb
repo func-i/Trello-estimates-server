@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   def self.already_on_db(email)
-    where(email: email]).count > 0
+    where(email: email).count > 0
   end
 
   def self.authenticate_user(email, auth_token)
