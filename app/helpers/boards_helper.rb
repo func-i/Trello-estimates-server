@@ -13,9 +13,9 @@ module BoardsHelper
     def card_estimated_time(card_id, by_manager = false)
       estimated_time = 
         if by_manager
-          Estimation.manager_card(card_id).sum(:user_time)
+          Estimation.manager_card(card_id).total_hours
         else
-          Estimation.developers_card(card_id).sum(:user_time)
+          Estimation.developers_card(card_id).total_hours
         end
       estimated_time unless estimated_time.zero?
     end
