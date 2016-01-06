@@ -3,19 +3,19 @@
     <%= link_to board.name, board_path(board.id) %>
   </td>
   <td>
-    <%= dev_estimate = board_estimated_time(board.id, :developers) %>
+    <%= dev_estimate = get_estimated_time(:board, board.id, :developers) %>
   </td>
   <td>
-    <%= manager_estimate = board_estimated_time(board.id, :manager) %>
+    <%= manager_estimate = get_estimated_time(:board, board.id, :manager) %>
   </td>
   <td>
-    <% tracked_time = board_tracked_time(board.id) %>
+    <% tracked_time = get_tracked_time(:board, board.id) %>
     <%= sprintf('%0.2f', tracked_time) if tracked_time %>
   </td>
   <td>
-    <%= board_remaining_time(dev_estimate, manager_estimate, tracked_time) %>
+    <%= calc_remaining_time(dev_estimate, manager_estimate, tracked_time) %>
   </td>
   <td>
-    <%= board_performance(dev_estimate, manager_estimate, tracked_time) %>
+    <%= calc_performance(dev_estimate, manager_estimate, tracked_time) %>
   </td>
 </tr>

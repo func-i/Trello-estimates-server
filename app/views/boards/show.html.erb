@@ -26,24 +26,24 @@
           </td>
 
           <td class="col-md-1">
-            <%= dev_estimate = card_estimated_time(card_id, :developers) %>
+            <%= dev_estimate = get_estimated_time(:card, card_id, :developers) %>
           </td>
 
           <td class="col-md-1">
-            <%= manager_estimate = card_estimated_time(card_id, :manager) %>
+            <%= manager_estimate = get_estimated_time(:card, card_id, :manager) %>
           </td>
 
           <td class="col-md-1">
-            <% harvest_time = card_tracked_time(card_id) %>
+            <% harvest_time = get_tracked_time(:card, card_id) %>
             <%= sprintf("%0.2f", harvest_time) if harvest_time %>
           </td>
 
           <td class="col-md-1">
-            <%= card_remaining_time(dev_estimate, manager_estimate, harvest_time) %>
+            <%= calc_remaining_time(dev_estimate, manager_estimate, harvest_time) %>
           </td>
 
           <td class="col-md-1">
-            <%= card_performance(dev_estimate, manager_estimate, harvest_time) %>
+            <%= calc_performance(dev_estimate, manager_estimate, harvest_time) %>
           </td>
         </tr>
       <% end %>
