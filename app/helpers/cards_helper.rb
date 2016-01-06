@@ -17,7 +17,7 @@ module CardsHelper
   end
 
   def card_tracked_time(card_id)
-    tracked_time = HarvestLog.time_tracked_by_card(card_id).total_hours
+    tracked_time = HarvestLog.by_trello_card(card_id).total_hours
     tracked_time unless tracked_time.zero?
   end
 
