@@ -13,6 +13,17 @@ class Estimation < ActiveRecord::Base
   scope :for_board, ->(board_id) { where(board_id: board_id) }
   scope :for_card,  ->(card_id) { where(card_id: card_id) }
 
+  # for target, by estimator
+  scope :search, ->(target, target_id, estimator, estimator_id = nil) {
+    result = send("for_#{target}", target_id)
+    
+    if estimator == :developer
+      result.send("by_#{estimator}", estimator_id)
+    else
+      result.send("by_#{estimator}")
+    end
+  }
+
   # sum of estimated times in hours
   scope :total_hours, -> { sum(:user_time) }
 

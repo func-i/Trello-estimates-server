@@ -49,14 +49,13 @@ class EstimationsController < ApplicationController
   end
 
   def find_estimation(user, is_manager, card_id)
-    card_estimates = Estimation.for_card(card_id)
-
-    @estimation = 
+    estimates =
       if is_manager
-        card_estimates.by_manager.first
+        Estimation.search(:card, card_id, :manager)
       else
-        card_estimates.by_developer(user.id).first
+        Estimation.search(:card, card_id, :developer, user.id)
       end
+    @estimation = estimates.first
   end
 
   def edit_or_build_estimation(user, is_manager, est_params)
