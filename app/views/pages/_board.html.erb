@@ -1,6 +1,6 @@
 <% lists = board.lists %>
 <% board_estimates = Estimation.for_board(board.id) %>
-<% tracked_time = get_total_tracked_time(board) %>
+<% tracked_time = board_tracked_time(board.id) %>
 
 <tr>
   <td class="board-name">
@@ -18,9 +18,9 @@
     <%= sprintf('%0.2f', tracked_time) unless tracked_time.zero? %>
   </td>
   <td>
-    <%= get_remaining_hours(dev_estimate, manager_estimate, tracked_time) %>
+    <%= board_remaining_time(dev_estimate, manager_estimate, tracked_time) %>
   </td>
   <td>
-    <%= total_board_performance(dev_estimate, manager_estimate, tracked_time) %>
+    <%= board_performance(dev_estimate, manager_estimate, tracked_time) %>
   </td>
 </tr>
