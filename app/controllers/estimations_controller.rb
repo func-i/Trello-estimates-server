@@ -1,15 +1,12 @@
 class EstimationsController < ApplicationController
 
   def index
-    member  = current_user.find(:member, params[:member_name])
-    card_id = params[:cardId]
+    member        = current_user.find(:member, params[:member_name])
+    @estimations  = Estimation.for_card(params[:cardId])
 
-    @estimations = 
-      if Admin.is_manager(member.email)
-        Estimation.for_card(card_id)
-      else
-        Estimation.developers_card(card_id)
-      end
+    unless Admin.is_manager(member.email)
+      @estimations = @estimations.by_developers
+    end
   end
 
   def create
@@ -52,11 +49,13 @@ class EstimationsController < ApplicationController
   end
 
   def find_estimation(user, is_manager, card_id)
+    card_estimates = Estimation.for_card(card_id)
+
     @estimation = 
       if is_manager
-        Estimation.manager_card(card_id).first
+        card_estimates.by_manager.first
       else
-        Estimation.developer_card(user.id, card_id).first
+        card_estimates.by_developer(user.id).first
       end
   end
 

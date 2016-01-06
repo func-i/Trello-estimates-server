@@ -26,11 +26,11 @@
           </td>
 
           <td class="col-md-1">
-            <%= dev_estimate = card_estimated_time(card_id) %>
+            <%= dev_estimate = card_estimated_time(card_id, :developers) %>
           </td>
 
           <td class="col-md-1">
-            <%= manager_estimate = card_estimated_time(card_id, true) %>
+            <%= manager_estimate = card_estimated_time(card_id, :manager) %>
           </td>
 
           <td class="col-md-1">

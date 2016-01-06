@@ -10,13 +10,9 @@ module BoardsHelper
       link_to "Card #{card.short_id} - #{truncate card.name, length: 65}", card.url, target: "_blank"
     end
 
-    def card_estimated_time(card_id, by_manager = false)
-      estimated_time = 
-        if by_manager
-          Estimation.manager_card(card_id).total_hours
-        else
-          Estimation.developers_card(card_id).total_hours
-        end
+    def card_estimated_time(card_id, estimator)
+      estimates = Estimation.for_card(card_id).send("by_#{estimator}")
+      estimated_time = estimates.total_hours
       estimated_time unless estimated_time.zero?
     end
 
