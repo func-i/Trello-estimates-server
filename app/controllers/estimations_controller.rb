@@ -8,7 +8,7 @@ class EstimationsController < ApplicationController
       if Admin.is_manager(member.email)
         Estimation.for_card(card_id)
       else
-        Estimation.developer_card(member.id, card_id)
+        Estimation.developers_card(card_id)
       end
   end
 
