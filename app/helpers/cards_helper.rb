@@ -1,4 +1,4 @@
-module BoardsHelper
+module CardsHelper
 
   private
 
@@ -21,7 +21,7 @@ module BoardsHelper
       tracked_time unless tracked_time.zero?
     end
 
-    def remaining_time(dev_estimate, manager_estimate, harvest_time)
+    def card_remaining_time(dev_estimate, manager_estimate, harvest_time)
       return unless (dev_estimate || manager_estimate) && harvest_time
       time = ([dev_estimate.to_f, manager_estimate.to_f].max - harvest_time).round(2)
       klass = (time < 0 ? 'text-danger' : 'text-success')
