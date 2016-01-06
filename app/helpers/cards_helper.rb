@@ -22,8 +22,10 @@ module CardsHelper
   end
 
   def card_remaining_time(dev_estimate, manager_estimate, harvest_time)
-    return unless (dev_estimate || manager_estimate) && harvest_time
-    time = ([dev_estimate.to_f, manager_estimate.to_f].max - harvest_time).round(2)
+    return unless harvest_time && (dev_estimate || manager_estimate)
+
+    max_estimate = get_max(dev_estimate, manager_estimate)
+    time = (max_estimate - harvest_time).round(2)
     klass = (time < 0 ? 'text-danger' : 'text-success')
 
     content_tag :span, time, class: klass
@@ -31,10 +33,17 @@ module CardsHelper
 
   def card_performance(dev_estimate, manager_estimate, harvest_time)
     return unless harvest_time && (dev_estimate || manager_estimate)
-    result = (harvest_time.zero? ? 0 : (([dev_estimate.to_f, manager_estimate.to_f].max / harvest_time) * 100).round(2))
 
+    max_estimate = get_max(dev_estimate, manager_estimate)
+    result = ((max_estimate / harvest_time) * 100).round(2)
     klass = (result < 100 ? 'text-danger' : 'text-success')
+
     content_tag :span, sprintf("%0.2f%", result), class: klass
+  end
+
+  # return the bigger of x and y; either could be nil
+  def get_max(x, y)
+    [x.to_f, y.to_f].max
   end
 
 end

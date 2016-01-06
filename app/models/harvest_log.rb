@@ -10,6 +10,11 @@ class HarvestLog < ActiveRecord::Base
   validates :developer_email,   presence: true
   validates :trello_card_name,  presence: true
 
+  scope :by_trello_board, ->(board_id) {
+    joins(:harvest_trello).
+    where(harvest_trellos: { trello_board_id: board_id })
+  }
+
   scope :by_trello_card, ->(card_id) {
     where(trello_card_id: card_id)
   }

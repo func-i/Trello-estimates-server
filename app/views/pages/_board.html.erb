@@ -1,21 +1,16 @@
-<% lists = board.lists %>
-<% board_estimates = Estimation.for_board(board.id) %>
-<% tracked_time = board_tracked_time(board.id) %>
-
 <tr>
   <td class="board-name">
     <%= link_to board.name, board_path(board.id) %>
   </td>
   <td>
-    <% dev_estimate = board_estimates.by_developers.total_hours %>
-    <%= dev_estimate unless dev_estimate.zero? %>
+    <%= dev_estimate = board_estimated_time(board.id, :developers) %>
   </td>
   <td>
-    <% manager_estimate = board_estimates.by_manager.total_hours %>
-    <%= manager_estimate unless manager_estimate.zero? %>
+    <%= manager_estimate = board_estimated_time(board.id, :manager) %>
   </td>
   <td>
-    <%= sprintf('%0.2f', tracked_time) unless tracked_time.zero? %>
+    <% tracked_time = board_tracked_time(board.id) %>
+    <%= sprintf('%0.2f', tracked_time) if tracked_time %>
   </td>
   <td>
     <%= board_remaining_time(dev_estimate, manager_estimate, tracked_time) %>
