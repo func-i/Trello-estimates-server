@@ -1,15 +1,16 @@
 <tr>
   <td class="board-name">
-    <%= link_to board.name, board_path(board.id) %>
+    <% board_id = parse_short_link(board.url) %>
+    <%= link_to board.name, board_path(board_id) %>
   </td>
   <td>
-    <%= dev_estimate = get_estimated_time(:board, board.id, :developers) %>
+    <%= dev_estimate = get_estimated_time(:board, board_id, :developers) %>
   </td>
   <td>
-    <%= manager_estimate = get_estimated_time(:board, board.id, :manager) %>
+    <%= manager_estimate = get_estimated_time(:board, board_id, :manager) %>
   </td>
   <td>
-    <% tracked_time = get_tracked_time(:board, board.id) %>
+    <% tracked_time = get_tracked_time(:board, board_id) %>
     <%= sprintf('%0.2f', tracked_time) if tracked_time %>
   </td>
   <td>

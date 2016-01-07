@@ -19,7 +19,7 @@
 
       <!-- ALL methods below are located within `boards_helper.rb` -->
       <% list.cards.each do |card| %>
-        <% card_id = parse_card_id(card.url) %>
+        <% card_id = parse_short_link(card.url) %>
         <tr>
           <td class="col-md-5 card-link">
             <%= linked_card_name(card) %>
