@@ -1,7 +1,7 @@
 class BoardsController < ApplicationController
 
   def show
-    @board = current_user.find(:board, params[:id])
+    @board = trello_client.find(:board, params[:id])
     @lists = @board.lists
   end
 

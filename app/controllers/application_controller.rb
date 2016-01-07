@@ -4,7 +4,7 @@ require 'json'
 require 'pp'
 
 class ApplicationController < ActionController::Base
-  include UsersHelper
+  include TrelloHelper
   
   # before_action :set_auth_config
   # before_action :user_authenticated
@@ -41,13 +41,13 @@ class ApplicationController < ActionController::Base
   end
 
   def user_authenticated
-    redirect_to @request_token.authorize_url + "&name=Github-Trello&expiration=never&scope=read,write,account" unless current_user
+    redirect_to @request_token.authorize_url + "&name=Github-Trello&expiration=never&scope=read,write,account" unless trello_client
   end
 
   def load_all_users
     # organization endpoints refer to Trello teams
-    # @users = current_user.find(:organization, "functionalimperative").members
-    team = current_user.find(:organization, Figaro.env.trello_team)
+    # @users = trello_client.find(:organization, "functionalimperative").members
+    team = trello_client.find(:organization, Figaro.env.trello_team)
     @users = team.members
   end
 end
