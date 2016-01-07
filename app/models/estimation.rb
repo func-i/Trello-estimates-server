@@ -31,7 +31,7 @@ class Estimation < ActiveRecord::Base
   scope :cards_on_board, ->(board_id) {
     select("card_id, sum(user_time) AS estimated_time")
     for_board(board_id).
-    group(:card_id).
+    group(:card_id)
   }
 
 end
