@@ -1,13 +1,13 @@
 class EstimationsController < ApplicationController
 
   def index
-    if board_id = params[:boardId]
+    if board_id = params[:board_id]
       render_cards_on_board(board_id)
       return
     end
 
     member        = trello_client.find(:member, params[:member_name])
-    @estimations  = Estimation.for_card(params[:cardId])
+    @estimations  = Estimation.for_card(params[:card_id])
     
     unless Admin.is_manager(member.email)
       @estimations = @estimations.by_developers
@@ -28,7 +28,6 @@ class EstimationsController < ApplicationController
 
     find_estimation(user, is_manager, est_params[:card_id])
     edit_or_build_estimation(user, is_manager, est_params)
-    link_estimation_to_board
 
     if @estimation.save
       render json: @estimation
@@ -74,6 +73,7 @@ class EstimationsController < ApplicationController
       @estimation.user_time = est_params[:user_time]
     else
       @estimation = Estimation.new est_params
+      link_estimation_to_board
     end
 
     if is_manager
@@ -85,7 +85,7 @@ class EstimationsController < ApplicationController
 
   def link_estimation_to_board
     # trello_client.find(:cards, ...) strips out board shortLink
-    card_url  = "/cards/" + params[:cardId]
+    card_url  = "/cards/" + @estimation.card_id
     options   = { board: "true", board_fields: "shortLink" }
     response  = trello_client.get(card_url, options)
 
