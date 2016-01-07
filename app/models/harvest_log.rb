@@ -28,7 +28,7 @@ class HarvestLog < ActiveRecord::Base
 
   # total tracked time of every card on a board
   scope :cards_on_board, ->(board_id) {
-    select("trello_card_id, sum(time_spent) AS tracked_time")
+    select("trello_card_id, sum(time_spent) AS tracked_time").
     by_trello_board(board_id).
     group(:trello_card_id)
   }

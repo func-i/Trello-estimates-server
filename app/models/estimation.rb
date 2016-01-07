@@ -1,7 +1,13 @@
 class Estimation < ActiveRecord::Base
 
+  # use the Trello card's shortLink as card_id because Trello API can
+  # find a card with its shortLink
   validates :card_id,   presence: true
+
+  # use the actual id of the Trello board since Trello API can't find a
+  # board by shortLInk. Match board_id to shortlink in TrelloBoard model
   validates :board_id,  presence: true
+  
   validates :user_id,   presence: true, 
     unless: Proc.new { |estimation| estimation.is_manager? }
   validates :user_time, presence: true
@@ -29,7 +35,7 @@ class Estimation < ActiveRecord::Base
 
   # total estimated time of every card on a board
   scope :cards_on_board, ->(board_id) {
-    select("card_id, sum(user_time) AS estimated_time")
+    select("card_id, sum(user_time) AS estimated_time").
     for_board(board_id).
     group(:card_id)
   }
