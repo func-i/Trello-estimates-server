@@ -27,4 +27,11 @@ class Estimation < ActiveRecord::Base
   # sum of estimated times in hours
   scope :total_hours, -> { sum(:user_time) }
 
+  # total estimated time of every card on a board
+  scope :cards_on_board, ->(board_id) {
+    select("card_id, sum(user_time) AS estimated_time")
+    for_board(board_id).
+    group(:card_id).
+  }
+
 end

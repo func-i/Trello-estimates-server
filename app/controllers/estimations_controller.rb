@@ -1,9 +1,14 @@
 class EstimationsController < ApplicationController
 
   def index
+    if board_id = params[:boardId]
+      render_cards_on_board(board_id)
+      return
+    end
+
     member        = current_user.find(:member, params[:member_name])
     @estimations  = Estimation.for_card(params[:cardId])
-
+    
     unless Admin.is_manager(member.email)
       @estimations = @estimations.by_developers
     end
@@ -33,6 +38,12 @@ class EstimationsController < ApplicationController
   end
 
   private
+
+  def render_cards_on_board(board_id)
+    estimates = Estimation.cards_on_board(board_id)
+    trackings = HarvestLog.cards_on_board(board_id)
+    render json: { estimates: estimates, trackings: trackings }
+  end
 
   def estimation_params
     params.require(:estimation).permit(

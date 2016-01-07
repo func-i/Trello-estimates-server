@@ -1,4 +1,4 @@
-json.extract! estimation, :is_manager,:user_time
+json.extract! estimation, :is_manager, :user_time
 
 if estimation.is_manager?
   json.user_name ""
