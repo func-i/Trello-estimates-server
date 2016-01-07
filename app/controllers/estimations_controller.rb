@@ -84,8 +84,14 @@ class EstimationsController < ApplicationController
   end
 
   def link_estimation_to_board
-    if trello_card = current_user.find(:cards, @estimation.card_id)
-      @estimation.board_id = trello_card.board_id
+    # current_user.find(:cards, ...) strips out board shortLink
+    card_url  = "/cards/" + params[:cardId]
+    options   = { board: "true", board_fields: "shortLink" }
+    response  = current_user.get(card_url, options)
+
+    if response.present?
+      card_hash = JSON.parse(response)
+      @estimation.board_id = card_hash["board"]["shortLink"]
     end
   end
 
