@@ -41,7 +41,7 @@ class EstimationsController < ApplicationController
   def render_cards_on_board(board_id)
     estimates = Estimation.cards_on_board(board_id)
     trackings = HarvestLog.cards_on_board(board_id)
-    render json: { estimates: estimates, trackings: trackings }
+    render json: merge_cards_stats(estimates, trackings)
   end
 
   def estimation_params
