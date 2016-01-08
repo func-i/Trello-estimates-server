@@ -8,6 +8,20 @@ First, `git clone` both:
 - https://github.com/func-i/Trello-estimates-server.git
 - https://github.com/func-i/Trello-estimates-chrome-extension.git
 
+Set up server (application.yml):
+
+- TRELLO_DEVELOPER_KEY and TRELLO_DEVELOPER_SECRET_KEY
+  - Click "Get your Application Key" on the [Trello Developers page](https://developers.trello.com/get-started)
+- TRELLO_MEMBER_KEY and TRELLO_TOKEN
+  - See: [ruby-trello](https://github.com/jeremytregunna/ruby-trello), under **Basic authorization**
+  ```
+  $ gem install ruby-trello
+  $ irb -rubygems
+  irb> require 'trello'
+  irb> Trello.open_public_key_url                         # copy your public key
+  irb> Trello.open_authorization_url key: 'yourpublickey' # copy your member token
+  ```
+
 Then:
 
 - Open Chrome, go to Extensions tab
