@@ -40,7 +40,7 @@ class HarvestTrellosController < ApplicationController
   # POST /harvest_trellos
   # POST /harvest_trellos.json
   def create
-    @harvest_trello = HarvestTrello.new(params[:harvest_trello])
+    @harvest_trello = HarvestTrello.new(harvest_trello_params)
 
     respond_to do |format|
       if @harvest_trello.save
@@ -59,7 +59,7 @@ class HarvestTrellosController < ApplicationController
     @harvest_trello = HarvestTrello.find(params[:id])
 
     respond_to do |format|
-      if @harvest_trello.update_attributes(params[:harvest_trello])
+      if @harvest_trello.update_attributes(harvest_trello_params)
         format.html { redirect_to @harvest_trello, notice: 'Harvest trello was successfully updated.' }
         format.json { head :no_content }
       else
@@ -79,5 +79,16 @@ class HarvestTrellosController < ApplicationController
       format.html { redirect_to harvest_trellos_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def harvest_trello_params
+    params.require(:harvest_trello).permit(
+      :harvest_project_id,
+      :harvest_project_name,
+      :trello_board_name,
+      :trello_board_id
+    )
   end
 end

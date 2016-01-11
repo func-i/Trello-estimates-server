@@ -9,10 +9,9 @@
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
-/config/database.yml
+
 /.idea
 /.rake_tasks
-
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
@@ -20,3 +19,5 @@
 
 # Ignore application configuration
 /config/application.yml
+/config/database.yml
+/config/secrets.yml

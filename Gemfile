@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+ruby '2.2.4'
+gem 'rails', '~> 4.2.0'
 gem 'thin'
 gem 'pg'
 gem 'foreman'
@@ -9,18 +10,19 @@ gem 'figaro'
 gem 'ruby-trello'
 gem "harvested"
 gem 'jbuilder'
+gem 'json', '>= 1.8.2'
+gem 'sprockets-rails', '>= 2.1.3', :require => 'sprockets/railtie'
 
-group :assets do
-  gem "therubyracer"
-  gem 'sass-rails', '~> 3.2.3'
-  gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
-end
+# group :assets do
+gem "therubyracer"
+gem 'sass-rails', '~> 5.0.0'
+gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
+gem 'coffee-rails', '~> 4.1.0'
+gem 'uglifier', '>= 1.3.0'
+# end
 
 group :development do
-  gem 'debugger'
-  gem 'jazz_hands'
+  gem 'pry-byebug'
   gem 'better_errors'
   gem "guard-livereload"
   gem 'binding_of_caller'

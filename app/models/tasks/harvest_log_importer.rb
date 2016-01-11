@@ -1,4 +1,5 @@
 class Tasks::HarvestLogImporter
+  include TrelloParseHelper
 
   def initialize(task)
     @task = task
@@ -30,7 +31,7 @@ class Tasks::HarvestLogImporter
           if harvest_log = harvest_trello.harvest_logs.where(harvest_entry_id: @task.id).first
             harvest_log.update_attribute(:time_spent, @task.hours)
           else
-            harvest_trello.harvest_logs.create!(attrs.merge!(harvest_entry_id: @task.id)) 
+            harvest_trello.harvest_logs.create!(attrs.merge!(harvest_entry_id: @task.id))
           end
         end
       end
@@ -60,7 +61,7 @@ class Tasks::HarvestLogImporter
         harvest_trello = HarvestTrello.create!(
           harvest_project_id: @task.project_id,
           harvest_project_name: @task.project,
-          trello_board_id: trello_board.id,
+          trello_board_id: parse_short_link(trello_board.url),
           trello_board_name: trello_board.name
           ) if trello_board
       end
