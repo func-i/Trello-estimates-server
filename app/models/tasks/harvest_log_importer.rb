@@ -1,5 +1,5 @@
 class Tasks::HarvestLogImporter
-  include TrelloParser
+  include TrelloParseHelper
 
   def initialize(task)
     @task = task
