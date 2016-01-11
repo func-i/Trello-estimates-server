@@ -1,4 +1,4 @@
-module EstimatesHelper
+module StatsHelper
 
   private
 
