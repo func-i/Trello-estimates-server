@@ -1,15 +1,12 @@
 class Tasks::HarvestLogImporter
   include TrelloParseHelper
 
-  def initialize(task)
+  def initialize(harvest_client, task)
+    @harvest_client = harvest_client
     @task = task
   end
 
   def perform
-    # puts "Processing HarvestLog: \n#{@task.to_yaml}"
-    # puts "-------------------------------------"
-    # puts "#####################################"
-    # puts "-------------------------------------"
     begin
       # => Find out if this Harvest Time entry was from an external source
       # => If it was, that means it came from Trello
@@ -24,7 +21,7 @@ class Tasks::HarvestLogImporter
             harvest_task_name: @task.task,
             trello_card_id: @task.external_ref.id,
             trello_card_name: @task.notes,
-            developer_email: HARVEST.users.find(@task.user_id).email
+            developer_email: @harvest_client.users.find(@task.user_id).email
           }
 
           # => Find the existing HarvestLog
