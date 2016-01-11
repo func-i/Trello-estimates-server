@@ -5,23 +5,14 @@ require 'pp'
 
 class ApplicationController < ActionController::Base
   include TrelloHelper
-  
-  # before_action :set_auth_config
-  # before_action :user_authenticated
-  # before_action :load_all_users
 
-  before_filter :set_auth_config
-  before_filter :user_authenticated
-  before_filter :load_all_users
+  before_action :set_auth_config
+  before_action :user_authenticated
+  before_action :load_all_users
 
-  #TODO: ACTIVATE IT LATER!!!
-  #protect_from_forgery
-  
   private
 
   def set_auth_config
-    #TODO TALK TO KVIRANI TO SEE BETTER PLACE TO ATTACH THIS METHOD
-    #MAYBE MOVE THIS TO A HELPER - BEING DUPLICAtED ON USERS CONTROLLER
     @consumer = OAuth::Consumer.new(
       Figaro.env.trello_developer_key,
       Figaro.env.trello_developer_secret_key,
