@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   skip_before_action :user_authenticated, only: :login
-  skip_before_action :load_all_users,     only: :login
 
   def dashboard
     board_unfiltered = trello_client.find(:members, "me").boards

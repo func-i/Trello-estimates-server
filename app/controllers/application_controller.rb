@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
 
   before_action :set_auth_config
   before_action :user_authenticated
-  before_action :load_all_users
 
   private
 
@@ -35,9 +34,4 @@ class ApplicationController < ActionController::Base
     redirect_to @request_token.authorize_url + "&name=Github-Trello&expiration=never&scope=read,write,account" unless trello_client
   end
 
-  def load_all_users
-    # organization endpoints refer to Trello teams
-    team = trello_client.find(:organization, Figaro.env.trello_team)
-    @users = team.members
-  end
 end
