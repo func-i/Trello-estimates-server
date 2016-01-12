@@ -61,12 +61,4 @@ ActiveRecord::Schema.define(version: 20130917203244) do
   add_index "harvest_trellos", ["harvest_project_id"], name: "index_harvest_trellos_on_harvest_project_id", using: :btree
   add_index "harvest_trellos", ["trello_board_id"], name: "index_harvest_trellos_on_trello_board_id", using: :btree
 
-  create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "public_token"
-    t.string   "secret_token"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
 end
