@@ -10,16 +10,15 @@ First, `git clone` both:
 
 Set up server (application.yml):
 
-- TRELLO_DEVELOPER_KEY and TRELLO_DEVELOPER_SECRET_KEY
+- TRELLO_DEVELOPER_KEY and TRELLO_DEVELOPER_SECRET
   - Click "Get your Application Key" on the [Trello Developers page](https://developers.trello.com/get-started)
-- TRELLO_MEMBER_KEY and TRELLO_TOKEN
-  - See: [ruby-trello](https://github.com/jeremytregunna/ruby-trello), under **Basic authorization**
+- TRELLO_TOKEN
+  - Refer to: [ruby-trello](https://github.com/jeremytregunna/ruby-trello), under **Basic authorization**
   ```
   $ gem install ruby-trello
   $ irb -rubygems
   irb> require 'trello'
-  irb> Trello.open_public_key_url                         # copy your public key
-  irb> Trello.open_authorization_url key: 'yourpublickey' # copy your member token
+  irb> Trello.open_authorization_url key: 'TRELLO_DEVELOPER_KEY above' # copy your member token
   ```
 
 Then:

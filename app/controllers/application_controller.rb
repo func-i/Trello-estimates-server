@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   def set_auth_config
     @consumer = OAuth::Consumer.new(
       Figaro.env.trello_developer_key,
-      Figaro.env.trello_developer_secret_key,
+      Figaro.env.trello_developer_secret,
       {
         site:         "https://trello.com",
         scheme:       :header,
@@ -37,7 +37,6 @@ class ApplicationController < ActionController::Base
 
   def load_all_users
     # organization endpoints refer to Trello teams
-    # @users = trello_client.find(:organization, "functionalimperative").members
     team = trello_client.find(:organization, Figaro.env.trello_team)
     @users = team.members
   end

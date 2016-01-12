@@ -1,16 +1,30 @@
-# developer account calling the API
-TRELLO_DEVELOPER_KEY: ''
-TRELLO_DEVELOPER_SECRET_KEY: ''
+default: &default
+  # developer account calling the API, must be able to access every FI board
+  TRELLO_DEVELOPER_KEY: ''
+  TRELLO_DEVELOPER_SECRET: ''
+  TRELLO_TOKEN: ''
 
-# user account that can access every FI board
-TRELLO_MEMBER_KEY: ''
-TRELLO_TOKEN: ''
+  # team page => Edit Profile => Short Name (not Display name)
+  TRELLO_TEAM: ''
 
-# team page => Edit Profile => Short Name (not Display name)
-TRELLO_TEAM: ''
+  HARVEST_SUBDOMAIN: ''
+  HARVEST_USERNAME: ''
+  HARVEST_PASSWORD: ''
 
-HARVEST_SUBDOMAIN: ''
-HARVEST_USERNAME: ''
-HARVEST_PASSWORD: ''
+  DOMAIN: ''
 
-DOMAIN: 'http://estimation-fi.herokuapp.com'
+development:
+  <<: *default
+
+test: &test
+  <<: *default
+
+cucumber:
+  <<: *test
+
+staging:
+  <<: *default
+
+production:
+  <<: *default
+

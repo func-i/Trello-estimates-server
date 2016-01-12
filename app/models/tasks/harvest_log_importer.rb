@@ -69,7 +69,7 @@ class Tasks::HarvestLogImporter
 
   def auth_trello
     Trello.configure do |config|
-      config.developer_public_key = Figaro.env.trello_member_key
+      config.developer_public_key = Figaro.env.trello_developer_key
       config.member_token = Figaro.env.trello_token
     end
   end
