@@ -38,3 +38,13 @@ Chrome extension:
 - Reload the extension
 - Visit [the test board on Trello](https://trello.com/b/aFEoV5fw/test-trello-estimation-tool)
     - click 'Track Time', login to Harvest with you credentials
+
+Deploy to Heroku:
+
+https://devcenter.heroku.com/articles/getting-started-with-rails4
+- heroku login
+- heroku create [app name]
+- git push heroku master
+- figaro heroku:set -e production
+- heroku run rake db:migrate
+- open the Heroku app in the browser

@@ -68,4 +68,7 @@ GithubTrelloRails::Application.configure do
   # Rails 4
   config.eager_load = true
   config.assets.js_compressor = :uglifier
+
+  # Heroku: secrets.yml not commited
+  config.secret_key_base = ENV["SECRET_KEY_BASE"]
 end
