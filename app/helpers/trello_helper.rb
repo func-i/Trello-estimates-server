@@ -12,8 +12,10 @@ module TrelloHelper
   end
 
   def get_trello_request_token
+    return session[:trello_request_token] if session[:trello_request_token].present?
+
     oauth_consumer = get_trello_oauth_consumer
-    oauth_consumer.get_request_token(
+    session[:trello_request_token] = oauth_consumer.get_request_token(
       oauth_callback: Figaro.env.domain + "/login"
     )
   end
