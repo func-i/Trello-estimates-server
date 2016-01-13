@@ -7,8 +7,6 @@ class PagesController < ApplicationController
   end
 
   def login
-    puts "in login"
-
     request_token = get_trello_request_token
     access_token = request_token.get_access_token(oauth_verifier: params["oauth_verifier"])
     set_trello_client(access_token)
