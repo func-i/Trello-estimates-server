@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
   private
 
   def check_trello_client
+    puts "in check_trello_client"
+
     trello_login if trello_client.blank?
   end
 
