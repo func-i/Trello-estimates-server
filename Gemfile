@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 ruby '2.2.4'
 gem 'rails', '~> 4.2.0'
-gem 'puma'
 gem 'pg'
 gem 'foreman'
 gem 'jquery-rails'
@@ -28,6 +27,11 @@ group :development do
   gem 'binding_of_caller'
 end
 
+group :development, :test do
+  gem 'thin'
+end
+
 group :production do
+  gem 'puma'
   gem 'rails_12factor'
 end

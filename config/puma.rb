@@ -8,10 +8,6 @@ rackup      DefaultRackup
 port        ENV['PORT']     || 3000
 environment ENV['RACK_ENV'] || 'development'
 
-path_to_key   = '/Users/dev/.ssh/server.key'
-path_to_cert  = '/Users/dev/.ssh/server.crt'
-ssl_bind '127.0.0.1', '5000', { key: path_to_key, cert: path_to_cert }
-
 on_worker_boot do
   # Worker specific setup for Rails 4.1+
   # See: https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server#on-worker-boot
