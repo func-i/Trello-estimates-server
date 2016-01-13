@@ -3,4 +3,4 @@
 require ::File.expand_path('../config/environment',  __FILE__)
 run GithubTrelloRails::Application
 
-stdout.sync = true
+$stdout.sync = true
