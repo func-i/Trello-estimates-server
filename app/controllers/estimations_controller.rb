@@ -8,7 +8,7 @@ class EstimationsController < ApplicationController
 
     member        = trello_client.find(:member, params[:member_name])
     @estimations  = Estimation.for_card(params[:card_id])
-    
+
     unless Admin.is_manager(member.email)
       @estimations = @estimations.by_developers
     end
@@ -41,14 +41,14 @@ class EstimationsController < ApplicationController
   def render_cards_on_board(board_id)
     estimates = Estimation.cards_on_board(board_id)
     trackings = HarvestLog.cards_on_board(board_id)
-    render json: merge_cards_stats(estimates, trackings)
+    render json: StatsHelper.merge_cards_stats(estimates, trackings)
   end
 
   def estimation_params
     params.require(:estimation).permit(
-      :card_id, 
-      :user_username, 
-      :user_time, 
+      :card_id,
+      :user_username,
+      :user_time,
       :is_manager
     )
   end
