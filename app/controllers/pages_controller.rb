@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  skip_before_action :check_trello_client, only: :login
+  skip_before_action :load_trello_client, only: :login
 
   def dashboard
     board_unfiltered = @trello.client.find(:members, "me").boards
@@ -8,7 +8,7 @@ class PagesController < ApplicationController
   end
 
   def login
-    @trello.set_trello_client(params["oauth_verifier"])
+    @trello.login(params["oauth_verifier"])
     redirect_to root_path
   end
 
