@@ -2,7 +2,8 @@ GithubTrelloRails::Application.routes.draw do
 
   root to: "pages#dashboard"
 
-  get "login", to: "pages#login"
+  get "trello_callback", to: "pages#trello_callback"
+
   get "board/:id", to: "boards#show", as: :board
 
   resources :admins

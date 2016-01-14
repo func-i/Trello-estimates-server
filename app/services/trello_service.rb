@@ -9,7 +9,6 @@ class TrelloService
 
   def initialize(rails_session)
     @session        = rails_session
-    @request_token  = @session[:trello_request_token]
     @access_token   = @session[:trello_access_token]
     @client         = nil
   end
@@ -24,36 +23,34 @@ class TrelloService
   end
 
   def authorize
-    @request_token = set_trello_request_token
+    request_token = set_trello_request_token
 
     authorize_query = {
       name:       "Github-Trello",
       expiration: "never",
       scope:      "read,write,account"
     }.to_query
-    @request_token.authorize_url + "&" + authorize_query
+    request_token.authorize_url + "&" + authorize_query
   end
 
   def login(oauth_verifier)
-    @access_token ||= set_trello_access_token(oauth_verifier)
+    @access_token = set_trello_access_token(oauth_verifier)
     load_trello_client
   end
 
   private
 
   def set_trello_access_token(oauth_verifier)
-    @request_token ||= set_trello_request_token
-
-    @session[:trello_access_token] = @request_token.get_access_token(
+    request_token = @session[:trello_request_token]
+    @session[:trello_access_token] = request_token.get_access_token(
       oauth_verifier: oauth_verifier
     )
   end
 
   def set_trello_request_token
     oauth_consumer = get_trello_oauth_consumer
-
     @session[:trello_request_token] = oauth_consumer.get_request_token(
-      oauth_callback: Figaro.env.domain + "/login"
+      oauth_callback: Figaro.env.domain + "/trello_callback"
     )
   end
 
