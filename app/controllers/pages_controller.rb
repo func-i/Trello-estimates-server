@@ -1,15 +1,14 @@
 class PagesController < ApplicationController
+
   skip_before_action :check_trello_client, only: :login
 
   def dashboard
-    board_unfiltered = trello_client.find(:members, "me").boards
+    board_unfiltered = @trello.client.find(:members, "me").boards
     @boards = board_unfiltered.reject{ |b| b.closed? }
   end
 
   def login
-    request_token = get_trello_request_token
-    access_token = request_token.get_access_token(oauth_verifier: params["oauth_verifier"])
-    set_trello_client(access_token)
+    @trello.set_trello_client(params["oauth_verifier"])
     redirect_to root_path
   end
 

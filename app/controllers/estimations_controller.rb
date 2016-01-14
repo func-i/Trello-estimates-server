@@ -6,7 +6,7 @@ class EstimationsController < ApplicationController
       return
     end
 
-    member        = trello_client.find(:member, params[:member_name])
+    member        = @trello.client.find(:member, params[:member_name])
     @estimations  = Estimation.for_card(params[:card_id])
 
     unless Admin.is_manager(member.email)
@@ -18,7 +18,7 @@ class EstimationsController < ApplicationController
     est_params  = estimation_params
     is_manager  = est_params[:is_manager].to_bool
     user_name   = est_params.delete :user_username
-    user        = trello_client.find(:member, user_name)
+    user        = @trello.client.find(:member, user_name)
 
     # render error if a non-manager wants to create a manager estimation
     if is_manager && !Admin.is_manager(user.email)
@@ -84,10 +84,10 @@ class EstimationsController < ApplicationController
   end
 
   def link_estimation_to_board
-    # trello_client.find(:cards, ...) strips out board shortLink
+    # @trello.client.find(:cards, ...) strips out board shortLink
     card_url  = "/cards/" + @estimation.card_id
     options   = { board: "true", board_fields: "shortLink" }
-    response  = trello_client.get(card_url, options)
+    response  = @trello.client.get(card_url, options)
 
     if response.present?
       card_hash = JSON.parse(response)
