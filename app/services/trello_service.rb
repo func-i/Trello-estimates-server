@@ -27,9 +27,9 @@ class TrelloService
     @request_token = set_trello_request_token
 
     authorize_query = {
-      name: "Github-Trello",
+      name:       "Github-Trello",
       expiration: "never",
-      scope: "read,write,account"
+      scope:      "read,write,account"
     }.to_query
     @request_token.authorize_url + "&" + authorize_query
   end
@@ -42,7 +42,7 @@ class TrelloService
   private
 
   def set_trello_access_token(oauth_verifier)
-    @request_token = set_trello_request_token
+    @request_token ||= set_trello_request_token
 
     @session[:trello_access_token] = @request_token.get_access_token(
       oauth_verifier: oauth_verifier
