@@ -33,4 +33,14 @@ class HarvestLog < ActiveRecord::Base
     group(:trello_card_id)
   }
 
+  # this method deletes from database all task logs for recon_day that aren't on Harvest
+  def self.reconcile_daily_logs(recon_day, harvest_logs)
+    harvest_log_ids = harvest_logs.collect(&:task_id)
+    local_logs = self.where(day: recon_day)
+
+    local_logs.each do |log|
+      HarvestLog.destroy(log.id) unless harvest_log_ids.include?(log.harvest_task_id)
+    end
+  end
+
 end
