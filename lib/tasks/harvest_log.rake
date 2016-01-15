@@ -35,9 +35,14 @@ namespace :harvest do
   # if user deletes a task log on Harvest, the task doesn't pick it up
   # this task deletes from database all logs for today that aren't on Harvest
   task :reconcile_daily_logs => :environment do
-    harvest_client    = get_harvest_client
-    today_task_logs   = harvest_client.time.all(Date.today)
-    logs_from_trello  = today_task_logs.select { |log| log.external_ref }
+    harvest_client  = get_harvest_client
+    today_logs = []
+
+    harvest_client.users.all.collect(&:id).each do |user_id|
+      user_logs = harvest_client.time.all(Date.today, user_id)
+      today_logs.concat(user_logs)
+    end
+    logs_from_trello = today_logs.select { |log| log.external_ref }
 
     HarvestLog.reconcile_daily_logs(Date.today, logs_from_trello)
   end # task :reconcile_daily_logs
