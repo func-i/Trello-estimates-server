@@ -38,7 +38,7 @@ class HarvestLog < ActiveRecord::Base
     harvest_log_ids = harvest_logs.collect(&:task_id)
     self
       .where(day: recon_day)
-      .where.not(id: harvest_log_ids)
+      .where.not(harvest_task_id: harvest_log_ids)
       .delete_all
   end
 
