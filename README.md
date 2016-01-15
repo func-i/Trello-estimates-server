@@ -29,7 +29,9 @@ First, `git clone` both:
 - You will be prompted for Github-Trello
     - allow OAuth token
 
-Both time estimations and time tracked through harvest will be updated on the server
+Both time estimations and time tracked through Harvest will be updated on the server
+
+*Note: You must open the server app and authenticate with Trello before opening Trello with the Chrome extension*
 
 #### 4. Chrome extension:
 
@@ -37,8 +39,9 @@ Both time estimations and time tracked through harvest will be updated on the se
 - Enable Developer Mode (checkbox on the top right)
 - Click `Load unpacked extension..` and select the `Trello-estimates-chrome-extension` directory you cloned above
 - Reload the extension
-- Visit [the test board on Trello](https://trello.com/b/aFEoV5fw/test-trello-estimation-tool)
-    - click 'Track Time', login to Harvest with you credentials
+
+##### 4.1  Track time on Harvest from the Trello cards
+- Install the Harvest Time Tracker [Chrome extension](https://chrome.google.com/webstore/detail/harvest-time-tracker/fbpiglieekigmkeebmeohkelfpjjlaia)
 
 ### Deploy
 
@@ -52,10 +55,20 @@ https://devcenter.heroku.com/articles/getting-started-with-rails4
 
 ##### 1.2 Heroku
 - heroku login
-- heroku create estimation-fi
+- Either **create the Heroku app:** heroku create estimation-fi
+- Or **push to the exisint app:** heroku git:remote -a estimation-fi
 - git push heroku master
+
+Heroku configs/setup:
 - figaro heroku:set -e production
 - heroku run rake db:migrate
+- heroku ps:scale importer=1
+
+Schedule task to reconcile daily Harvest logs:
+- heroku addons:create scheduler:standard
+- heroku addons:open scheduler
+- `bundle exec rake harvest:reconcile_daily_logs` in the text field after $
+- set Dyno Size: Free, Frequency: Every 10 minutes
 
 ##### 1.3 open the Heroku app in the browser
 - https://estimation-fi.herokuapp.com/
