@@ -1,34 +1,34 @@
 class Tasks::HarvestLogImporter
   include TrelloParseHelper
 
-  def initialize(harvest_client, task)
+  def initialize(harvest_client, entry)
     @harvest_client = harvest_client
-    @task = task
+    @entry = entry
   end
 
   def perform
     begin
       # => Find out if this Harvest Time entry was from an external source
       # => If it was, that means it came from Trello
-      if @task.external_ref
+      if @entry.external_ref
         unless (harvest_trello = get_harvest_trello).blank?
           # => Populate the arguments for this HarvestLog to see if it's been created already
 
           attrs = {
-            time_spent: @task.hours,
-            day: @task.spent_at,
-            harvest_task_id: @task.task_id,
-            harvest_task_name: @task.task,
-            trello_card_id: @task.external_ref.id,
-            trello_card_name: @task.notes,
-            developer_email: @harvest_client.users.find(@task.user_id).email
+            time_spent: @entry.hours,
+            day: @entry.spent_at,
+            harvest_task_id: @entry.task_id,
+            harvest_task_name: @entry.task,
+            trello_card_id: @entry.external_ref.id,
+            trello_card_name: @entry.notes,
+            developer_email: @harvest_client.users.find(@entry.user_id).email
           }
 
           # => Find the existing HarvestLog
-          if harvest_log = harvest_trello.harvest_logs.where(harvest_entry_id: @task.id).first
-            harvest_log.update_attribute(:time_spent, @task.hours)
+          if harvest_log = harvest_trello.harvest_logs.where(harvest_entry_id: @entry.id).first
+            harvest_log.update_attribute(:time_spent, @entry.hours)
           else
-            harvest_trello.harvest_logs.create!(attrs.merge!(harvest_entry_id: @task.id))
+            harvest_trello.harvest_logs.create!(attrs.merge!(harvest_entry_id: @entry.id))
           end
         end
       end
@@ -40,7 +40,7 @@ class Tasks::HarvestLogImporter
 
   def get_harvest_trello
     # => See if there is an association with the Harvest project and the Trello board
-    harvest_trello = HarvestTrello.where(harvest_project_id: @task.project_id).first
+    harvest_trello = HarvestTrello.where(harvest_project_id: @entry.project_id).first
 
     # => The harvest trello association doesn't exist, we need to create the harvest project -> trello board mapping
     unless harvest_trello
@@ -49,15 +49,15 @@ class Tasks::HarvestLogImporter
       auth_trello
 
       # => Load the trello card
-      unless (trello_card = Trello::Card.find(@task.external_ref.id)).blank?
+      unless (trello_card = Trello::Card.find(@entry.external_ref.id)).blank?
 
         # => Find the trello board from the board_id returned from the api call
         trello_board = Trello::Board.find trello_card.board_id
 
         # => Create the HarvestTrello mapping
         harvest_trello = HarvestTrello.create!(
-          harvest_project_id: @task.project_id,
-          harvest_project_name: @task.project,
+          harvest_project_id: @entry.project_id,
+          harvest_project_name: @entry.project,
           trello_board_id: parse_short_link(trello_board.url),
           trello_board_name: trello_board.name
           ) if trello_board

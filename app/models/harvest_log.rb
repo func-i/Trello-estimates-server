@@ -2,13 +2,14 @@ class HarvestLog < ActiveRecord::Base
 
   belongs_to :harvest_trello
 
-  validates :harvest_task_name, presence: true
+  validates :harvest_entry_id,  presence: true
   validates :harvest_task_id,   presence: true
+  validates :harvest_task_name, presence: true
   validates :trello_card_id,    presence: true
+  validates :trello_card_name,  presence: true
   validates :time_spent,        presence: true
   validates :day,               presence: true
   validates :developer_email,   presence: true
-  validates :trello_card_name,  presence: true
 
   scope :by_trello_board, ->(board_id) {
     joins(:harvest_trello).
@@ -33,12 +34,12 @@ class HarvestLog < ActiveRecord::Base
     group(:trello_card_id)
   }
 
-  # this method deletes from database all task logs for recon_day that aren't on Harvest
-  def self.reconcile_daily_logs(recon_day, harvest_logs)
-    harvest_log_ids = harvest_logs.collect(&:task_id)
+  # this method deletes from database all logs for recon_day that aren't on Harvest
+  def self.reconcile_daily_logs(recon_day, harvest_entries)
+    harvest_entry_ids = harvest_entries.collect(&:id)
     self
       .where(day: recon_day)
-      .where.not(harvest_task_id: harvest_log_ids)
+      .where.not(harvest_entry_id: harvest_entry_ids)
       .delete_all
   end
 

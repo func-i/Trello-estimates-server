@@ -15,10 +15,10 @@ namespace :harvest do
 
     while true
       harvest_client.users.all.collect(&:id).each do |user_id|
-        harvest_client.time.all(Date.today, user_id).each do |daily_task_log|
+        harvest_client.time.all(Date.today, user_id).each do |user_entry|
           begin
-            if daily_task_log.timer_started_at.blank?
-              Tasks::HarvestLogImporter.new(harvest_client, daily_task_log).perform
+            if user_entry.timer_started_at.blank?
+              Tasks::HarvestLogImporter.new(harvest_client, user_entry).perform
             end
           rescue Exception => e
             puts e
@@ -32,19 +32,19 @@ namespace :harvest do
     end
   end # task :track_time
 
-  # if user deletes a task log on Harvest, the task doesn't pick it up
-  # this task deletes from database all logs for today that aren't on Harvest
+  # if user deletes an entry on Harvest, the task above doesn't pick it up
+  # this task deletes from database all entry logs for today that aren't on Harvest
   task :reconcile_daily_logs => :environment do
     harvest_client  = get_harvest_client
-    today_logs = []
+    today_entries   = []
 
     harvest_client.users.all.collect(&:id).each do |user_id|
-      user_logs = harvest_client.time.all(Date.today, user_id)
-      today_logs.concat(user_logs)
+      user_entries = harvest_client.time.all(Date.today, user_id)
+      today_entries.concat(user_entries)
     end
-    logs_from_trello = today_logs.select { |log| log.external_ref }
+    entries_from_trello = today_entries.select { |entry| entry.external_ref }
 
-    HarvestLog.reconcile_daily_logs(Date.today, logs_from_trello)
+    HarvestLog.reconcile_daily_logs(Date.today, entries_from_trello)
   end # task :reconcile_daily_logs
 
 end
