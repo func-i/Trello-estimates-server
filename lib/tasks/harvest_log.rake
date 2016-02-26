@@ -17,7 +17,8 @@ namespace :harvest do
       harvest_client.users.all.collect(&:id).each do |user_id|
         harvest_client.time.all(Date.today, user_id).each do |user_entry|
           begin
-            if user_entry.timer_started_at.blank?
+            # Harvest entries from external source => assume from Trello
+            if user_entry.external_ref && user_entry.timer_started_at.blank?
               Tasks::HarvestLogImporter.new(harvest_client, user_entry).perform
             end
           rescue Exception => e
@@ -42,6 +43,8 @@ namespace :harvest do
       user_entries = harvest_client.time.all(Date.today, user_id)
       today_entries.concat(user_entries)
     end
+
+    # Harvest entries from external source => assume from Trello
     entries_from_trello = today_entries.select { |entry| entry.external_ref }
 
     HarvestLog.reconcile_daily_logs(Date.today, entries_from_trello)

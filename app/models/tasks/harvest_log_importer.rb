@@ -8,28 +8,24 @@ class Tasks::HarvestLogImporter
 
   def perform
     begin
-      # => Find out if this Harvest Time entry was from an external source
-      # => If it was, that means it came from Trello
-      if @entry.external_ref
-        unless (harvest_trello = get_harvest_trello).blank?
-          # => Populate the arguments for this HarvestLog to see if it's been created already
+      unless (harvest_trello = get_harvest_trello).blank?
+        # => Populate the arguments for this HarvestLog to see if it's been created already
 
-          attrs = {
-            time_spent: @entry.hours,
-            day: @entry.spent_at,
-            harvest_task_id: @entry.task_id,
-            harvest_task_name: @entry.task,
-            trello_card_id: @entry.external_ref.id,
-            trello_card_name: @entry.notes,
-            developer_email: @harvest_client.users.find(@entry.user_id).email
-          }
+        attrs = {
+          time_spent: @entry.hours,
+          day: @entry.spent_at,
+          harvest_task_id: @entry.task_id,
+          harvest_task_name: @entry.task,
+          trello_card_id: @entry.external_ref.id,
+          trello_card_name: @entry.notes,
+          developer_email: @harvest_client.users.find(@entry.user_id).email
+        }
 
-          # => Find the existing HarvestLog
-          if harvest_log = harvest_trello.harvest_logs.where(harvest_entry_id: @entry.id).first
-            harvest_log.update_attribute(:time_spent, @entry.hours)
-          else
-            harvest_trello.harvest_logs.create!(attrs.merge!(harvest_entry_id: @entry.id))
-          end
+        # => Find the existing HarvestLog
+        if harvest_log = harvest_trello.harvest_logs.where(harvest_entry_id: @entry.id).first
+          harvest_log.update_attribute(:time_spent, @entry.hours)
+        else
+          harvest_trello.harvest_logs.create!(attrs.merge!(harvest_entry_id: @entry.id))
         end
       end
     rescue Exception => e
