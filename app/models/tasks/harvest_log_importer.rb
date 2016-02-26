@@ -12,7 +12,7 @@ class Tasks::HarvestLogImporter
       harvest_log = @harvest_trello.harvest_logs.find_by(harvest_entry_id: @entry.id)
       # Update the HarvestLog if it already exists
       if harvest_log.present?
-        harvest_log.update!(:time_spent, @entry.hours)
+        harvest_log.update!(time_spent: @entry.hours)
       else
         # Create the HarvestLog if it doesn't exist
         create_harvest_log
